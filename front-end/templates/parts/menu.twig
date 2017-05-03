@@ -1,0 +1,49 @@
+<div id="customDiv3" class="div">
+    <div class="row">
+        <div class="col-sm-4 line"></div>
+        <div class="col-sm-4" id="title"><h1>Restourant Menu </h1></div>
+        <div class="col-sm-4 line"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 sections">
+            <p>
+                {% for meal in meals %}
+                <a href="#" class="meals" data-meal-id="{{meal.id}}" onclick="switchMeals(event)">
+                    <span class="classes">{{meal.name}}</span> - 
+                </a>
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12  sub sections">
+            <p>
+            {% for meal in meals %}
+                {% for mealTypes in meal.meal_types %}
+                <a href="#" class="mealsTypes" data-meal-id="{{meal.id}}" data-meal-type-id="{{mealTypes.id}}" onclick="switchTypes(event)" >
+                    <span class="flasses">{{mealTypes.name}}</span>
+                </a>
+                {% endfor %}
+            {% endfor %}
+            </p>
+        </div>
+    </div>
+        <div class="row items">
+        {% for meal in meals %}
+            {% for mealTypes in meal.meal_types %}
+                {% for food in mealTypes.food %}
+                <div class="itemList" data-meal-id="{{meal.id}}" data-meal-type-id="{{mealTypes.id}}">
+                    <div class="info">
+                        <h5>{{food.name}}</h5>
+                        <p>{{food.info}}&nbsp;</p>
+                    </div>
+                    <div class="price">
+                        <h5>{{food.price|number_format(2, '.')}} &euro;</h5>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+        </div>
+</div>

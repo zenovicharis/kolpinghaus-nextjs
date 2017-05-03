@@ -1,0 +1,169 @@
+#content{
+    height:200%;
+    width:74%;
+    margin-left:26%;
+    margin-right:0;
+    padding:0;
+}
+#content .row{
+    margin-left: 0;
+    margin-right: 0;
+}
+/* Slider bulider begining*/
+
+#container{
+    margin:2% 2% 2% 2%;
+    margin-left: 2% !important;
+    margin-right: 2% !important;
+    width:96%;
+    height:47.4%;
+}
+
+
+/*Grid view edit */
+#grid{
+    background-color:#e0aa28; 
+    padding-bottom:1%;
+}
+#gridGallery{
+    background-color:#e0aa28;
+    width:100%;
+    height:auto;
+}
+.polutka{
+    width:48%;
+    height:auto;
+    float:left;
+    margin:1% 1% 1% 1%;
+}
+.polutka:nth-child(1){
+    margin:1% 1% 0 1% !important;
+}
+.polutka:nth-child(2){
+    margin:1% 1% 0 0 !important;
+}
+.polutka:nth-child(3){
+    margin:1% 0 1% 1% !important;
+}
+.polutka:nth-child(4){
+    margin:1% 1% 1% 1% !important;
+}
+.rolna{
+    width:100%;
+    height:auto;
+}
+.leftFloat{
+    float:left;
+    width:66.5%;
+}
+.rightFloat{
+    float:left;
+    width:33.5%;
+}
+.upperRight{
+    margin-bottom:2%;
+    margin-left:2%;
+}
+.downerRight{
+    margin-top:2%;
+    margin-left:2%;
+}
+.bigPic{
+    width:100%;
+    height:auto;
+}
+
+/*grid view edit end*/
+#speiseCarte{
+    background-image:url("../img/MenuBG.png");
+    background-position: top right;
+    background-size:cover;
+    margin:auto;
+    padding-bottom:7%;  
+
+}
+.div{
+    height:50%;
+    width:100%;
+}
+#Contact{
+    height:51.5%;
+}
+#customDiv3{
+
+}
+#customDiv4{
+    background-color:silver
+}
+/*Menu bar for the phone and smaller screen view*/
+#menuBar{
+    height:8%;
+    position:fixed;
+    top:0;
+    left:0;
+    background-image: url("../img/Menu/pattern.png");
+    background-repeat: repeat;
+    z-index:20;
+    display:none;
+}
+#menuBar .menubarlogo{
+    display: table;
+    margin: 0 auto;
+}
+.menubarlogo img{
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+}
+#menuBar hr{
+    color:#e0aa28;
+}
+#Ljogo{
+    padding-top:.1em;
+    display:block;
+    margin:auto;
+    height:auto;
+}
+.layer{
+    background-color:#373e58;
+    display:none;
+}
+
+.layer ul{
+    text-align:center;
+    list-style-type: none;
+    padding:0;
+}
+.layer ul li h5{
+    color:#e0aa28;
+}
+.layer ul li h5 a{
+    text-decoration:none;
+    color:inherit;
+    font-family: 'Caveat', cursive;
+    font-size:1.5em;
+}
+.layer ul li h5:hover{
+    background-color:#e0aa28;
+    color:#373e58 !important;
+}
+
+
+
+/*End of Menu bar for the phone and smaller screen view*/
+@media screen and (max-width: 900px) {
+   #sideBar{
+       display:none;
+   }
+   #content{
+       margin-left:0;
+       width:100%;
+   }
+   #menuBar{
+       display:inline;
+   }
+   .bottomText p{
+       margin-top:-4em;
+       margin-bottom:-5em;
+   }
+}

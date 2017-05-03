@@ -1,0 +1,45 @@
+{% include 'header.twig'%}
+<body>
+    {% include 'parts/side-bar.twig'%}
+    <!--Start of the sticky many for the phones-->
+    <div id="menuBar" class="col-xs-12">
+         <img src="/front-end/resources/img/Menu/Logo.png" alt="" id="Ljogo">
+        <div class="col-xs-12 layer">
+                <ul class="menuStrips">
+                    <li><h5><a href="#container">Ciks</a></h5></li>
+                    <li><h5><a href="#restourantContainer">Restourant</a></h5></li>
+                    <li><h5><a href="#speiseCarte">Menu</a></h5></li>
+                    <li><h5><a href="#Contact">Contact Us</a></h5></li>
+                </ul>
+        </div>
+    </div>
+    <!--End of the sticky many for the phones-->
+    <div id="content" class="container">
+        <div  class="row  yell">
+            <div class="row" id="container">
+                <div class="container-fluid sliderContainer">
+                    {% include 'parts/slider.twig' with {'pictures' : pictures } %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="aboutRestourant">
+            {% include 'parts/about-restourant.twig' %}
+        </div>
+        <div class="row gall">
+            {% include 'parts/gallery.twig' with { 'galleryPictures' : galleryPictures } %}
+        </div>
+
+        <div class="row" id="speiseCarte">
+           {% include 'parts/menu.twig' with { 'meals' : meals}%}
+        </div>
+
+        <div class="row cont">
+            {% include 'parts/contacts.twig' %}
+        </div>
+    </div>
+
+    <!-- API Call for Map -->
+
+</body>
+</html>

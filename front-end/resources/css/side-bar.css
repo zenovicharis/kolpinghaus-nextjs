@@ -1,0 +1,120 @@
+
+/*Menu Left Side */
+#sideBar{
+    background-image: url("../img/Menu/pattern.png");
+    background-repeat: repeat;
+    height:100%;
+    position:fixed;
+    width:26%;
+    
+}
+#sideBar h5{
+    text-align: center;
+    color:#fff;
+}
+#sideBar h5:hover{
+    color:#e0aa28;
+}
+#logoContainer{
+    padding:0;
+    margin-top:2em;
+}
+#logoContainer img{
+    width:100%;
+}
+#logoContainer p{
+    align-content: center;
+    font-family: 'Caveat', cursive;
+    color:#fff;
+    font-size:24px;
+}
+#kuche{
+    text-align: center;
+}
+.sideMenu{
+    margin-top:2.6em;
+    margin-bottom:1.2em;
+    font-family: 'Caveat', cursive;
+    color:#fff;
+    font-size:24px;
+}
+.menuBlock{
+    padding-bottom:3%;
+    padding-top:3%;
+    float:none;
+    margin:auto;
+    border-bottom: solid 1pt #e0aa28;
+}
+.menuBlock:last-child{
+    border-bottom:none;
+}
+.sideMenu h5{
+    font-size:20px;    
+}
+.sideMenu h5 a{
+    color:inherit;
+    text-decoration: none;
+}
+.timeTable{
+    margin:auto;
+    float:none;
+    text-align: center;
+    color:#fff;
+}
+.timeTable p{
+    margin-bottom:.2em;
+    color:#fff;
+}
+#red{
+    color:red;
+}
+#green{
+    color:#7ed321 !important;
+}
+#ruhe{
+    padding-left:1em;
+}
+#bottom{
+    position:fixed;
+    bottom:0%;
+    width: 26%;
+}
+.bottom{
+    float:none;
+    margin:auto;
+    text-align:center;
+    align-content:center;
+}
+.bottom img{
+    display:block;
+    margin:auto;
+}
+.bottom p{
+    text-align: center;
+    color:#Fff;
+}
+.copyRights{
+    border-top:solid 1pt #373e58;
+    color:#fff;
+    height:3%;
+    font-size:12px;
+    padding-top:3px;
+    padding-bottom:4px;
+}
+.rights{
+    float:left;
+    width:50%;
+    height:100%;
+}
+.impressum{
+    float:left;
+    width:50%;
+    height:100%;
+}
+.impressum span{
+    float:right;
+}
+.yella h5 a{
+    color:#e0aa28 !important;
+}
+/*Menu Left Side :end*/

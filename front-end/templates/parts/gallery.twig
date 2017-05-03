@@ -1,0 +1,32 @@
+<div class="carousel slide article-slide" id="article-photo-carousel">
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner cont-slider">
+    {% for picture in galleryPictures %}
+        {% if picture.type == 'normal'%}
+            <div class="item some"> 
+                <img src="{{picture.url}}" alt="" > 
+            </div>
+        {% endif %}
+    {% endfor %}
+  </div>
+  <!-- Indicators -->
+  <div class="indicators">
+    {% set count = 0 %}
+        {% for thumb in galleryPictures %}
+            {% if thumb.type == "thumb" %}
+            <a href="#article-photo-carousel"  data-slide-to="{{count}}" class="links" onclick="addActive(event)">
+                <img src="{{thumb.url}}" alt="" > 
+            </a>
+            {% set count = count + 1 %}
+
+            {% endif %}
+        {% endfor %}
+
+  </div>
+</div>
+<script>
+    $('.carousel').carousel({
+        interval: false
+    });    
+</script>
