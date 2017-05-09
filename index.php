@@ -7,7 +7,7 @@ use Cicada\Routing\RouteCollection;
 use Kolpinghaus\Middleware\Authentication;
 use Kolpinghaus\Controllers\MainController;
 use Kolpinghaus\Controllers\LogInController;
-// use Kolpinghaus\Controllers\AdminController;
+use Kolpinghaus\Controllers\AdminController;
 use Symfony\Component\HttpFoundation\Request;
 
 function getProtocol()
@@ -25,30 +25,35 @@ $app = new Application($_SERVER['HOME'], $_SERVER['HTTP_HOST'], getProtocol().':
 
 // Controllers
 $mainController = new MainController($app['twig'], $app['mainService']);
-
-$logInController = new LogInController($app['twig'], $app['mainService']);
+$adminController = new AdminController($app['adminService']);
+$logInController = new LogInController($app['twig'], $app['mainService'], $app['logInService']);
 // /** @var RouteCollection $adminCollection */
 // $logInCollection = $app['collection_factory'];
 // $logInCollection->after([Authentication::class,'authenticate']);
 
 //Log In Controller routes
-$app->get('/login',         [$logInController, 'logIn']);
-$app->get('/pannel',         [$logInController, 'pannel']);
-// $logInCollection->post('/login',        [LogInController::class, 'checkCredentials']);
+$app->get('/login',                     [$logInController, 'logIn']);
+// $app->get('/pannel',                    [$logInController, 'pannel']);
+$app->post('/login',                    [$logInController, 'checkCredentials']);
 
 //Main Controller routes
 $app->get('/',                          [ $mainController, 'index']);
+$app->get('/impressum',                 [ $mainController, 'impressum']);
 $app->get('/call',                      [ $mainController, 'call']);
 $app->get('/projects',                  [ $mainController, 'projects']);
 $app->post('/mail',                     [ $mainController, 'sendMail']);
 
 // //Admin Controller routes
-// $app->post('/upload/{projectId}',       [AdminController::class, 'uploadPictures']);
-// $app->post('/delete/{pictureId}',       [AdminController::class, 'deletePicture']);
-// $app->post('/cancel',                   [AdminController::class, 'cancelUploads']);
-// $app->post('/update-about/{projectId}', [AdminController::class, 'updateProjectAbout']);
-// $app->post('/project',                  [AdminController::class, 'createProject']);
-// $app->post('/project/{projectId}',      [AdminController::class, 'deleteProject']);
+$app->post('/gallery/upload/',                  [$adminController, 'uploadPictures']);
+$app->post('/gallery/delete/{pictureId}',       [$adminController, 'deletePicture']);
+$app->post('/slider/upload/',                   [$adminController, 'uploadSliderPic']);
+$app->post('/slider/delete/',                   [$adminController, 'unlinkSliderPic']);
+$app->post('/slider/create/',                   [$adminController, 'createSlider']);
+$app->post('/slider/delete/{sliderId}',         [$adminController, 'deleteSlide']);
+$app->post('/slider/update/{sliderId}',         [$adminController, 'updateSlide']);
+$app->post('/food/create/',                     [$adminController, 'createNewFood']);
+$app->post('/food/edit/{foodId}',               [$adminController, 'editFood']);
+$app->post('/food/delete/{foodId}',              [$adminController, 'deleteFood']);
 
 // $app->addRouteCollection($logInCollection);
 

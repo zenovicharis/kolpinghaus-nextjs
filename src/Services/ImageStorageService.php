@@ -26,7 +26,7 @@ class ImageStorageService
      * @param $images UploadedFile[]
      * @return array
      */
-    public function storeImages($title, $images){
+    public function storeImages($images, $folderName){
         $urls = [];
         foreach($images as $image) {
             // Compose image name
@@ -37,12 +37,8 @@ class ImageStorageService
             // $image = $this->imageManipulationLibrary->resizePostImage(file_get_contents($image->getRealPath()));
 
             // Store to disk
-            $path = $this->basePath.'/'.$title.'/'.$imageName;
-            if(!file_exists($this->basePath.'/uploads\/'.$title)){
-                mkdir($this->basePath.'/uploads'.'/'.$title, 0777, true);
-            }
-            $path = $this->storeImageContents('/uploads'.'/'.$title.'/'.$imageName, file_get_contents($image->getRealPath()));
-            $url[] = $this->getFullUrl($path);
+            $path = $this->storeImageContents('/uploads'.'/'.$folderName.'/'.$imageName, file_get_contents($image->getRealPath()));
+            $url[] = $path;
             // Add resized image to result set
         }
         return $url;
@@ -50,10 +46,6 @@ class ImageStorageService
 
     private function storeImageContents($path, $content){
         file_put_contents($this->basePath.$path, $content);
-        return $path;
-    }
-
-    private function getFullUrl($path) {
         return $path;
     }
 

@@ -17,43 +17,71 @@ class AdminController
     public function __construct($adminService){
         $this->adminService = $adminService;
     }
+    public function uploadPictures(Application $app, Request $request){
+        $images = $request->files->all();
+        $images = $this->adminService->storeGalleryPictures($images);
+        $imagesSerialized = [];
+        foreach($images as $image){
+            $imagesSerialized[] = $image->serializeThis(); 
+        }
+        return new JsonResponse($imagesSerialized);
+    }
+
     public function deletePicture(Application $app, Request $request, $pictureId){
-        $this->adminService->deletePicture($pictureId);
-
-        return new Response();
-    }
-    public function uploadPictures(Application $app, Request $request, $projectId){
-         $images = $request->files->all();
-         $images = $this->adminService->storeProjectImages($projectId, $images);
-         $serializedImages = [];
-         foreach($images as $image){
-             $serializedImages[] = $image->serialize();
-         }
-         return new JsonResponse($serializedImages);
+        $this->adminService->deleteGalleryPicture($pictureId);
     }
 
-    public function cancelUploads(Application $app, Request $request){
-        $images = $request->request->all();
-        $this->adminService->cancelImageUpload($images);
+    public function uploadSliderPic(Application $app, Request $request){
+        $images = $request->files->all();
+        $urls = $this->adminService->storeSliderImage($images);
+        return new JsonResponse($urls[0]);
     }
 
-    public function updateProjectAbout(Application $app, Request $request, $projectId){
-        $text = $request->request->get('text');
-        $this->adminService->updateAboutSection($projectId, $text);
+    public function unlinkSliderPic(Application $app, Request $request){
+        $url = $request->request->get('url');
+        var_dump($url);die();
     }
 
-    public function createProject(Application $app, Request $request){
+    public function createSlider(Application $app, Request $request){
         $title = $request->request->get('title');
         $about = $request->request->get('about');
+        $url = $request->request->get('url');
 
-        $project = $this->adminService->createNewProject($title, $about);
-        return new JsonResponse($project);
+        $slide = $this->adminService->storeSlider($title, $about, $url);
+        return new JsonResponse($slide);
     }
 
-    public function deleteProject(Application $app, Request $request, $projectId){
-        $this->adminService->deleteProject($projectId);
-        
+    public function deleteSlide(Application $app, Request $request, $sliderId){
+        $this->adminService->deleteSlide($sliderId);
     }
 
+    public function updateSlide(Application $app, Request $request, $sliderId){
 
+        $title = $request->request->get('title');
+        $about = $request->request->get('about');
+        $this->adminService->updateSlide($sliderId, $title, $about);
+    }
+
+    public function createNewFood(Application $app, Request $request){
+        $name = $request->request->get('name');
+        $info = $request->request->get('info');
+        $price = $request->request->get('price');
+        $mealTypeId = $request->request->get('meal_type_id');
+        $food = $this->adminService->createFood($name, $info, $price, $mealTypeId);
+
+        return new JsonResponse($food);
+    }
+
+    public function editFood(Application $app, Request $request, $foodId){
+        $name = $request->request->get('name');
+        $info = $request->request->get('info');
+        $price = $request->request->get('price');
+
+        $this->adminService->editFood($foodId, $name, $info, $price);
+
+    }
+
+    public function deleteFood(Application $app, Request $request, $foodId){
+        $this->adminService->deleteFood($foodId);
+    }
 }

@@ -5,24 +5,42 @@
                 <p id="kuche">Balkan-Kuche</p>
             </div>
         </div>
+        {% if page == 'index' %}
         <div class="row sideMenu">
             <div class="col-md-6 menuBlock">
-                <h5><a href="#container">Home</a></h5>
+                <h5><a href="#yell">Home</a></h5>
             </div>
             <div class="col-md-6 menuBlock">
-                <h5><a href="#restourantContainer">Restourant</a></h5>
+                <h5><a href="#aboutRestourant">Restourant</a></h5>
             </div>
             <div class="col-md-6 menuBlock">
-                <h5><a href="#speiseCarte">Menu</a></h5>
+                <h5><a href="#customDiv3">Menu</a></h5>
             </div>
             <div class="col-md-6 menuBlock">
-                <h5><a href="#Contact">Contact Us</a></h5>
+                <h5><a href="#cont">Kontakt</a></h5>
             </div>
         </div>
+        {% endif %}
+        {% if page == 'impressum' %}
+        <div class="row sideMenu">
+            <div class="col-md-6 menuBlock">
+                <h5><a href="/">Home</a></h5>
+            </div>
+            <div class="col-md-6 menuBlock">
+                <h5><a href="/">Restourant</a></h5>
+            </div>
+            <div class="col-md-6 menuBlock">
+                <h5><a href="/">Menu</a></h5>
+            </div>
+            <div class="col-md-6 menuBlock">
+                <h5><a href="/">Kontakt</a></h5>
+            </div>
+        </div>
+        {% endif %}
         <div class="row">
             <div class="col-md-8 timeTable">
                 <p id="green">OFFNUNGSZEITEN</p>
-                <p>#{{message}}#</p>
+                <p>{{time}}</p>
             </div>
         </div>
         <div class="row" id="bottom">
@@ -36,7 +54,7 @@
                     CodingBad &copy; 2016
                 </div>
                 <div class="impressum">
-                    <a href="impressum/index.html">
+                    <a href="/impressum">
                         <span>Impressum</span>
                     </a>
                 </div>

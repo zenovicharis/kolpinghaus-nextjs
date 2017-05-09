@@ -18,7 +18,7 @@ class Meal extends Model
             'only' => ['id', 'name'],
             'include' => [ 'meal_types' =>
                                 ['only' =>  
-                                    ['id', 'name'], 'include' => ['food' => ['only' => ['name', 'info', 'price']]]
+                                    ['id', 'name'], 'include' => ['food' => ['only' => ['id','name', 'info', 'price']]]
                                 ]
                         ]]);
     }

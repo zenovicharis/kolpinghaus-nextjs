@@ -20,7 +20,7 @@ class ImageManipulationLibrary
 
     public function resizeImage($binaryContents){
         $image = ImageResize::createFromString($binaryContents);
-        $image->resizeToWidth(900);
+        $image->resizeToWidth(300);
         $resizedBinaryContents = $image->getImageAsString();
         return [
             'width' => $image->getDestWidth(),

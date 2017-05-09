@@ -54,6 +54,7 @@
 .sideMenu h5 a{
     color:inherit;
     text-decoration: none;
+    font-family: 'Caveat', cursive;
 }
 .timeTable{
     margin:auto;

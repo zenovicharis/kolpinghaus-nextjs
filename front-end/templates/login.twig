@@ -8,16 +8,23 @@
                     </div>
                     <form action="/login" method="POST">
                         <div class="form-group">
-                            <label for="usr">Name:</label>
-                            <input type="text" class="form-control" id="usr">
+                            <label for="usr">Benutzername:</label>
+                            <input type="text" class="form-control" id="usr" name="username">
                         </div>
                         <div class="form-group">
-                            <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd">
+                            <label for="pwd">Passwort:</label>
+                            <input type="password" class="form-control" id="pwd" name="password">
                         </div>
                         <div class="col-xs-12">
-                            <button type="submit" class="btn btn-default">Log In</button>
+                            <button type="submit" class="btn btn-default">Einloggen</button>
                         </div>
+                        {% if message != "" %}
+                        <div class="col-xs-12">
+                            <div class="alert alert-danger" role="alert">
+                                <p>{{message}}</p>
+                            </div>
+                        </div>
+                        {% endif %}
                     </form>
                 </div>
             </div>

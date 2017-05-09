@@ -3,7 +3,6 @@
 namespace Kolpinghaus\Services;
 
 use Kolpinghaus\Models\User;
-use Kolpinghaus\Models\Project;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class LogInService
@@ -16,13 +15,4 @@ class LogInService
         return $user;
     }
 
-    public function getProjects(){
-        /** @var Project[] $projects **/
-        $projects = Project::find('all', ['include' => ['project_pics']]);
-        $projectSerialized = [];
-        foreach($projects as $project){
-            $projectSerialized[] = $project->serialize();
-        }
-        return $projectSerialized;
-    }
 }

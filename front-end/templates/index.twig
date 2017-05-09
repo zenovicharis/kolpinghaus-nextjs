@@ -1,28 +1,77 @@
 {% include 'header.twig'%}
 <body>
-    {% include 'parts/side-bar.twig'%}
+    {% include 'parts/side-bar.twig' with { 'time' : workingTime}%}
     <!--Start of the sticky many for the phones-->
-    <div id="menuBar" class="col-xs-12">
-         <img src="/front-end/resources/img/Menu/Logo.png" alt="" id="Ljogo">
-        <div class="col-xs-12 layer">
-                <ul class="menuStrips">
-                    <li><h5><a href="#container">Ciks</a></h5></li>
-                    <li><h5><a href="#restourantContainer">Restourant</a></h5></li>
-                    <li><h5><a href="#speiseCarte">Menu</a></h5></li>
-                    <li><h5><a href="#Contact">Contact Us</a></h5></li>
-                </ul>
-        </div>
+    <div class="container-fluid">
+        <nav>
+            <div class="logo-mobile">
+                <img src="/front-end/resources/img/Menu/logo-mobile.png" alt="">
+            </div>
+            <a href="#" class="burger">
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </a>            
+        </nav>
     </div>
     <!--End of the sticky many for the phones-->
     <div id="content" class="container">
-        <div  class="row  yell">
+        <div  class="row  yell" id="yell">
             <div class="row" id="container">
                 <div class="container-fluid sliderContainer">
                     {% include 'parts/slider.twig' with {'pictures' : pictures } %}
                 </div>
             </div>
         </div>
+        <div class="row" id="aboutRestourantMobile">
 
+            <div class="col-sm-12 aboutResMobile">
+                <h3>Mediterane Vielfalt im passenden Ambiente genissen</h3>
+                <p>
+                    Die kroatische Küche ist so abwechslungsreich wie die Geschichte des Landes.
+                    In den Gerichten spiegeln sich die Einflüsse unterschiedlichster Kulturen wider: römische Einflüsse
+                    sind genau so zu finden wie italienische, österreichische, ungarische oder türkische. Aber auch die 
+                    Küche der einzelnen Regionen zeigt große Unterschiede. Je nach dem lokalen Angebot findet man Rezepte
+                    mit viel Gemüse oder Fleisch oder mit Meerestieren. Jeder wird hier sein Lieblingsgericht finden -
+                    da sind wir uns ganz sicher.<br /><br />
+                </p>
+            </div>
+            <div class="col-sm-12 bannerAbout">
+                
+            </div>
+            <div class="col-sm-12 outterBox">
+                <div class="box">
+                    <p>Montag <span>17:00 - 22:00</span></p>
+                </div>
+            </div>
+            <div class="col-sm-12 mobileMenu">
+                <h3>Menu</h3>
+                <div class="col-md-12  sub sections">
+                    <p>
+                        {% for meal in meals %}
+                        <a href="#" class="meals" data-meal-id="{{meal.id}}" onclick="switchMeals(event)">
+                            <span class="classes">{{meal.name}}</span> - 
+                        </a>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="row items">
+                {% for meal in meals %}
+                    {% for mealTypes in meal.meal_types %}
+                        {% for food in mealTypes.food %}
+                        <div class="itemList" data-meal-id="{{meal.id}}" data-meal-type-id="{{mealTypes.id}}">
+                            <div class="info">
+                                <h5>{{food.name}}</h5>
+                                <p>{{food.info}}&nbsp;</p>
+                            </div>
+                            <div class="price">
+                                <h5>{{food.price|number_format(2, '.')}} &euro;</h5>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endfor %}
+                {% endfor %}
+                </div>
+            </div>
+        </div>
         <div class="row" id="aboutRestourant">
             {% include 'parts/about-restourant.twig' %}
         </div>
@@ -31,15 +80,13 @@
         </div>
 
         <div class="row" id="speiseCarte">
-           {% include 'parts/menu.twig' with { 'meals' : meals}%}
+           {% include 'parts/menu.twig' with { 'meals' : meals} %}
         </div>
 
-        <div class="row cont">
+        <div class="row cont" id="cont">
             {% include 'parts/contacts.twig' %}
         </div>
     </div>
-
-    <!-- API Call for Map -->
-
+    <script src="/front-end/resources/js/scroll.js"></script>
 </body>
 </html>

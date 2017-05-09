@@ -16,17 +16,18 @@ class LogInController
 
     /** @var MainService $mainService */
     private $mainService;
-    // /** @var LogInService $logInService */
-    // private $logInService;
+    /** @var LogInService $logInService */
+    private $logInService;
 
-    public function __construct($twig, $mainService)
+    public function __construct($twig, $mainService, $logInService)
     {
         $this->twig = $twig;
         $this->mainService = $mainService;
+        $this->logInService = $logInService;
     }
 
     public function logIn(){
-        return $this->twig->render('login.twig', ['page' => 'login']);
+        return $this->twig->render('login.twig', ['page' => 'login', 'message' => '']);
     }
 
     public function pannel(){
@@ -43,19 +44,18 @@ class LogInController
     public function checkCredentials(Application $app, Request $request){
         $username = $request->request->get('username');
         $password = $request->request->get('password');
-        
-        $user = $this->logInService->validateCredentials($username, $password);
-        
-        if(!empty($user)){
-            $projects = $this->logInService->getProjects();
-            /** @var $session Session **/
-            $session = new Session();
-            $session->start();
-            $session->set('user',$user);
-            $session->save();
-            return $this->twig->render('admin-pannel.twig', ['page' => 'admin-pannel', 'projects' => $projects]);
-        }
 
-        return $this->twig->render('log-in.twig', ['page' => 'login']);
+        $user = $this->logInService->validateCredentials($username, $password);
+        if(!empty($user)){
+            $sliderPictures = $this->mainService->getSliderPictures();
+            $galleryPictures = $this->mainService->getGalleryPictures();
+            $meals = $this->mainService->getFoodFromDb();
+
+            return $this->twig->render('admin-pannel.twig', ['page' => 'admin-pannel', 
+                                                            'meals'=> $meals,
+                                                            'galleryPictures' => $galleryPictures,
+                                                            'sliderPictures' => $sliderPictures]);
+        }
+        return $this->twig->render('login.twig', ['page' => 'login', 'message' => 'Es tut uns leid ! Sie haben falsche Anmeldeinformationen eingegeben']);
     }
 }

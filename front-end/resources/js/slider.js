@@ -58,3 +58,18 @@ function addActive(e){
     $('.links').removeClass('ind-active');
     $(e.target).parent().addClass('ind-active');
 }
+$(document).ready(function() {  
+    $("#myCarousel").swiperight(function() {  
+        $("#myCarousel").carousel('prev');  
+    });  
+    $("#myCarousel").swipeleft(function() {  
+        $("#myCarousel").carousel('next');  
+    });  
+
+    $("#article-photo-carousel").swiperight(function() {  
+        $("#article-photo-carousel").carousel('prev');  
+    });  
+    $("#article-photo-carousel").swipeleft(function() {  
+        $("#article-photo-carousel").carousel('next');  
+    });  
+});  
