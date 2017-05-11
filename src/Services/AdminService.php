@@ -22,7 +22,7 @@ class AdminService
         $images = [];
         foreach($urls as $url){
             $images[] = GalleryPicture::create(['url'=> $url,
-                                'type'=> 'normal']);
+                                                'type'=> 'normal']);
         }
         return $images;
     }

@@ -22,7 +22,6 @@ class ImageStorageService
     }
    
      /**
-     * @param $title
      * @param $images UploadedFile[]
      * @return array
      */
