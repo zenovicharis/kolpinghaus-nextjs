@@ -1,15 +1,31 @@
 {% include 'header.twig'%}
 <body>
-    {% include 'parts/side-bar.twig' with { 'time' : workingTime}%}
+    {% include 'parts/side-bar.twig' with { 'time' : workingTime }%}
     <!--Start of the sticky many for the phones-->
     <div class="container-fluid">
         <nav>
             <div class="logo-mobile">
-                <img src="/front-end/resources/img/Menu/logo-mobile.png" alt="">
+                <img src="/front-end/resources/img/Menu/logo-mobile.png" alt=""> 
             </div>
-            <a href="#" class="burger">
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
-            </a>            
+            <div class="burger">
+                <img src="/front-end/resources/img/menu.svg" alt="">
+            </div>
+            <div class="hiddenList">
+                <ul>
+                    <li>
+                        <a href="#myCarousel">Home</a>
+                    </li>
+                    <li>
+                        <a href="#aboutRestourantMobile">Restaurant</a>
+                    </li>
+                    <li>
+                        <a href="#mobileMenu">Menu</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Kontakt</a>
+                    </li>
+                </ul>
+            </div>         
         </nav>
     </div>
     <!--End of the sticky many for the phones-->
@@ -39,10 +55,10 @@
             </div>
             <div class="col-sm-12 outterBox">
                 <div class="box">
-                    <p>Montag <span>17:00 - 22:00</span></p>
+                    <p>{{time.day}} <span>{{time.time}}</span></p>
                 </div>
             </div>
-            <div class="col-sm-12 mobileMenu">
+            <div class="col-sm-12 mobileMenu" id="mobileMenu">
                 <h3>Menu</h3>
                 <div class="col-md-12  sub sections">
                     <p>

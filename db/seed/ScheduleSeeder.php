@@ -33,7 +33,7 @@ class ScheduleSeeder extends AbstractSeed
             ),
             array(
                 'time'    => '17:00 - 23:00',
-                'day'   => 'Freitag'
+                'day'   => 'Fritag'
             ),
             array(
                 'time'    => '17:00 - 23:00',

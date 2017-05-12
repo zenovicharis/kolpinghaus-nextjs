@@ -34,3 +34,10 @@ $('a[href*="#"]')
       }
     }
   });
+
+$('div.burger').on('click', function(){
+    $('.hiddenList').slideToggle();
+});
+$('.hiddenList ul li a').on('click', function(){
+    $('.hiddenList').slideToggle();
+});

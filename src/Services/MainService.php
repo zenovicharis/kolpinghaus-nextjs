@@ -102,6 +102,6 @@ class MainService
 
     public function getWorkingTimeForDay($day){
         $day = ArbiteZeit::find((int)$day);
-        return $day->time;
+        return $day;
     }
 }

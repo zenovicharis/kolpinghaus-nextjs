@@ -55,6 +55,9 @@
         width:25%;
     }
     .foothead{
+        display:block;
+    }
+    #contuct{
         display:none;
     }
 }

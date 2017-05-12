@@ -152,10 +152,32 @@ nav{
     float:right;
 }
 .burger{
-    position:fixed;
-    top: 2%;
-    right: 2%;
-    color: #e0aa28;
+    position: fixed;
+    top: 1%;
+    right: 0%;
+}
+.burger img {
+    width: 75%;
+}
+.hiddenList{
+    display: none;
+    background-color:#fff;
+    border-bottom:2px solid #e0aa28;
+    text-align: center;
+}
+.hiddenList ul{
+    list-style-type: none;
+    padding:0;
+}
+.hiddenList ul li a{
+    display:block;
+    color:#e0aa28;
+    text-decoration: none;
+    padding:2% 0;
+}
+.hiddenList ul li a:hover{
+    background-color:#e0aa28;
+    color:#fff;
 }
 .mobileMenu{
     background-color:#373e58;

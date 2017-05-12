@@ -22,6 +22,7 @@ class MainController
 
     public function index(){
         $workingTime = $this->mainService->getWorkingTimeForDay(date('w'));
+        $time = $workingTime->time;
         $pictures = $this->mainService->getSliderPictures();
         $galleryPictures = $this->mainService->getGalleryPictures();
         $meals = $this->mainService->getFoodFromDb();
@@ -30,7 +31,8 @@ class MainController
                                  'pictures' => $pictures,
                                  'galleryPictures' => $galleryPictures,
                                  'meals' =>  $meals,
-                                 'workingTime' => $workingTime]);
+                                 'workingTime' => $time,
+                                 'time' => $workingTime]);
     }
 
     public function impressum(){

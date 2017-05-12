@@ -73,3 +73,6 @@ $(document).ready(function() {
         $("#article-photo-carousel").carousel('next');  
     });  
 });  
+$('div.burger').on('click', function(){
+    $('.hiddenList').toggleSlide();
+});
