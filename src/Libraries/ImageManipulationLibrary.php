@@ -20,12 +20,8 @@ class ImageManipulationLibrary
 
     public function resizeImage($binaryContents){
         $image = ImageResize::createFromString($binaryContents);
-        $image->resizeToWidth(300);
+        $image->resizeToBestFit(300, 200);
         $resizedBinaryContents = $image->getImageAsString();
-        return [
-            'width' => $image->getDestWidth(),
-            'height' => $image->getDestHeight(),
-            'content' => $resizedBinaryContents
-        ];
+        return $resizedBinaryContents;
     }
 }

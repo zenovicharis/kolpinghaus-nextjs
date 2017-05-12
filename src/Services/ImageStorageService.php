@@ -42,6 +42,24 @@ class ImageStorageService
         }
         return $url;
     }
+    public function storePicturesAsThumbnails($images,$folderName){
+        $urls = [];
+        foreach($images as $image) {
+            // Compose image name
+            // until I come up with algorithm that generates unique names
+            $imageName = str_replace("_", " ", $image->getClientOriginalName());
+
+            // Resize
+            $image = $this->imageManipulationLibrary->resizeImage(file_get_contents($image->getRealPath()));
+
+            // Store to disk
+            $path = $this->storeImageContents('/uploads'.'/'.$folderName.'/'.$imageName, $image);
+            $url[] = $path;
+            // Add resized image to result set
+        }
+        return $url;
+
+    }
 
     private function storeImageContents($path, $content){
         file_put_contents($this->basePath.$path, $content);

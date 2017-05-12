@@ -37,6 +37,7 @@ $('.galleryUploader').on('change',function(){
         contentType: false,
         processData: false
     }).done(function(data){
+        console.log(data);
         images = data;
         storeGalleryPics(data);
     });

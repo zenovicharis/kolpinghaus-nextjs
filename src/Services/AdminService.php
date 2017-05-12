@@ -19,10 +19,13 @@ class AdminService
 
     public function storeGalleryPictures( $images ){
         $urls = $this->imageStorageService->storeImages($images,'gallerypictures');
+        $thumbUrls = $this->imageStorageService->storePicturesAsThumbnails($images,'gallerypictures/thumb');
         $images = [];
-        foreach($urls as $url){
+        foreach($urls as $key =>$url){
             $images[] = GalleryPicture::create(['url'=> $url,
                                                 'type'=> 'normal']);
+            GalleryPicture::create(['url' => $thumbUrls[$key],
+                                    'type'=> 'thumb']);
         }
         return $images;
     }
@@ -30,8 +33,11 @@ class AdminService
     public function deleteGalleryPicture($id){
         /** @var GalleryPicture $picture **/
         $picture = GalleryPicture::find($id);
+        $thumb = GalleryPicture::find($id+1);
+        $this->imageStorageService->removeContent($thumb->url);
         $this->imageStorageService->removeContent($picture->url);
         $picture->delete();
+        $thumb->delete();
     }
 
     public function storeSliderImage($images){
@@ -76,7 +82,6 @@ class AdminService
 
     public function deleteProject($projectId){
         $project = Project::find($projectId);
-        // ProjectPic::find('')
         $project->delete();
     }
 

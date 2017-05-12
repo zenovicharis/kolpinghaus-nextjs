@@ -99,10 +99,12 @@
                         <div class="panel-heading">Galerie Bilder</div>
                         <div class="panel-body galleryPannel">
                             {% for gPicture in galleryPictures %}
+                            {% if gPicture.type == "normal" %}
                             <div class="col-sm-3 galleryPicContainer">
                                 <img src="{{gPicture.url}}" alt="" class="pic">
                                 <img src="/front-end/resources/img/x.png" alt="" class="closeX" data-id="{{gPicture.id}}">
                             </div>
+                            {% endif %}
                             {% endfor %}
                         </div>
                     </div>
