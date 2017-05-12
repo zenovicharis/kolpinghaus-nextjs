@@ -18,8 +18,8 @@ class AdminService
     }
 
     public function storeGalleryPictures( $images ){
-        $urls = $this->imageStorageService->storeImages($images,'gallerypictures');
-        $thumbUrls = $this->imageStorageService->storePicturesAsThumbnails($images,'gallerypictures/thumb');
+        $urls = $this->imageStorageService->storeImages($images,'gallerypictures', 620, 460);
+        $thumbUrls = $this->imageStorageService->storeImages($images,'gallerypictures/thumb', 300, 200);
         $images = [];
         foreach($urls as $key =>$url){
             $images[] = GalleryPicture::create(['url'=> $url,
@@ -41,7 +41,7 @@ class AdminService
     }
 
     public function storeSliderImage($images){
-        $urls = $this->imageStorageService->storeImages($images, 'sliderpictures');
+        $urls = $this->imageStorageService->storeImages($images, 'sliderpictures', 960, 640);
         return $urls;
     }
 
