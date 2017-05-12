@@ -1,6 +1,6 @@
 {% include 'header.twig'%}
 <body>
-    {% include 'parts/side-bar.twig'  with { 'time' : workingTime , 'page' : page}%}
+    {% include 'parts/side-bar.twig'  with { 'time' : workingTime.time , 'page' : page}%}
     <!--Start of the sticky many for the phones-->
     <div class="container-fluid">
         <nav>
