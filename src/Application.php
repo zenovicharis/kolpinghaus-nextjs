@@ -24,9 +24,10 @@ class Application extends \Cicada\Application
         parent::__construct();
         $this->domain = $domain;
         $this->protocol = $protocol;
-        $this->basePath = $configPath;
+        
         // session_start();
         $this->configure($configPath.'config/kolpinghaus/');
+        $this->basePath = $this['config']->getPathToUpload();
         $this->setupLibraries();
         $this->setupServices();
         $this->setupTwig();   

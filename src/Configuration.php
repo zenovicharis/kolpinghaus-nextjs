@@ -18,5 +18,8 @@ class Configuration
     public function getDbConfig() {
         return $this->config['database'];
     }
+    public function getPathToUpload(){
+        return $this->config['path'];
+    }
 
 }

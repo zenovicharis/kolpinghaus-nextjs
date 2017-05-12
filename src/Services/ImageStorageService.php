@@ -17,7 +17,7 @@ class ImageStorageService
     {
         $this->domain = $domain;
         $this->protocol = $protocol;
-        $this->basePath = $basePath.'Kolpinghaus';
+        $this->basePath = $basePath;
         $this->imageManipulationLibrary = $imageManipulationLibrary;
     }
    
