@@ -26,7 +26,7 @@ class Application extends \Cicada\Application
         $this->protocol = $protocol;
         
         // session_start();
-        $this->configure($configPath.'config/kolpinghaus/');
+        $this->configure($configPath);
         $this->basePath = $this['config']->getPathToUpload();
         $this->setupLibraries();
         $this->setupServices();

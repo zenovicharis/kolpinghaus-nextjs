@@ -19,7 +19,7 @@ environments:
         host: localhost
         name: kolpinghaus
         user: root
-        pass: 'root'
+        pass: 'bddd5ceef88f13468cde9352f7c05b5f'
         port: 3306
         charset: utf8
 
