@@ -39,8 +39,18 @@
         {% endif %}
         <div class="row">
             <div class="col-md-8 timeTable">
-                <p id="green">OFFNUNGSZEITEN</p>
-                <p>{{time}}</p>
+            {% if time != 'Ruhetag' %}
+                <p id="green">Heute haben wir von</p>
+                <p>
+                {% autoescape 'html' %}
+                    {{time}}
+                {% endautoescape %}
+                </p>
+                <p id="green">für Sie geöffnet.</p>
+            {% endif %}
+            {% if time == 'Ruhetag' %}
+                <p id="green">Heute haben wir geschlossen</p>
+            {% endif %}
             </div>
         </div>
         <div class="row" id="bottom">
