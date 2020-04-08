@@ -1,25 +1,27 @@
 <div id="contact" class="div">
     <div class="col-md-6 contactForm">
-        <div class="col-sm-12 foothead">
-            <h2>Schicken Sie uns eine Nachricht</h2>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="name">
-            <label class="mdl-textfield__label" for="sample3">Dein Name...</label>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="email" id="mail">
-            <label class="mdl-textfield__label" for="sample4">E-mail...</label>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield">
-            <textarea class="mdl-textfield__input content-mail" type="text" rows= "3" id="sample5" ></textarea>
-            <label class="mdl-textfield__label" for="sample5">Nachricht...</label>
-        </div>
-        <div class="butt">
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect send">
-            Absenden
-        </button>
-        </div>
+        <form name="mail-form" action="mail" method="POST">
+            <div class="col-sm-12 foothead">
+                <h2>Schicken Sie uns eine Nachricht</h2>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="name" name="name">
+                <label class="mdl-textfield__label" for="sample3">Dein Name...</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="email" id="mail" name="mail">
+                <label class="mdl-textfield__label" for="sample4">E-mail...</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield">
+                <textarea class="mdl-textfield__input content-mail" name="content" type="text" rows= "3" id="sample5" ></textarea>
+                <label class="mdl-textfield__label" for="sample5">Nachricht...</label>
+            </div>
+            <div class="butt">
+                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect send">
+                    Absenden
+                </button>
+            </div>
+        </form>
     
     </div>
     <div class="col-md-6">   

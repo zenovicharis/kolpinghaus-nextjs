@@ -5,91 +5,91 @@
 		"list": [{
 			"name": "Glass Prosecco",
 			"info": "0.1l",
-			"price": "3.00"
+			"price": "3.50"
 		}, {
 			"name": "Aperol Spritz",
 			"info": "",
-			"price": "4.20"
+			"price": "5.00"
 		}, {
 			"name": "Hugo",
 			"info": "Holunderblütensirup mit Minzblättern, Limetten und Prosecco",
-			"price": "4.80"
+			"price": "5.00"
 		}]
 	}, {
 		"name": "Vorspeisen",
 		"list": [{
 			"name": "Im Knoblauch gebratene Pepperoni",
 			"info": "Serviert mit Baguette",
-			"price": "6.00"
+			"price": "8.00"
 		}, {
 			"name": "Gebackener Camembert",
 			"info": "Petersilie, Pfirsichhälften mit Preiselbeeren, dazu Toast",
-			"price": "7"
+			"price": "8.50"
 		}, {
-			"name": "Schafskäse überbacken",
-			"info": "Serviert mit Toast",
-			"price": "7.50"
+			"name": "Caprese",
+			"info": "Tomaten und Mozzarella in Scheiben geschnitten dazu Basilikum und Balsamicosauce",
+			"price": "8.00"
 		}, {
-			"name": "Champignons 'Mendoza- Art'",
+			"name": "Champignons 'Mendoza-Art'",
 			"info": "Frische Champignons mit Knoblauch und Toast",
-			"price": "7.50"
+			"price": "9.00"
 		}, {
 			"name": "Gambas",
 			"info": "In Knoblauchsauce",
-			"price": "10.90"
+			"price": "12.90"
 		}]
 	}, {
 		"name": "Suppen",
 		"list": [{
 			"name": "Französische Zwiebelsuppe",
 			"info": "mit Käse überbacken",
-			"price": "4.20"
+			"price": "5.20"
 		}, {
 			"name": "Tagessuppe",
 			"info": "(fragen Sie unser Personal)",
-			"price": "4.20"
+			"price": "5.20"
 		}]
 	}, {
 		"name": "Salaten ",
 		"list": [{
 			"name": "Salat 'Balkan Art'",
 			"info": "Frische Salate der Saison mit Schafskäse in Essig-Öl Dressing",
-			"price": "8.90"
+			"price": "10.90"
 		}, {
 			"name": "Salat 'Tonno'",
 			"info": "Frische Salate der Saison in Essig-Öl Dressing dazu Zwiebeln, Oliven und Tunfisch",
-			"price": "9.20"
+			"price": "10.90"
 		}, {
 			"name": "Chefsalat",
 			"info": "Frische Salate der Saison, Gurken, Tomaten, Mais, Bohnen,Krautsalat, Oliven, gekochter Schinken & Käse",
-			"price": "9.20"
+			"price": "10.90"
 		}, {
 			"name": "Salat 'Adria'",
 			"info": "Frische Salate der Saison mit gebratenen Putenbruststreifen in Sahne-Dressing",
-			"price": "9.90"
+			"price": "11.90"
 		}, {
 			"name": "Salat 'Galia'",
 			"info": "Frische Salate der Saison  mit Rindfleischstreifen von Grill mit Sahne-Dressing",
-			"price": "11.80"
+			"price": "14.90"
 		}, {
 			"name": "Salatplatte 'Kolping'",
 			"info": "Frische Salate der Saison mit Italienischem Dressing  dazu gegrillte Scampi, Oliven und Ei",
-			"price": "12.50"
+			"price": "14.90"
 		}]
 	}, {
 		"name": "Toastgerichte",
 		"list": [{
 			"name": "Toast 'Hawai'",
 			"info": "Toast mit Kochschinken, Ananas, Sauce Hollandaise und Käse überbacken",
-			"price": "8.90"
+			"price": "8.20"
 		}, {
 			"name": "Toast 'Florida'",
 			"info": "Toast mit Putenmedaillons, Pfirsichhälften  und Sauce Hollandaise,  mit Käse überbacken",
-			"price": "10.20"
+			"price": "12.20"
 		}, {
 			"name": "Toast 'Kolping'",
 			"info": "Toast mit Schweinefiletlendchen, Pfirsichhälften und Sauce Hollandaise, mit Käse überbacken",
-			"price": "11.20"
+			"price": "12.20"
 		}]
 	}]
 }, {
@@ -98,22 +98,22 @@
 		"name": "Vegetarische Gerichte",
 		"list": [{
 			"name": "Ofenkartoffel mit frischem Gemüse aus der Pfanne",
-			"info": "dazu Kräuterquark und Salatgarnitur",
-			"price": "9.90"
+			"info": "mit Käse überbacken, dazu Kräuterquark und Salatgarnitur",
+			"price": "11.90"
 		}, {
 			"name": "Satarasch",
 			"info": "Verschiedenes Gemüse aus der Pfanne mit Butterreis",
-			"price": "10.50"
+			"price": "11.90"
 		}]
 	}, {
 		"name": "Nudelgerichte",
 		"list": [{
-			"name": "Nudeln 'Carbonara'",
-			"info": "Nudeln mit Schinken und Käse in einer feinen Sahnesauce",
-			"price": "8.90"
+			"name": "Tagliatelle 'Carbonara'",
+			"info": "Bandnudeln mit Schinken und Käse in einer feinen Sahnesauce",
+			"price": "9.90"
 		}, {
-			"name": "Nudeln mit Putenstreifen",
-			"info": "in einer Sahnesauce",
+			"name": "Tagliatelle 'Mediterran'",
+			"info": "Bandnudeln mit Kirschtomaten, Rucola und Parmesan-Käse",
 			"price": "9.90"
 		}]
 	}, {
@@ -121,118 +121,146 @@
 		"list": [{
 			"name": "Muckalica",
 			"info": "geschnetzeltes Schweinefilet mit Paprika, Zwiebeln, Tomaten gedünstet, dazu Butterreis und Salat",
-			"price": "14.90"
+			"price": "17.90"
 		}, {
 			"name": "Bauernpfanne",
 			"info": "3 Schweinemedaillons auf Bratkartoffel, (Speck - Zwiebeln) frische Champignons, Spiegelei & gemischter Salat",
-			"price": "14.90"
+			"price": "17.90"
 		}]
 	}, {
 		"name": "Schnitzel ",
 		"list": [{
 			"name": "Schnitzel  Wiener Art",
 			"info": "Paniertes Schnitzel vom Schweinerücken dazu Pommes Frites und gemischter Salat",
-			"price": "9.90"
+			"price": "11.90"
 		}, {
 			"name": "Jäger Schnitzel",
 			"info": "Schweineschnitzel mit Jägersauce, Kroketten und Salat",
-			"price": "11.90"
+			"price": "13.90"
 		}, {
 			"name": "Champignon Rahmschnitzel",
 			"info": "Schweineschnitzel mit Pommes Frites und Salat",
-			"price": "11.90"
+			"price": "13.90"
 		}, {
 			"name": "Zigeuner Schnitzel",
 			"info": "Schweineschnitzel mit Zigeunersauce, Pommes Frites und Salat",
-			"price": "11.90"
+			"price": "13.90"
 		}, {
 			"name": "Zwiebel-Schnitzel",
 			"info": "Schweineschnitzel mit geschmorten Zwiebeln, Bratkartoffeln und Salat",
-			"price": "11.90"
+			"price": "13.90"
 		}, {
 			"name": "Krüstchen",
 			"info": "Schweineschnitzel auf Toast mit Spiegelei dazu Pommes Frites und Salat",
-			"price": "11.90"
+			"price": "13.90"
 		}, {
-			"name": "California Schnitzel",
-			"info": "Schweineschnitzel in einer Cornflakespanade dazu Pommes Frites und Salat",
-			"price": "11.90"
+			"name": "Pfefferrahm-Schnitzel",
+			"info": "Schweineschnitzel in einer mit einer Pfefferrahmsauce dazu Kroketten und Salat",
+			"price": "13.90"
 		}, {
 			"name": "Cordon Bleu",
 			"info": "Gefülltes paniertes Schnitzel mit Kochschinken und Käse dazu Pommes Frites und Gemüse",
-			"price": "11.90"
+			"price": "13.90"
 		}, {
-			"name": "Schnitzel Mediterran",
-			"info": "Schweineschnitzel in einer Panade aus Weißbrot, Parmesan und Rosmarien dazu Folienkartoffel und Salat",
-			"price": "11.90"
+			"name": "Schnitzel Kolping",
+			"info": "Schweineschnitzel mit Tomaten, Sauce Hollandaise und Käse überbacken dazu Folienkartoffel und Salat",
+			"price": "14.90"
 		}, {
 			"name": "Schnitzel Hawaii",
 			"info": "Paniertes Schnitzel mit Ananas, Sauce Hollandaise und Käse überbacken dazu Kroketten und Salat",
-			"price": "12.90"
+			"price": "14.90"
 		}]
 	}, {
 		"name": "Balkan Gerichte",
 		"list": [{
 				"name": "Balkanleber",
 				"info": "Rinderleber mit geschmorten Zwiebeln dazu Bratkartoffeln und Salat",
-				"price": "9.50"
+				"price": "12.50"
 			}, {
 				"name": "Cevapcici",
 				"info": "Fleischröllchen mit Pommes Frites, Djuvecreis, Ajvar, Zwiebeln und Salat",
-				"price": "10.90"
+				"price": "12.90"
 			}, {
 				"name": "Raznicij",
 				"info": "zwei Fleischspieße vom Schweinenacken mit Pommes Frites, Djuvecreis und Salat",
-				"price": "12.50"
+				"price": "13.50"
 			}, {
 				"name": "Halb und Halb",
 				"info": "Fleischspieß vom Schweinenacken, drei Cevapcici dazu Pommes Frites, Djuvecreis, Ajvar, Zwiebeln und Salat",
-				"price": "12.90"
-			}, {
-				"name": "Pljeskavica 'Spezial'",
-				"info": "Hackfleischsteak gefüllt mit Schafskäse dazu Djuvecreis, Pommes Frites und Salt",
-				"price": "12.50"
+				"price": "13.50"
 			}, {
 				"name": "Steak 'Somoborski Art'",
 				"info": "zwei Schweinerückensteaks vom Grill mit viel Knoblauch dazu Djuvecreis, Pommes Frites und Salat",
-				"price": "12.50"
-			}, {
+				"price": "13.50"
+			},{
+				"name": "Pljeskavica 'Spezial'",
+				"info": "Hackfleischsteak gefüllt mit Schafskäse dazu Djuvecreis, Pommes Frites und Salt",
+				"price": "15.50"
+			},  {
 				"name": "Grillteller",
 				"info": "zwei Cevapcici, ein kleines Hacksteak, ein kleines Schweinesteak, ein Spieß und Speck dazu Djuvecreis, Pommes Frites und Salat",
-				"price": "14.90"
+				"price": "16.90"
 			}, {
 				"name": "Reuberspieß",
 				"info": "Rindersteak, Schweinesteak und Hacksteak mit Speck, Paprika dazu Pommes Frites, Djuvecreis und Salat",
-				"price": "14.90"
+				"price": "17.90"
 			}, {
 				"name": "Dubrovnik Spieß",
 				"info": "Rumpsteak, Hacksteack, Schweinefilet, Speck, Zwiebeln dazu Pfefferrahmsauce, eine Folienkartoffel mit Kräuterquark und Salat",
-				"price": "16.90"
+				"price": "18.90"
+			}, {
+				"name": "Vjesalica 'Montenegro'",
+				"info": "Schweinefilet gefüllt mit Schafskäse, Reis, Pommes Frites und Salat",
+				"price": "19.90"
 			}
 
 		]
-	}, {
-		"name": "Steak",
+	},
+	{
+		"name": "Fisch Gerichte",
 		"list": [{
+				"name": "Calamaris (paniert)",
+				"info": "Tintenfischringe mit Rösti dazu Salt und Kräuterquark",
+				"price": "14.50"
+			}, {
+				"name": "Lachssteak",
+				"info": "in einer Knoblauch-Sahne-Sauce dazu Butterreis und Salat",
+				"price": "20.90"
+			}, {
+				"name": "Zanderfilet",
+				"info": "Zanderfilet auf frischem knackigem gedünstetem Gemüse dazu Röstitaler",
+				"price": "20.90"
+			}
+
+		]
+	},
+	{
+		"name": "Steak",
+		"list": [
+		{
+			"name": "Putensteak",
+			"info": "dazu Folienkartoffel mit Kräuterquark und Salat",
+			"price": "17.90"
+		},{
 			"name": "Rumpsteak(200g)",
 			"info": "argentinisches Rumpsteak mit Pommes Frites und Salat",
-			"price": "18.90"
+			"price": "22.90"
 		}, {
 			"name": "Lustiger Bosnjak",
 			"info": "Rumpsteak  gefüllt mit Schinken, Käse und Senfdazu Djuvecreis, Pommes Frites und Salat",
-			"price": "19.90"
+			"price": "23.90"
 		}, {
-			"name": "Pfefferrumpsteak (200g)",
+			"name": "'Black and White' (200g)",
 			"info": "argentinisches Rumpsteak mit Pfefferrahmsauce, Kroketten und Salat",
-			"price": "19.90"
+			"price": "23.90"
 		}, {
 			"name": "Steak 'Kolping'",
 			"info": "argentinisches Rumpsteak (200g) mit geschmorten Zwiebeln dazu Bratkartoffeln und Salat",
-			"price": "19.90"
+			"price": "23.90"
 		}, {
-			"name": "Texas-Steak",
-			"info": "argentinisches Rumpsteak (200g) mit frischem gedünstetem Gemüse (Bohnen, Paprika, Mais, Zwiebeln) und Speck  dazu Röstitaler",
-			"price": "21.90"
+			"name": "Entrecote-Steak (200g)",
+			"info": "mit Kräuterbutter, dazu Folienkartoffel und Salt",
+			"price": "24.90"
 		}]
 	}]
 }, {
@@ -242,91 +270,92 @@
 		"list": [{
 			"name": "Kinderspieß",
 			"info": "vom Schwein mit Pommes Frites dazu Wahlweise Ketchup oder Mayonaise",
-			"price": "6.80"
+			"price": "8.90"
 		}, {
 			"name": "Kinderportion Civapcici",
 			"info": "mit Pommes Frites dazu Wahlweise Ketchup oder Mayonaise",
-			"price": "6.80"
+			"price": "8.90"
 		}, {
 			"name": "Kleines Wienerschnitzel",
 			"info": "mit Pommes Frites dazu Wahlweise Ketchup oder Mayonaise",
-			"price": "6.80"
+			"price": "8.90"
 		}, {
 			"name": "Konstantin Steak",
-			"info": "kl Schweinesteak mit Broccoli Suace Hollandaise und Kroketten",
-			"price": "7.90"
+			"info": "kl. Schweinesteak mit Broccoli Suace Hollandaise und Kroketten",
+			"price": "8.90"
 		}]
 	}, {
 		"name": "Platten für 2 Personen",
 		"list": [{
 			"name": "Balkangrillplatte",
 			"info": "4 Cevapcici, zwei kleine Hacksteaks, zwei Schweinesteaks, zwei Spieße und Speckdazu Djuvecreis, Pommes Frites, Gemüse und Salat",
-			"price": "29.90"
+			"price": "39.90"
 		}, {
 			"name": "Steakplatte",
-			"info": "Arg. Rumpsteak (450g) wird serviert mit Pfefferrahmsauce & Sauce Bearnaise dazu Bratkartoffeln (Speck & Zwiebeln), Kaisergemüse überzogen mit Sauce Hollandaise ",
-			"price": "39.90"
+			"info": "Arg. Rumpsteak (450g) wird serviert mit Pfefferrahmsauce & Sauce Bearnaise dazu Bratkartoffeln (Speck & Zwiebeln), Kaisergemüse überzogen mit Sauce Hollandaise",
+			"price": "49.90"
 		}]
 	}, {
 		"name": "HAUSSPEZIALITÄTEN",
 		"list": [{
-			"name": "Ofenkartoffel mit Putenbruststreifen",
-			"info": "überbacken mit Käse, serviert mit Kräuterquark und Salatgarnitur",
-			"price": "10.90"
+			"name": "Hähnchenfilet in einer Sahnesauce mit Mozzarella überbacken",
+			"info": "dazu Butterreis und Kaisergemüse",
+			"price": "14.90"
 		}, {
 			"name": "Putenmedaillons Hawaii",
 			"info": "belegt mit Kochschinken und Ananas mit Hollandaise und Käse überbacken dazu Röstitaler und Salat",
-			"price": "12.90"
+			"price": "16.90"
 		}, {
 			"name": "Schweinegeschnetzeltes 'Züricher Art'",
 			"info": "mit Champignons im Rahmsauce dazu Röstitaler und Salat",
-			"price": "14.90"
+			"price": "16.50"
 		}, {
 			"name": "Schweinefile 'Imperial'",
 			"info": "3 Medaillons in Pfefferrahmsauce dazu Bratkartoffeln und Salat",
-			"price": "14.50"
+			"price": "16.50"
 		}, {
 			"name": "Kolping-Teller",
 			"info": "Schweinefiletmedaillons mit gerösteten Zwiebeln mit Käse überbacken dazu Kroketten",
-			"price": "14.50"
+			"price": "16.50"
 		}, {
 			"name": "Filettopf",
 			"info": "Schweine-, Puten- und Rindersteak mit Bratkartoffeln, Gemüse und Salat",
-			"price": "16.90"
+			"price": "18.50"
 		}]
 	}]
 }, {
 	"name": "Beilage",
 	"types": [{
 		"name": "Beilagen",
-		"list": [{
-			"name": "Beilagensalat",
-			"info": "",
-			"price": "3.00"
-		}, {
+		"list": [
+		{
 			"name": "Pommes Frites",
 			"info": "",
-			"price": "3.00"
+			"price": "3.50"
 		}, {
 			"name": "Kroketten",
 			"info": "",
-			"price": "3.00"
+			"price": "3.50"
 		}, {
 			"name": "Röstitaler",
 			"info": "",
-			"price": "3.00"
-		}, {
-			"name": "Folienkartoffel",
-			"info": "mit Kräuterquark",
-			"price": "3.80"
+			"price": "3.50"
 		}, {
 			"name": "Djuvecreis",
 			"info": "",
-			"price": "3.00"
+			"price": "3.50"
 		}, {
-			"name": "Bratkartoffeln ",
+			"name": "Bratkartoffeln",
 			"info": "mit Speck und Zwiebeln",
-			"price": "3.60"
+			"price": "4.50"
+		}, {
+			"name": "Folienkartoffel",
+			"info": "mit Kräuterquark",
+			"price": "4.50"
+		}, {
+			"name": "Beilagensalat",
+			"info": "",
+			"price": "3.50"
 		}, {
 			"name": "Kaisergemüse",
 			"info": "",
@@ -337,15 +366,15 @@
 		"list": [{
 			"name": "Ketchup",
 			"info": "",
-			"price": "0.50"
+			"price": "0.60"
 		}, {
 			"name": "Majonaise",
 			"info": "",
-			"price": "0.50"
+			"price": "0.60"
 		}, {
 			"name": "Ajvar",
 			"info": "kalte Paprikapast",
-			"price": "2.00"
+			"price": "3.00"
 		}, {
 			"name": "Zaziki",
 			"info": "",
@@ -354,6 +383,14 @@
 			"name": "Kräuterquark",
 			"info": "",
 			"price": "2.10"
+		}, {
+			"name": "Sauce Hollandaise",
+			"info": "",
+			"price": "3.00"
+		}, {
+			"name": "Sauce Bearnaise",
+			"info": "",
+			"price": "3.00"
 		}, {
 			"name": "Pfefferrahmsauce",
 			"info": "",
@@ -366,14 +403,6 @@
 			"name": "Zigeunersauce",
 			"info": "",
 			"price": "3.10"
-		}, {
-			"name": "Sauce Hollandaise",
-			"info": "",
-			"price": "2.50"
-		}, {
-			"name": "Sauce Bearnaise",
-			"info": "",
-			"price": "2.50"
 		}]
 	}]
 }, {
@@ -383,19 +412,19 @@
 		"list": [{
 			"name": "Gemischtes Eis ohne Sahne",
 			"info": "Vanilleeis, Erbeereis und Schokoladeneis",
-			"price": "3.00"
+			"price": "4.00"
 		}, {
 			"name": "Gemischtes Eis mit Sahne",
 			"info": "Vanilleeis, Erdbeereis und Schokoladeneis",
-			"price": "3.50"
+			"price": "4.50"
 		}, {
 			"name": "Heiße Liebe",
 			"info": "Vanilleeis Wahlweise mit heißen Kirschen oder heißen Himbeeren und Sahne",
-			"price": "5.00"
+			"price": "6.00"
 		}, {
 			"name": "Palatschinken",
 			"info": "Pfannkuchen mit Vanilleeis, Sahne und Schoko-Sauce",
-			"price": "6.00"
+			"price": "7.00"
 		}]
 	}]
 }, {
@@ -405,103 +434,91 @@
 		"list": [{
 			"name": "Krombacher Pils",
 			"quantity": "0.2l",
-			"price": "1.50"
+			"price": "1.90"
 		}, {
 			"name": "",
 			"quantity": "0.3l",
-			"price": "2.10"
+			"price": "2.70"
 		}, {
 			"name": "",
 			"quantity": "0.4l",
-			"price": "3.00"
-		}, {
-			"name": "Alt(Flasche)",
-			"quantity": "0.33l",
-			"price": "2.20"
+			"price": "3.60"
 		}, {
 			"name": "Malzbier",
-			"quantity": "0.2l",
-			"price": "1.50"
-		}, {
-			"name": "",
-			"quantity": "0.3l",
-			"price": "2.10"
-		}, {
-			"name": "",
-			"quantity": "0.4l",
-			"price": "3.00"
+			"quantity": "0.33l",
+			"price": "2.70"
 		}, {
 			"name": "Pils mit Schuss",
 			"quantity": "0.2l",
-			"price": "1.50"
+			"price": "1.90"
 		}, {
 			"name": "",
 			"quantity": "0.3l",
-			"price": "2.10"
+			"price": "2.70"
 		}, {
 			"name": "",
 			"quantity": "0.4l",
-			"price": "3.00"
+			"price": "3.60"
 		}, {
 			"name": "Pils mit Cola",
 			"quantity": "0.2l",
-			"price": "1.50"
+			"price": "1.90"
 		}, {
 			"name": "",
 			"quantity": "0.3l",
-			"price": "2.10"
+			"price": "2.70"
 		}, {
 			"name": "",
 			"quantity": "0.4l",
-			"price": "3.00"
+			"price": "3.60"
 		}, {
 			"name": "Radler",
 			"quantity": "0.2l",
-			"price": "1.50"
+			"price": "1.90"
 		}, {
 			"name": "Pils mit Sprite",
 			"quantity": "0.3l",
-			"price": "2.10"
+			"price": "2.70"
 		}, {
 			"name": "",
 			"quantity": "0.4l",
-			"price": "3.00"
+			"price": "3.60"
 		}, {
 			"name": "Krefelder",
 			"quantity": "0.4l",
-			"price": "3.00"
+			"price": "3.60"
 		}, {
 			"name": "Weizen hell",
 			"quantity": "0.5l",
-			"price": "3.50"
+			"price": "3.90"
 		}, {
 			"name": "Weizen dunkel",
 			"quantity": "0.5l",
-			"price": "3.50"
+			"price": "3.90"
 		}, {
 			"name": "Weizen alkoholfrei",
 			"quantity": "0.5l",
-			"price": "3.50"
+			"price": "3.90"
 		}, {
 			"name": "Krombacher alkoholfrei",
 			"quantity": "0.33l",
-			"price": "2.30"
+			"price": "2.90"
 		}, {
 			"name": "Alsterwasser",
 			"quantity": "0.2l",
-			"price": "1.50"
+			"price": "1.90"
 		}, {
 			"name": "Pils mit Fanta",
 			"quantity": "0.3l",
-			"price": "2.10"
+			"price": "2.70"
 		}, {
 			"name": "",
 			"quantity": "0.4l",
-			"price": "3.00"
+			"price": "3.60"
 		}, {
 			"name": "Bananen-Weizen",
 			"quantity": "0.5l",
-			"price": "3.90"
+			"price": "4.20"
 		}]
 	}, {
 		"name": "Alkoholfreie Getranke",
@@ -509,119 +526,119 @@
 			"name": "Sprite",
 			"info": "Flasche",
 			"quantity": "0.2l",
-			"price": "1.50"
+			"price": "1.90"
 		}, {
 			"name": "",
 			"info": "Flasche",
 			"quantity": "0.3l",
-			"price": "2.20"
+			"price": "2.70"
 		}, {
 			"name": "",
 			"quantity": "0.4l",
-			"price": "3.00"
+			"price": "3.60"
 		}, {
 			"name": "Coca-Cola",
 			"quantity": "0.2l",
-			"price": "1.50"
+			"price": "1.90"
 		}, {
 			"name": "",
 			"quantity": "0.3l",
-			"price": "2.20"
+			"price": "2.70"
 		}, {
 			"name": "",
 			"quantity": "0.4l",
-			"price": "3.00"
+			"price": "3.60"
 		}, {
 			"name": "Coca-Cola light",
 			"info": "Flasche",
 			"quantity": "0.2l",
-			"price": "1.50"
+			"price": "1.90"
 		}, {
 			"name": "",
 			"quantity": "0.3l",
-			"price": "2.20"
+			"price": "2.70"
 		}, {
 			"name": "",
 			"quantity": "0.4l",
-			"price": "3.00"
+			"price": "3.60"
 		}, {
 			"name": "Fanta",
 			"info": "Flasche",
 			"quantity": "0.2l",
-			"price": "1.50"
+			"price": "1.90"
 		}, {
 			"name": "",
 			"quantity": "0.3l",
-			"price": "2.20"
+			"price": "2.70"
 		}, {
 			"name": "",
 			"quantity": "0.4l",
-			"price": "3.00"
+			"price": "3.60"
 		}, {
 			"name": "Spezi(Cola,Fanta)",
 			"info": "Flasche",
 			"quantity": "0.2l",
-			"price": "1.50"
+			"price": "1.90"
 		}, {
 			"name": "",
 			"quantity": "0.3l",
-			"price": "2.20"
+			"price": "2.70"
 		}, {
 			"name": "",
 			"quantity": "0.4l",
-			"price": "3.00"
+			"price": "3.60"
 		}, {
 			"name": "Apfelsaftschorle",
 			"info": "Flasche",
 			"quantity": "0.2l",
-			"price": "1.50"
+			"price": "1.90"
 		}, {
 			"name": "",
 			"quantity": "0.3l",
-			"price": "2.20"
+			"price": "2.70"
 		}, {
 			"name": "",
 			"quantity": "0.4l",
-			"price": "3.00"
+			"price": "3.60"
 		}, {
 			"name": "Mineralwasser",
 			"info": "Flasche",
 			"quantity": "0.25l",
-			"price": "2.00"
+			"price": "2.60"
 		}, {
 			"name": "Mineralwasser",
 			"info": "Flasche",
 			"quantity": "0.75l",
-			"price": "5.00"
+			"price": "6.00"
 		}, {
 			"name": "Orangensaft",
 			"quantity": "0.2l",
-			"price": "2.40"
+			"price": "2.80"
 		}, {
 			"name": "Apfelsaft",
 			"quantity": "0.2l",
-			"price": "2.40"
+			"price": "2.80"
 		}, {
 			"name": "Johannisbeersaft",
 			"quantity": "0.2l",
-			"price": "2.40"
+			"price": "2.80"
 		}, {
 			"name": "Ginger Ale ",
 			"quantity": "0.2l",
-			"price": "2.40"
+			"price": "2.80"
 		}, {
 			"name": "Bitter Lemon ",
 			"quantity": "0.2l",
-			"price": "2.40"
+			"price": "2.80"
 		}, {
 			"name": "Tonic Water ",
 			"quantity": "0.2l",
-			"price": "2.40"
+			"price": "2.80"
 		}, {
 			"name": "Fassbrause",
 			"info": "Flascge",
 			"quantity": "0.33l",
-			"price": "2.10"
+			"price": "2.80"
 		}]
 	}, {
 		"name": "Offene Weine",
@@ -629,16 +646,16 @@
 			"name": "Rotwein",
 			"info": "trocken, halbtrocken, lieblich",
 			"quantity": "0.25l Karaffe",
-			"price": "4.50"
+			"price": "5.20"
 		}, {
 			"name": "Weißwein",
 			"info": "trocken, halbtrocken, lieblich",
 			"quantity": "0.25l Karaffe",
-			"price": "4.50"
+			"price": "5.20"
 		}, {
 			"name": "Weinschorle",
 			"quantity": "0.25l",
-			"price": "4.00"
+			"price": "4.50"
 		}]
 	}, {
 		"name": "Flaschenweine",
@@ -659,30 +676,30 @@
 			"name": "Tasse Kaffee",
 			"info": "",
 			"quantity": "",
-			"price": "1.90"
+			"price": "2.20"
 		}, {
 			"name": "Cappuccino",
 			"info": "",
 			"quantity": "",
-			"price": "2.20"
+			"price": "2.80"
 		}, {
 			"name": "Tasse Tee",
 			"quantity": "",
-			"price": "1.80"
+			"price": "2.20"
 		}, {
 			"name": "Tasse Kakao",
 			"info": "",
 			"quantity": "",
-			"price": "2.20"
+			"price": "2.50"
 		}, {
 			"name": "Tasse Kakao mit Sahne",
 			"info": "",
 			"quantity": "",
-			"price": "2.50"
+			"price": "2.80"
 		}, {
 			"name": "Milchkaffee",
 			"quantity": "",
-			"price": "2.60"
+			"price": "2.80"
 		}, {
 			"name": "Latte Macchiatto",
 			"info": "",
@@ -692,11 +709,11 @@
 			"name": "Tasse Espresso",
 			"info": "",
 			"quantity": "",
-			"price": "1.70"
+			"price": "2.20"
 		}, {
 			"name": "Glas Grog",
 			"quantity": "",
-			"price": "3.00"
+			"price": "3.50"
 		}]
 	}, {
 		"name": "Longdrinks",
@@ -720,11 +737,6 @@
 			"info": "",
 			"quantity": "2cl",
 			"price": "3.50"
-		}, {
-			"name": "Campari Orange",
-			"info": "",
-			"quantity": "4cl",
-			"price": "4.20"
 		}]
 	}, {
 		"name": "Spirituosen",
@@ -842,7 +854,7 @@
 				"name": "Korn",
 				"info": "",
 				"quantity": "2cl",
-				"price": "1.80"
+				"price": "2.00"
 			}
 
 		]

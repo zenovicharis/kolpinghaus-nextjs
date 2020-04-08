@@ -41,16 +41,17 @@ class MainController
     }
 
     public function call(){
-        $data = json_decode(file_get_contents('/uploads/data.json',true));
+        $data = json_decode(file_get_contents('uploads/data.json',true));
         $this->mainService->setJsonToDb($data);
     }
     public function sendMail(Application $app, Request $request){
         $content = $request->request->get('content');
         $clientMail = $request->request->get('mail');
         $clientName = $request->request->get('name');
-        
-        $isSent = $this->mainService->sendMail($clientMail, $clientName, $content);
-
-        return new Response($isSent);
+        $client = $app['config']->getClient();
+        $isSent = $this->mainService->sendMail($clientMail, $clientName, $content, $client);
+        $responseText = $isSent ? '?message=Vielen Dank für die Nachricht, wir werden Ihnen so schnell wie möglich schreiben' : 
+        '?errormessage=Entschuldigung, es ist ein Fehler aufgetreten. Bitte versuchen Sie erneut, eine E-Mail zu senden';
+        return new RedirectResponse('/'.$responseText);
      }
 }

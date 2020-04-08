@@ -192,3 +192,11 @@ nav{
 :focus{
     outline:none;
 }
+
+#myModal.fade {
+    opacity: 1 !important;
+}
+
+#myModal .modal-dialog {
+    margin-top: 10em;
+}

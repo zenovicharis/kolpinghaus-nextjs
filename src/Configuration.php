@@ -22,4 +22,8 @@ class Configuration
         return $this->config['path'];
     }
 
+    public function getClient() {
+        return (object)$this->config['client'];
+    }
+
 }

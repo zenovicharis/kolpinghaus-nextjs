@@ -2,7 +2,8 @@
 
 namespace Kolpinghaus\Services;
 
-use PHPMailer;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception as MailException;
 use Kolpinghaus\Models\Meal;
 use Kolpinghaus\Models\Food;
 use Kolpinghaus\Models\MealType;
@@ -71,38 +72,52 @@ class MainService
         return $pictures;
     }
 
-    public function sendMail($clientMail, $clientName, $content){
-        $this->mail = new PHPMailer();
-        $this->mail->SMTPDebug = 5;
-        $this->mail->isSMTP();
-        $this->mail->SMTPAuth = true;
-        $this->mail->SMTPSecure = 'tls';
-        $this->mail->Host = 'smtp.gmail.com';
+    public function sendMail($clientMail, $clientName, $content, $client) {
 
-        $this->mail->Username = 'zenovicharis@gmail.com';
-        $this->mail->Password = 'Bostonseltiks';
-        $this->mail->Port = 587;
+        try {
+            $this->mail = new PHPMailer(true);
+            $this->mail->SMTPDebug = 1;
+            $this->mail->isSMTP();
+            $this->mail->SMTPAuth = true;
+            $this->mail->SMTPSecure = 'ssl';
+            $this->mail->Host = 'smtp.gmail.com';
 
-        $this->mail->setFrom($clientMail, $clientName);
-        $this->mail->addReplyTo($clientMail, $clientName);
-        $this->mail->CharSet = 'UTF-8';
+            $this->mail->Username = $client->address;
+            $this->mail->Password = $client->password;
+            $this->mail->Port = 465;
+            $this->mail->setFrom($clientMail, $clientName);
+            $this->mail->addReplyTo($clientMail, $clientName);
+            $this->mail->CharSet = 'UTF-8';
+            $this->mail->isHTML();                                  // Set email format to HTML
+            $mailContent = $this->generateContent($clientName, $clientName, $content);
+            $this->mail->Subject = "Mail von der Website";
+            $this->mail->Body    = $mailContent;
+            $this->mail->AltBody = htmlentities($content);
+            $this->mail->addAddress($client->reciever, $client->recieverName);     // Add a recipient
 
-        $this->mail->isHTML();                                  // Set email format to HTML
-        $mailContent = '<p style="text-align:center">'.htmlentities($content).'</p><br/><p> This mail has been sent from kolpinghaus.de contact form</p>';
-        $this->mail->Subject = "Customers Review";
-        $this->mail->Body    = $mailContent;
-        $this->mail->AltBody = htmlentities($content);
-        $this->mail->addAddress('zenovicharis@gmail.com', "Haris Zenovic");     // Add a recipient
-        $isSent = $this->mail->Send();
-         if(!$isSent) {
+            return $this->mail->send();
+        } catch (MailException $e) {
             return false;
-         }
-         return true;
+        }
     }
 
     public function getWorkingTimeForDay($day){
         $id = ((int)$day + 1);
         $day = ArbiteZeit::find($id);
         return $day;
+    }
+
+    public function generateContent ($name, $email, $content) {
+        return "
+            <div>
+                <p><strong>Name</strong>: ".(empty($name) ? 'Nije Popunjeno' : filter_var($name, FILTER_SANITIZE_STRING))."</p>
+                <p><strong>E-Mail</strong>: ".(empty($email) ? 'Nije Popunjeno' : filter_var($email, FILTER_SANITIZE_STRING))."</p>
+                <hr>	
+                <p>
+                ".filter_var($content, FILTER_SANITIZE_STRING)."
+                </p>
+                <hr>
+                <small>Von der Website gesendete E-Mail https://www.restaurant-im-kolpinghaus.de</small>
+            </div>";
     }
 }

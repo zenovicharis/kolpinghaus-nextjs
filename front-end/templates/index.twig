@@ -18,9 +18,9 @@
                     <li>
                         <a href="#aboutRestourantMobile">Restaurant</a>
                     </li>
-                    {# <li>
+                    <li>
                         <a href="#mobileMenu">Menu</a>
-                    </li> #}
+                    </li>
                     <li>
                         <a href="#contact">Kontakt</a>
                     </li>
@@ -72,7 +72,7 @@
                     <p>{{time.day}} <span>{{time.time}}</span></p>
                 </div>
             </div>
-            {# <div class="col-sm-12 mobileMenu" id="mobileMenu">
+            <div class="col-sm-12 mobileMenu" id="mobileMenu">
                 <h3>Menu</h3>
                 <div class="col-md-12  sub sections">
                     <p>
@@ -100,7 +100,7 @@
                     {% endfor %}
                 {% endfor %}
                 </div>
-            </div> #}
+            </div>
         </div>
         <div class="row" id="aboutRestourant">
             {% include 'parts/about-restourant.twig' %}
@@ -109,12 +109,25 @@
             {% include 'parts/gallery.twig' with { 'galleryPictures' : galleryPictures } %}
         </div>
 
-        {# <div class="row" id="speiseCarte">
+        <div class="row" id="speiseCarte">
            {% include 'parts/menu.twig' with { 'meals' : meals} %}
-        </div> #}
+        </div>
 
         <div class="row cont" id="cont">
             {% include 'parts/contacts.twig' %}
+        </div>
+    </div>
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id="customHeaderModal" class="modal-header">
+                    <h4 class="modal-title m-auto">
+                        Ankündigung
+                    </h4>
+                </div>
+                <div id="modalText" class="modal-body text-center">
+                </div>
+            </div>
         </div>
     </div>
     <script src="/front-end/resources/js/scroll.js"></script>
