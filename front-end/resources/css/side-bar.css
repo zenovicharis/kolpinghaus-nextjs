@@ -61,6 +61,7 @@
     float:none;
     text-align: center;
     color:#fff;
+    visibility: hidden;
 }
 .timeTable p{
     margin-bottom:.2em;
