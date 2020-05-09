@@ -200,3 +200,33 @@ nav{
 #myModal .modal-dialog {
     margin-top: 10em;
 }
+
+#content .row.anouncement {
+    font-family: 'Caveat', cursive;
+    font-size:2em;
+    color: #e0aa28;
+    padding: 2em 5em;
+    background-image: url("../img/Menu/pattern.png") !important;
+    background-repeat: repeat;
+}
+
+#content .row.anouncement ul {
+    font-size:.8em;
+}
+
+#content .row.anouncement p {
+    font-size:.9em;
+}
+
+
+#aboutRestourantMobile {
+    display: block;
+}
+
+#aboutRestourantMobile > div.aboutResMobile {
+    display: none;
+}
+
+#aboutRestourantMobile > div.bannerAbout  {
+    display: none;
+}

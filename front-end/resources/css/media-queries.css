@@ -60,5 +60,17 @@
     #contuct{
         display:none;
     }
+
+    #content .row.anouncement {
+        font-size:2em;
+        padding: 10px;
+    }
+    #aboutRestourantMobile > div.aboutResMobile {
+        display: block;
+    }
+    
+    #aboutRestourantMobile > div.bannerAbout  {
+        display: block;
+    }
 }
 

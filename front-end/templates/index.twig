@@ -18,9 +18,9 @@
                     <li>
                         <a href="#aboutRestourantMobile">Restaurant</a>
                     </li>
-                    <li>
+                    {# <li>
                         <a href="#mobileMenu">Menu</a>
-                    </li>
+                    </li> #}
                     <li>
                         <a href="#contact">Kontakt</a>
                     </li>
@@ -30,13 +30,35 @@
     </div>
     <!--End of the sticky many for the phones-->
     <div id="content">
-        <div  class="row  yell" id="yell">
+        <div class="row anouncement">
+            Sehr geehrte Gäste, <br>
+            Wir sind ab Freitag, dem 15.05.2020 ab 17:00 Uhr wieder für Sie da.<br>
+            Aber mit Auflagen:
+            <ul>
+                <li>Bitte reservieren sie einen Tisch, um Wartezeiten zu vermeiden. (0271
+            77002976)</li>
+                <li>Wir sind außerdem verpflichtet, die Kontaktdaten aller Gäste
+            aufzunehmen, damit evtl. Ansteckungen zurück verfolgt werden
+            können. Sollten sie damit nicht einverstanden sein, können sie gerne
+            unseren Abholservice weiterhin nutzen.</li>
+                <li> Die Einhaltung der Hygienevorschriften und der Mindestabstand
+            werden vorausgesetzt.</li>
+            </ul>
+            <p>
+            Wir freuen uns auf sie, und bleiben sie gesund! <br>
+            Ihr Familie Tosic<br>
+            und das Team Kolpinghaus
+            </p>
+
+        </div>
+        {# <div  class="row  yell" id="yell">
             <div class="row" id="container">
                 <div class="container-fluid sliderContainer">
                     {% include 'parts/slider.twig' with {'pictures' : pictures } %}
                 </div>
             </div>
-        </div>
+        </div> #}
+
         <div class="row" id="aboutRestourantMobile">
 
             <div class="col-sm-12 aboutResMobile">
@@ -67,12 +89,12 @@
             <div class="col-sm-12 bannerAbout">
                 
             </div>
-            <div class="col-sm-12 outterBox">
+            {# <div class="col-sm-12 outterBox">
                 <div class="box">
                     <p>{{time.day}} <span>{{time.time}}</span></p>
                 </div>
-            </div>
-            <div class="col-sm-12 mobileMenu" id="mobileMenu">
+            </div> #}
+            {# <div class="col-sm-12 mobileMenu" id="mobileMenu">
                 <h3>Menu</h3>
                 <div class="col-md-12  sub sections">
                     <p>
@@ -100,8 +122,8 @@
                     {% endfor %}
                 {% endfor %}
                 </div>
-            </div>
-        </div>
+            </div> 
+        </div>#}
         <div class="row" id="aboutRestourant">
             {% include 'parts/about-restourant.twig' %}
         </div>
@@ -109,9 +131,9 @@
             {% include 'parts/gallery.twig' with { 'galleryPictures' : galleryPictures } %}
         </div>
 
-        <div class="row" id="speiseCarte">
+        {# <div class="row" id="speiseCarte">
            {% include 'parts/menu.twig' with { 'meals' : meals} %}
-        </div>
+        </div> #}
 
         <div class="row cont" id="cont">
             {% include 'parts/contacts.twig' %}
