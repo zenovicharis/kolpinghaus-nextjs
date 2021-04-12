@@ -15,7 +15,7 @@
         "twig/twig": "~1.0",
         "robmorgan/phinx": "^0.8.0",
         "php-activerecord/php-activerecord": "^1.1",
-        "eventviva/php-image-resize": "1.6.*",
+        "eventviva/php-image-resize": "1.9.2",
         "phpmailer/phpmailer": "^6.1"
     },
     "autoload": {
