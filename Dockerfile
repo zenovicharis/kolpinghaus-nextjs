@@ -1,44 +1,4 @@
-# FROM php:7.1.3-fpm
-
-# RUN apt-get update && apt-get install -y libmcrypt-dev \
-#     mysql-client libmagickwand-dev --no-install-recommends \
-#     && pecl install imagick \
-#     && docker-php-ext-enable imagick \
-# && docker-php-ext-install mcrypt pdo_mysql
-
-# # Apache Configuration
-# RUN a2enmod rewrite
-# RUN a2enmod headers
-
-# # SSL
-# RUN a2enmod ssl
-# RUN a2ensite default-ssl
-# RUN openssl req -subj '/CN=example.com/O=My Company Name LTD./C=US' -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout /etc/ssl/private/ssl-cert-snakeoil.key -out /etc/ssl/certs/ssl-cert-snakeoil.pem
-
-# # Imagemagick
-# RUN apt-get install --yes --force-yes libmagickwand-dev libmagickcore-dev
-# RUN yes '' | pecl install -f imagick
-# RUN docker-php-ext-enable imagick
-# ENV APACHE_RUN_DIR /tmp/
-# ENV APACHE_LOG_DIR /tmp/
-
-# COPY config/apache.conf /etc/apache2/sites-available/restaurant-im-kolpinghaus.de.conf
-# COPY config/apache.conf /etc/apache2/sites-enabled/restaurant-im-kolpinghaus.de.conf
-# # RUN a2ensite restaurant-im-kolpinghaus.de.conf
-# COPY config/config.json  /home/.config/kolpinghaus/config.json
-
-# RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-# WORKDIR /var/www/
-# COPY ./composer.json ./
-# RUN composer install
-
-# COPY . .
-
-# EXPOSE 80
-
 FROM ubuntu:latest
-# MAINTAINER Dan Pupius <dan@pupi.us>
 
 # Install apache, PHP, and supplimentary programs. openssh-server, curl, and lynx-cur are for debugging the container.
 RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get -y install \
