@@ -4,3 +4,4 @@ docs/
 backup/
 VStudio/
 composer.lock
+config/config.json
