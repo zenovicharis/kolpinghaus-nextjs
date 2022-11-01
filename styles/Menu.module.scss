@@ -1,0 +1,122 @@
+/*menu start */
+$primary_blue: #373e58;
+$secondary_yellow: #e0aa28;
+$accent_blue: #8f98bb;
+
+.menuCart {
+  background-image: url("/img/MenuBG.png");
+  background-position: top right;
+  background-size: cover;
+  margin: auto;
+  padding-bottom: 7%;
+}
+.menu {
+  h1 {
+    position: relative;
+    margin: 0;
+    text-align: center;
+    font-family: "Caveat", cursive;
+    color: white;
+    &::before {
+      content: " ";
+      border-bottom: solid 1pt $accent_blue;
+      display: block;
+      width: 27rem;
+      height: 1px;
+      position: absolute;
+      top: 43%;
+    }
+    &::after {
+      content: " ";
+      border-bottom: solid 1pt $accent_blue;
+      display: block;
+      width: 27rem;
+      height: 1px;
+      position: absolute;
+      right: 0;
+      top: 43%;
+    }
+  }
+}
+
+.line {
+  border-bottom: solid 1pt $accent_blue;
+  margin-top: 2.5em;
+}
+.title {
+  text-align: center;
+  font-family: "Caveat", cursive;
+  color: white;
+}
+.sections {
+  font-family: "Roboto Light", sans-serif;
+  color: white;
+  margin-top: 10px;
+  p {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 1.8px;
+    cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+.sub {
+  p {
+    letter-spacing: 1px;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+.items {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.itemList {
+  border-bottom: solid 1pt $secondary_yellow;
+  font-family: "Roboto Light", sans-serif;
+  width: 100%;
+  height: auto;
+  h5 {
+    color: $secondary_yellow;
+    margin-bottom: 0;
+    margin-top: 1rem;
+    font-size: 1.3em;
+    font-weight: 500;
+  }
+  p {
+    margin-bottom: 0;
+    margin-top: 0.8rem;
+    color: white;
+  }
+}
+.info {
+  width: 90%;
+  height: auto;
+}
+.price {
+  width: 10%;
+  height: auto;
+  h5 {
+    font-family: "Caveat", cursive;
+    color: $secondary_yellow;
+    font-size: 28px;
+    text-align: center;
+  }
+}
+.yellow {
+  color: $secondary_yellow;
+  font-weight: bold;
+}
+.classes {
+  text-transform: uppercase;
+}
+
+/* menu end */

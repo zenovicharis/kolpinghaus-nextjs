@@ -1,0 +1,29 @@
+@import "./../styles/config.scss";
+
+.content {
+  width: 74%;
+  margin-left: auto;
+  padding: 0;
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  @include media-max-ml {
+    width: 100%;
+    margin-top: 5rem;
+  }
+}
+
+.impressumContent {
+  padding: 2rem;
+  background-color: $secondary_yellow;
+  color: $primary_blue;
+
+  font-family: "Roboto Light", sans-serif;
+  .impressumLogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
