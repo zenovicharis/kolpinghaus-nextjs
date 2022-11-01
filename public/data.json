@@ -1,0 +1,1093 @@
+[
+  {
+    "name": "Vorspeise",
+    "types": [
+      {
+        "name": "Apperatifs",
+        "list": [
+          {
+            "name": "Glass Prosecco",
+            "info": "0.1l",
+            "price": "3.50"
+          },
+          {
+            "name": "Aperol Spritz",
+            "info": "",
+            "price": "5.00"
+          },
+          {
+            "name": "Hugo",
+            "info": "Holunderblütensirup mit Minzblättern, Limetten und Prosecco",
+            "price": "5.00"
+          }
+        ]
+      },
+      {
+        "name": "Vorspeisen",
+        "list": [
+          {
+            "name": "Im Knoblauch gebratene Pepperoni",
+            "info": "Serviert mit Baguette",
+            "price": "8.00"
+          },
+          {
+            "name": "Gebackener Camembert",
+            "info": "Petersilie, Pfirsichhälften mit Preiselbeeren, dazu Toast",
+            "price": "8.50"
+          },
+          {
+            "name": "Caprese",
+            "info": "Tomaten und Mozzarella in Scheiben geschnitten dazu Basilikum und Balsamicosauce",
+            "price": "8.00"
+          },
+          {
+            "name": "Champignons 'Mendoza-Art'",
+            "info": "Frische Champignons mit Knoblauch und Toast",
+            "price": "9.00"
+          },
+          {
+            "name": "Gambas",
+            "info": "In Knoblauchsauce",
+            "price": "12.90"
+          }
+        ]
+      },
+      {
+        "name": "Suppen",
+        "list": [
+          {
+            "name": "Französische Zwiebelsuppe",
+            "info": "mit Käse überbacken",
+            "price": "5.20"
+          },
+          {
+            "name": "Tagessuppe",
+            "info": "(fragen Sie unser Personal)",
+            "price": "5.20"
+          }
+        ]
+      },
+      {
+        "name": "Salaten ",
+        "list": [
+          {
+            "name": "Salat 'Balkan Art'",
+            "info": "Frische Salate der Saison mit Schafskäse in Essig-Öl Dressing",
+            "price": "10.90"
+          },
+          {
+            "name": "Salat 'Tonno'",
+            "info": "Frische Salate der Saison in Essig-Öl Dressing dazu Zwiebeln, Oliven und Tunfisch",
+            "price": "10.90"
+          },
+          {
+            "name": "Chefsalat",
+            "info": "Frische Salate der Saison, Gurken, Tomaten, Mais, Bohnen,Krautsalat, Oliven, gekochter Schinken & Käse",
+            "price": "10.90"
+          },
+          {
+            "name": "Salat 'Adria'",
+            "info": "Frische Salate der Saison mit gebratenen Putenbruststreifen in Sahne-Dressing",
+            "price": "11.90"
+          },
+          {
+            "name": "Salat 'Galia'",
+            "info": "Frische Salate der Saison  mit Rindfleischstreifen von Grill mit Sahne-Dressing",
+            "price": "14.90"
+          },
+          {
+            "name": "Salatplatte 'Kolping'",
+            "info": "Frische Salate der Saison mit Italienischem Dressing  dazu gegrillte Scampi, Oliven und Ei",
+            "price": "14.90"
+          }
+        ]
+      },
+      {
+        "name": "Toastgerichte",
+        "list": [
+          {
+            "name": "Toast 'Hawai'",
+            "info": "Toast mit Kochschinken, Ananas, Sauce Hollandaise und Käse überbacken",
+            "price": "8.20"
+          },
+          {
+            "name": "Toast 'Florida'",
+            "info": "Toast mit Putenmedaillons, Pfirsichhälften  und Sauce Hollandaise,  mit Käse überbacken",
+            "price": "12.20"
+          },
+          {
+            "name": "Toast 'Kolping'",
+            "info": "Toast mit Schweinefiletlendchen, Pfirsichhälften und Sauce Hollandaise, mit Käse überbacken",
+            "price": "12.20"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Hauptgericht",
+    "types": [
+      {
+        "name": "Vegetarische Gerichte",
+        "list": [
+          {
+            "name": "Ofenkartoffel mit frischem Gemüse aus der Pfanne",
+            "info": "mit Käse überbacken, dazu Kräuterquark und Salatgarnitur",
+            "price": "11.90"
+          },
+          {
+            "name": "Satarasch",
+            "info": "Verschiedenes Gemüse aus der Pfanne mit Butterreis",
+            "price": "11.90"
+          }
+        ]
+      },
+      {
+        "name": "Nudelgerichte",
+        "list": [
+          {
+            "name": "Tagliatelle 'Carbonara'",
+            "info": "Bandnudeln mit Schinken und Käse in einer feinen Sahnesauce",
+            "price": "9.90"
+          },
+          {
+            "name": "Tagliatelle 'Mediterran'",
+            "info": "Bandnudeln mit Kirschtomaten, Rucola und Parmesan-Käse",
+            "price": "9.90"
+          }
+        ]
+      },
+      {
+        "name": "Pikantes aus der Pfanne",
+        "list": [
+          {
+            "name": "Muckalica",
+            "info": "geschnetzeltes Schweinefilet mit Paprika, Zwiebeln, Tomaten gedünstet, dazu Butterreis und Salat",
+            "price": "17.90"
+          },
+          {
+            "name": "Bauernpfanne",
+            "info": "3 Schweinemedaillons auf Bratkartoffel, (Speck - Zwiebeln) frische Champignons, Spiegelei & gemischter Salat",
+            "price": "17.90"
+          }
+        ]
+      },
+      {
+        "name": "Schnitzel ",
+        "list": [
+          {
+            "name": "Schnitzel  Wiener Art",
+            "info": "Paniertes Schnitzel vom Schweinerücken dazu Pommes Frites und gemischter Salat",
+            "price": "11.90"
+          },
+          {
+            "name": "Jäger Schnitzel",
+            "info": "Schweineschnitzel mit Jägersauce, Kroketten und Salat",
+            "price": "13.90"
+          },
+          {
+            "name": "Champignon Rahmschnitzel",
+            "info": "Schweineschnitzel mit Pommes Frites und Salat",
+            "price": "13.90"
+          },
+          {
+            "name": "Zigeuner Schnitzel",
+            "info": "Schweineschnitzel mit Zigeunersauce, Pommes Frites und Salat",
+            "price": "13.90"
+          },
+          {
+            "name": "Zwiebel-Schnitzel",
+            "info": "Schweineschnitzel mit geschmorten Zwiebeln, Bratkartoffeln und Salat",
+            "price": "13.90"
+          },
+          {
+            "name": "Krüstchen",
+            "info": "Schweineschnitzel auf Toast mit Spiegelei dazu Pommes Frites und Salat",
+            "price": "13.90"
+          },
+          {
+            "name": "Pfefferrahm-Schnitzel",
+            "info": "Schweineschnitzel in einer mit einer Pfefferrahmsauce dazu Kroketten und Salat",
+            "price": "13.90"
+          },
+          {
+            "name": "Cordon Bleu",
+            "info": "Gefülltes paniertes Schnitzel mit Kochschinken und Käse dazu Pommes Frites und Gemüse",
+            "price": "13.90"
+          },
+          {
+            "name": "Schnitzel Kolping",
+            "info": "Schweineschnitzel mit Tomaten, Sauce Hollandaise und Käse überbacken dazu Folienkartoffel und Salat",
+            "price": "14.90"
+          },
+          {
+            "name": "Schnitzel Hawaii",
+            "info": "Paniertes Schnitzel mit Ananas, Sauce Hollandaise und Käse überbacken dazu Kroketten und Salat",
+            "price": "14.90"
+          }
+        ]
+      },
+      {
+        "name": "Balkan Gerichte",
+        "list": [
+          {
+            "name": "Balkanleber",
+            "info": "Rinderleber mit geschmorten Zwiebeln dazu Bratkartoffeln und Salat",
+            "price": "12.50"
+          },
+          {
+            "name": "Cevapcici",
+            "info": "Fleischröllchen mit Pommes Frites, Djuvecreis, Ajvar, Zwiebeln und Salat",
+            "price": "12.90"
+          },
+          {
+            "name": "Raznicij",
+            "info": "zwei Fleischspieße vom Schweinenacken mit Pommes Frites, Djuvecreis und Salat",
+            "price": "13.50"
+          },
+          {
+            "name": "Halb und Halb",
+            "info": "Fleischspieß vom Schweinenacken, drei Cevapcici dazu Pommes Frites, Djuvecreis, Ajvar, Zwiebeln und Salat",
+            "price": "13.50"
+          },
+          {
+            "name": "Steak 'Somoborski Art'",
+            "info": "zwei Schweinerückensteaks vom Grill mit viel Knoblauch dazu Djuvecreis, Pommes Frites und Salat",
+            "price": "13.50"
+          },
+          {
+            "name": "Pljeskavica 'Spezial'",
+            "info": "Hackfleischsteak gefüllt mit Schafskäse dazu Djuvecreis, Pommes Frites und Salt",
+            "price": "15.50"
+          },
+          {
+            "name": "Grillteller",
+            "info": "zwei Cevapcici, ein kleines Hacksteak, ein kleines Schweinesteak, ein Spieß und Speck dazu Djuvecreis, Pommes Frites und Salat",
+            "price": "16.90"
+          },
+          {
+            "name": "Reuberspieß",
+            "info": "Rindersteak, Schweinesteak und Hacksteak mit Speck, Paprika dazu Pommes Frites, Djuvecreis und Salat",
+            "price": "17.90"
+          },
+          {
+            "name": "Dubrovnik Spieß",
+            "info": "Rumpsteak, Hacksteack, Schweinefilet, Speck, Zwiebeln dazu Pfefferrahmsauce, eine Folienkartoffel mit Kräuterquark und Salat",
+            "price": "18.90"
+          },
+          {
+            "name": "Vjesalica 'Montenegro'",
+            "info": "Schweinefilet gefüllt mit Schafskäse, Reis, Pommes Frites und Salat",
+            "price": "19.90"
+          }
+        ]
+      },
+      {
+        "name": "Fisch Gerichte",
+        "list": [
+          {
+            "name": "Calamaris (paniert)",
+            "info": "Tintenfischringe mit Rösti dazu Salt und Kräuterquark",
+            "price": "14.50"
+          },
+          {
+            "name": "Lachssteak",
+            "info": "in einer Knoblauch-Sahne-Sauce dazu Butterreis und Salat",
+            "price": "20.90"
+          },
+          {
+            "name": "Zanderfilet",
+            "info": "Zanderfilet auf frischem knackigem gedünstetem Gemüse dazu Röstitaler",
+            "price": "20.90"
+          }
+        ]
+      },
+      {
+        "name": "Steak",
+        "list": [
+          {
+            "name": "Putensteak",
+            "info": "dazu Folienkartoffel mit Kräuterquark und Salat",
+            "price": "17.90"
+          },
+          {
+            "name": "Rumpsteak(200g)",
+            "info": "argentinisches Rumpsteak mit Pommes Frites und Salat",
+            "price": "22.90"
+          },
+          {
+            "name": "Lustiger Bosnjak",
+            "info": "Rumpsteak  gefüllt mit Schinken, Käse und Senfdazu Djuvecreis, Pommes Frites und Salat",
+            "price": "23.90"
+          },
+          {
+            "name": "'Black and White' (200g)",
+            "info": "argentinisches Rumpsteak mit Pfefferrahmsauce, Kroketten und Salat",
+            "price": "23.90"
+          },
+          {
+            "name": "Steak 'Kolping'",
+            "info": "argentinisches Rumpsteak (200g) mit geschmorten Zwiebeln dazu Bratkartoffeln und Salat",
+            "price": "23.90"
+          },
+          {
+            "name": "Entrecote-Steak (200g)",
+            "info": "mit Kräuterbutter, dazu Folienkartoffel und Salt",
+            "price": "24.90"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Spezialangebote",
+    "types": [
+      {
+        "name": "Für unsere 'Kleinen gaste'",
+        "list": [
+          {
+            "name": "Kinderspieß",
+            "info": "vom Schwein mit Pommes Frites dazu Wahlweise Ketchup oder Mayonaise",
+            "price": "8.90"
+          },
+          {
+            "name": "Kinderportion Civapcici",
+            "info": "mit Pommes Frites dazu Wahlweise Ketchup oder Mayonaise",
+            "price": "8.90"
+          },
+          {
+            "name": "Kleines Wienerschnitzel",
+            "info": "mit Pommes Frites dazu Wahlweise Ketchup oder Mayonaise",
+            "price": "8.90"
+          },
+          {
+            "name": "Konstantin Steak",
+            "info": "kl. Schweinesteak mit Broccoli Suace Hollandaise und Kroketten",
+            "price": "8.90"
+          }
+        ]
+      },
+      {
+        "name": "Platten für 2 Personen",
+        "list": [
+          {
+            "name": "Balkangrillplatte",
+            "info": "4 Cevapcici, zwei kleine Hacksteaks, zwei Schweinesteaks, zwei Spieße und Speckdazu Djuvecreis, Pommes Frites, Gemüse und Salat",
+            "price": "39.90"
+          },
+          {
+            "name": "Steakplatte",
+            "info": "Arg. Rumpsteak (450g) wird serviert mit Pfefferrahmsauce & Sauce Bearnaise dazu Bratkartoffeln (Speck & Zwiebeln), Kaisergemüse überzogen mit Sauce Hollandaise",
+            "price": "49.90"
+          }
+        ]
+      },
+      {
+        "name": "HAUSSPEZIALITÄTEN",
+        "list": [
+          {
+            "name": "Hähnchenfilet in einer Sahnesauce mit Mozzarella überbacken",
+            "info": "dazu Butterreis und Kaisergemüse",
+            "price": "14.90"
+          },
+          {
+            "name": "Putenmedaillons Hawaii",
+            "info": "belegt mit Kochschinken und Ananas mit Hollandaise und Käse überbacken dazu Röstitaler und Salat",
+            "price": "16.90"
+          },
+          {
+            "name": "Schweinegeschnetzeltes 'Züricher Art'",
+            "info": "mit Champignons im Rahmsauce dazu Röstitaler und Salat",
+            "price": "16.50"
+          },
+          {
+            "name": "Schweinefile 'Imperial'",
+            "info": "3 Medaillons in Pfefferrahmsauce dazu Bratkartoffeln und Salat",
+            "price": "16.50"
+          },
+          {
+            "name": "Kolping-Teller",
+            "info": "Schweinefiletmedaillons mit gerösteten Zwiebeln mit Käse überbacken dazu Kroketten",
+            "price": "16.50"
+          },
+          {
+            "name": "Filettopf",
+            "info": "Schweine-, Puten- und Rindersteak mit Bratkartoffeln, Gemüse und Salat",
+            "price": "18.50"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Beilage",
+    "types": [
+      {
+        "name": "Beilagen",
+        "list": [
+          {
+            "name": "Pommes Frites",
+            "info": "",
+            "price": "3.50"
+          },
+          {
+            "name": "Kroketten",
+            "info": "",
+            "price": "3.50"
+          },
+          {
+            "name": "Röstitaler",
+            "info": "",
+            "price": "3.50"
+          },
+          {
+            "name": "Djuvecreis",
+            "info": "",
+            "price": "3.50"
+          },
+          {
+            "name": "Bratkartoffeln",
+            "info": "mit Speck und Zwiebeln",
+            "price": "4.50"
+          },
+          {
+            "name": "Folienkartoffel",
+            "info": "mit Kräuterquark",
+            "price": "4.50"
+          },
+          {
+            "name": "Beilagensalat",
+            "info": "",
+            "price": "3.50"
+          },
+          {
+            "name": "Kaisergemüse",
+            "info": "",
+            "price": "3.50"
+          }
+        ]
+      },
+      {
+        "name": "Saucen",
+        "list": [
+          {
+            "name": "Ketchup",
+            "info": "",
+            "price": "0.60"
+          },
+          {
+            "name": "Majonaise",
+            "info": "",
+            "price": "0.60"
+          },
+          {
+            "name": "Ajvar",
+            "info": "kalte Paprikapast",
+            "price": "3.00"
+          },
+          {
+            "name": "Zaziki",
+            "info": "",
+            "price": "3.00"
+          },
+          {
+            "name": "Kräuterquark",
+            "info": "",
+            "price": "2.10"
+          },
+          {
+            "name": "Sauce Hollandaise",
+            "info": "",
+            "price": "3.00"
+          },
+          {
+            "name": "Sauce Bearnaise",
+            "info": "",
+            "price": "3.00"
+          },
+          {
+            "name": "Pfefferrahmsauce",
+            "info": "",
+            "price": "3.10"
+          },
+          {
+            "name": "Champignonrahmsauce",
+            "info": "",
+            "price": "3.10"
+          },
+          {
+            "name": "Zigeunersauce",
+            "info": "",
+            "price": "3.10"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Dessert",
+    "types": [
+      {
+        "name": "",
+        "list": [
+          {
+            "name": "Gemischtes Eis ohne Sahne",
+            "info": "Vanilleeis, Erbeereis und Schokoladeneis",
+            "price": "4.00"
+          },
+          {
+            "name": "Gemischtes Eis mit Sahne",
+            "info": "Vanilleeis, Erdbeereis und Schokoladeneis",
+            "price": "4.50"
+          },
+          {
+            "name": "Heiße Liebe",
+            "info": "Vanilleeis Wahlweise mit heißen Kirschen oder heißen Himbeeren und Sahne",
+            "price": "6.00"
+          },
+          {
+            "name": "Palatschinken",
+            "info": "Pfannkuchen mit Vanilleeis, Sahne und Schoko-Sauce",
+            "price": "7.00"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Getrankenkarte",
+    "types": [
+      {
+        "name": "Biere",
+        "list": [
+          {
+            "name": "Krombacher Pils",
+            "quantity": "0.2l",
+            "price": "1.90"
+          },
+          {
+            "name": "",
+            "quantity": "0.3l",
+            "price": "2.70"
+          },
+          {
+            "name": "",
+            "quantity": "0.4l",
+            "price": "3.60"
+          },
+          {
+            "name": "Malzbier",
+            "quantity": "0.33l",
+            "price": "2.70"
+          },
+          {
+            "name": "Pils mit Schuss",
+            "quantity": "0.2l",
+            "price": "1.90"
+          },
+          {
+            "name": "",
+            "quantity": "0.3l",
+            "price": "2.70"
+          },
+          {
+            "name": "",
+            "quantity": "0.4l",
+            "price": "3.60"
+          },
+          {
+            "name": "Pils mit Cola",
+            "quantity": "0.2l",
+            "price": "1.90"
+          },
+          {
+            "name": "",
+            "quantity": "0.3l",
+            "price": "2.70"
+          },
+          {
+            "name": "",
+            "quantity": "0.4l",
+            "price": "3.60"
+          },
+          {
+            "name": "Radler",
+            "quantity": "0.2l",
+            "price": "1.90"
+          },
+          {
+            "name": "Pils mit Sprite",
+            "quantity": "0.3l",
+            "price": "2.70"
+          },
+          {
+            "name": "",
+            "quantity": "0.4l",
+            "price": "3.60"
+          },
+          {
+            "name": "Krefelder",
+            "quantity": "0.4l",
+            "price": "3.60"
+          },
+          {
+            "name": "Weizen hell",
+            "quantity": "0.5l",
+            "price": "3.90"
+          },
+          {
+            "name": "Weizen dunkel",
+            "quantity": "0.5l",
+            "price": "3.90"
+          },
+          {
+            "name": "Weizen alkoholfrei",
+            "quantity": "0.5l",
+            "price": "3.90"
+          },
+          {
+            "name": "Krombacher alkoholfrei",
+            "quantity": "0.33l",
+            "price": "2.90"
+          },
+          {
+            "name": "Alsterwasser",
+            "quantity": "0.2l",
+            "price": "1.90"
+          },
+          {
+            "name": "Pils mit Fanta",
+            "quantity": "0.3l",
+            "price": "2.70"
+          },
+          {
+            "name": "",
+            "quantity": "0.4l",
+            "price": "3.60"
+          },
+          {
+            "name": "Bananen-Weizen",
+            "quantity": "0.5l",
+            "price": "4.20"
+          }
+        ]
+      },
+      {
+        "name": "Alkoholfreie Getranke",
+        "list": [
+          {
+            "name": "Sprite",
+            "info": "Flasche",
+            "quantity": "0.2l",
+            "price": "1.90"
+          },
+          {
+            "name": "",
+            "info": "Flasche",
+            "quantity": "0.3l",
+            "price": "2.70"
+          },
+          {
+            "name": "",
+            "quantity": "0.4l",
+            "price": "3.60"
+          },
+          {
+            "name": "Coca-Cola",
+            "quantity": "0.2l",
+            "price": "1.90"
+          },
+          {
+            "name": "",
+            "quantity": "0.3l",
+            "price": "2.70"
+          },
+          {
+            "name": "",
+            "quantity": "0.4l",
+            "price": "3.60"
+          },
+          {
+            "name": "Coca-Cola light",
+            "info": "Flasche",
+            "quantity": "0.2l",
+            "price": "1.90"
+          },
+          {
+            "name": "",
+            "quantity": "0.3l",
+            "price": "2.70"
+          },
+          {
+            "name": "",
+            "quantity": "0.4l",
+            "price": "3.60"
+          },
+          {
+            "name": "Fanta",
+            "info": "Flasche",
+            "quantity": "0.2l",
+            "price": "1.90"
+          },
+          {
+            "name": "",
+            "quantity": "0.3l",
+            "price": "2.70"
+          },
+          {
+            "name": "",
+            "quantity": "0.4l",
+            "price": "3.60"
+          },
+          {
+            "name": "Spezi(Cola,Fanta)",
+            "info": "Flasche",
+            "quantity": "0.2l",
+            "price": "1.90"
+          },
+          {
+            "name": "",
+            "quantity": "0.3l",
+            "price": "2.70"
+          },
+          {
+            "name": "",
+            "quantity": "0.4l",
+            "price": "3.60"
+          },
+          {
+            "name": "Apfelsaftschorle",
+            "info": "Flasche",
+            "quantity": "0.2l",
+            "price": "1.90"
+          },
+          {
+            "name": "",
+            "quantity": "0.3l",
+            "price": "2.70"
+          },
+          {
+            "name": "",
+            "quantity": "0.4l",
+            "price": "3.60"
+          },
+          {
+            "name": "Mineralwasser",
+            "info": "Flasche",
+            "quantity": "0.25l",
+            "price": "2.60"
+          },
+          {
+            "name": "Mineralwasser",
+            "info": "Flasche",
+            "quantity": "0.75l",
+            "price": "6.00"
+          },
+          {
+            "name": "Orangensaft",
+            "quantity": "0.2l",
+            "price": "2.80"
+          },
+          {
+            "name": "Apfelsaft",
+            "quantity": "0.2l",
+            "price": "2.80"
+          },
+          {
+            "name": "Johannisbeersaft",
+            "quantity": "0.2l",
+            "price": "2.80"
+          },
+          {
+            "name": "Ginger Ale ",
+            "quantity": "0.2l",
+            "price": "2.80"
+          },
+          {
+            "name": "Bitter Lemon ",
+            "quantity": "0.2l",
+            "price": "2.80"
+          },
+          {
+            "name": "Tonic Water ",
+            "quantity": "0.2l",
+            "price": "2.80"
+          },
+          {
+            "name": "Fassbrause",
+            "info": "Flascge",
+            "quantity": "0.33l",
+            "price": "2.80"
+          }
+        ]
+      },
+      {
+        "name": "Offene Weine",
+        "list": [
+          {
+            "name": "Rotwein",
+            "info": "trocken, halbtrocken, lieblich",
+            "quantity": "0.25l Karaffe",
+            "price": "5.20"
+          },
+          {
+            "name": "Weißwein",
+            "info": "trocken, halbtrocken, lieblich",
+            "quantity": "0.25l Karaffe",
+            "price": "5.20"
+          },
+          {
+            "name": "Weinschorle",
+            "quantity": "0.25l",
+            "price": "4.50"
+          }
+        ]
+      },
+      {
+        "name": "Flaschenweine",
+        "list": [
+          {
+            "name": "Vranac (Rotwein)",
+            "info": "trocken",
+            "quantity": "0.75l",
+            "price": "25.00"
+          },
+          {
+            "name": "Krstac (Weißwein)",
+            "info": "trocken",
+            "quantity": "0.25l Karaffe",
+            "price": "25.00"
+          }
+        ]
+      },
+      {
+        "name": "Warme Getranke",
+        "list": [
+          {
+            "name": "Tasse Kaffee",
+            "info": "",
+            "quantity": "",
+            "price": "2.20"
+          },
+          {
+            "name": "Cappuccino",
+            "info": "",
+            "quantity": "",
+            "price": "2.80"
+          },
+          {
+            "name": "Tasse Tee",
+            "quantity": "",
+            "price": "2.20"
+          },
+          {
+            "name": "Tasse Kakao",
+            "info": "",
+            "quantity": "",
+            "price": "2.50"
+          },
+          {
+            "name": "Tasse Kakao mit Sahne",
+            "info": "",
+            "quantity": "",
+            "price": "2.80"
+          },
+          {
+            "name": "Milchkaffee",
+            "quantity": "",
+            "price": "2.80"
+          },
+          {
+            "name": "Latte Macchiatto",
+            "info": "",
+            "quantity": "",
+            "price": "3.10"
+          },
+          {
+            "name": "Tasse Espresso",
+            "info": "",
+            "quantity": "",
+            "price": "2.20"
+          },
+          {
+            "name": "Glas Grog",
+            "quantity": "",
+            "price": "3.50"
+          }
+        ]
+      },
+      {
+        "name": "Longdrinks",
+        "list": [
+          {
+            "name": "Wodka Lemon",
+            "info": "",
+            "quantity": "2cl",
+            "price": "3.90"
+          },
+          {
+            "name": "Wodka Orange",
+            "info": "",
+            "quantity": "2cl",
+            "price": "3.90"
+          },
+          {
+            "name": "Bacardi Cola",
+            "info": "",
+            "quantity": "2cl",
+            "price": "3.90"
+          },
+          {
+            "name": "Asbach Cola",
+            "info": "",
+            "quantity": "2cl",
+            "price": "3.50"
+          }
+        ]
+      },
+      {
+        "name": "Spirituosen",
+        "list": [
+          {
+            "name": "Tequila",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.00"
+          },
+          {
+            "name": "Sljivovic",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.00"
+          },
+          {
+            "name": "Julischka",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.00"
+          },
+          {
+            "name": "Obstler",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.10"
+          },
+          {
+            "name": "Fernet Branca",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.30"
+          },
+          {
+            "name": "Jägermeister",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.30"
+          },
+          {
+            "name": "Ramazotti",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.30"
+          },
+          {
+            "name": "Baileys",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.30"
+          },
+          {
+            "name": "Jubil Aquavit",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.30"
+          },
+          {
+            "name": "Malteser",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.30"
+          },
+          {
+            "name": "Wodka",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.30"
+          },
+          {
+            "name": "Williams",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.50"
+          },
+          {
+            "name": "Asbach Uralt",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.50"
+          },
+          {
+            "name": "Grappa",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.50"
+          },
+          {
+            "name": "Jack Daniels",
+            "info": "",
+            "quantity": "2cl",
+            "price": "3.00"
+          },
+          {
+            "name": "Remy Martin",
+            "info": "",
+            "quantity": "2cl",
+            "price": "4.00"
+          },
+          {
+            "name": "Chivas",
+            "info": "",
+            "quantity": "2cl",
+            "price": "4.30"
+          },
+          {
+            "name": "Ballantines",
+            "info": "",
+            "quantity": "2cl",
+            "price": "3.00"
+          },
+          {
+            "name": "Jim Beam",
+            "info": "",
+            "quantity": "2cl",
+            "price": "3.00"
+          },
+          {
+            "name": "Bacardi",
+            "info": "",
+            "quantity": "2cl",
+            "price": "3.00"
+          },
+          {
+            "name": "Ouzo",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.10"
+          },
+          {
+            "name": "Sambuca",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.10"
+          },
+          {
+            "name": "Korn",
+            "info": "",
+            "quantity": "2cl",
+            "price": "2.00"
+          }
+        ]
+      }
+    ]
+  }
+]

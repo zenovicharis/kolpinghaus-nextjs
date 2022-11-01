@@ -1,0 +1,94 @@
+@import "./../styles/config.scss";
+
+.aboutRestourant {
+  background-color: $primary_blue;
+
+  .headPic {
+    padding: 0 !important;
+    background: -webkit-linear-gradient(
+        $secondary_yellow,
+        rgba(0, 0, 0, 0),
+        $primary_blue
+      ),
+      url("/img/banner.jpg");
+    background: -moz-linear-gradient(
+        $secondary_yellow,
+        rgba(0, 0, 0, 0),
+        $primary_blue
+      ),
+      url("/img/banner.jpg");
+    background: -o-linear-gradient(
+        $secondary_yellow,
+        rgba(0, 0, 0, 0),
+        $primary_blue
+      ),
+      url("/img/banner.jpg");
+    background: linear-gradient(
+        $secondary_yellow,
+        rgba(0, 0, 0, 0),
+        $primary_blue
+      ),
+      url("/img/banner.jpg");
+    background-size: 100% 100%;
+    h2 {
+      margin: 0 !important;
+      padding: 2% 0 35% 0%;
+      text-align: center;
+      color: #373e58;
+      font-family: "Caveat", cursive;
+    }
+  }
+  .bottomText {
+    color: white;
+    flex-basis: 65%;
+    p {
+      font-size: 0.9em;
+      text-align: justify;
+    }
+    padding: 2rem;
+  }
+  .sideBorder {
+    border: 1px solid $secondary_yellow;
+  }
+  .schedule {
+    color: white;
+    display: flex;
+    flex-basis: 35%;
+    flex-direction: column;
+    h3 {
+      text-align: center;
+      color: $secondary_yellow;
+      font-style: italic;
+    }
+    table {
+      width: 80%;
+      margin: auto;
+
+      td {
+        margin-top: 2em;
+        padding: 5px;
+        text-align: left;
+        font-family: "Roboto", sans-serif;
+        font-size: inherit;
+        color: white;
+
+        border-bottom: 1px solid black;
+        border-color: $secondary_yellow;
+        text-align: center;
+      }
+      tr:last-child {
+        td {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  .description {
+    display: flex;
+
+    @include media-max-ml {
+      flex-direction: column;
+    }
+  }
+}
