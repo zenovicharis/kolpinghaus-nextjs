@@ -1,7 +1,10 @@
-$secondary_yellow: #e0aa28;
+@import "./../styles/config.scss";
 
 .caroselContainer {
   padding: 2rem;
+  @include media-max-ml {
+    padding: 1rem;
+  }
   background: $secondary_yellow;
   .slideImage {
     height: 60vh;
@@ -17,6 +20,9 @@ $secondary_yellow: #e0aa28;
   }
   .right {
     right: 8%;
+    @include media-max-ml {
+      right: 12%;
+    }
     transform: rotate(180deg);
   }
 
@@ -41,12 +47,18 @@ $secondary_yellow: #e0aa28;
         font-weight: 800;
         color: $secondary_yellow;
         font-family: "Roboto", sans-serif;
+        @include media-max-ml {
+          font-size: 1.2em;
+        }
       }
     }
     .about {
       font-family: "Caveat", cursive;
       line-height: 1;
       font-size: 1.5em;
+      @include media-max-ml {
+        font-size: 1.1em;
+      }
       margin: 0.7rem 0;
     }
   }

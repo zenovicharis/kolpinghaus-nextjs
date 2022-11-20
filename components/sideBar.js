@@ -1,15 +1,29 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import clsx from "clsx";
 import SideMenu from "./sideMenu";
+import { style } from "@mui/system";
+import Box from "@mui/material/Box";
 import Credentials from "./credentials";
-import styles from "../styles/Sidebar.module.scss";
-import { useTheme, useMediaQuery } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
 import SideMenuMobile from "./sideMenuMobile";
+import { useMediaQuery } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import Accordion from "@mui/material/Accordion";
+import styles from "../styles/Sidebar.module.scss";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 export default function SideBar({ schedule, isMainPage }) {
-  const theme = useTheme();
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#ffffff",
+      },
+    },
+  });
+
   const isSmallOrLess = useMediaQuery(theme.breakpoints.down("md"));
   var days = [
     "Sonntag",
@@ -27,67 +41,73 @@ export default function SideBar({ schedule, isMainPage }) {
     schedule ? schedule[days[new Date().getDay()]] : ""
   );
   return (
-    <>
+    <ThemeProvider theme={theme}>
       {isSmallOrLess ? (
-        <div className={styles.mobileHeader}>
-          <div className={styles.mobileHeaderContainer}>
-            <div></div>
-            <div>
-              <Image
-                src="/img/Menu/logo-mobile.png"
-                alt="Kolpinghaus Logo"
-                width={230}
-                height={70}
-              />
-            </div>
-            <div onClick={() => setHideMenu(!hideMenu)}>
-              <Image
-                className
-                src="/img/Menu/button.svg"
-                alt="Kolpinghaus Logo"
-                width={50}
-                height={50}
-              />
-            </div>
-          </div>
-          <div className={clsx({ hiddenList: true, hideMenu: hideMenu })}>
-            {!isMainPage ? (
-              <ul>
-                <li>
-                  <Link href="/">Home</Link>
-                </li>
-                <li>
-                  <Link href="/">Restaurant</Link>
-                </li>
-                <li>
-                  <Link href="/">Menu</Link>
-                </li>
-                <li>
-                  <Link href="/">Kontakt</Link>
-                </li>
-                <li>
-                  <Link href="/impressum">Impressum</Link>
-                </li>
-              </ul>
-            ) : (
-              <ul>
-                <SideMenuMobile callback={() => setHideMenu(true)} />
-                <li>
-                  <Link href="/impressum">Impressum</Link>
-                </li>
-              </ul>
-            )}
-          </div>
-        </div>
+        <Box sx={{ flexGrow: 1 }}>
+          <AppBar position="fixed" color="primary">
+            <Accordion className={style.accordionHead}>
+              <AccordionSummary
+                expandIcon={<MenuIcon />}
+                collaps
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <>
+                  <div
+                    style={{
+                      position: "relative",
+                      width: "70%",
+                      height: "80px",
+                      margin: "auto",
+                    }}
+                  >
+                    <Image
+                      src="/img/Menu/logo-mobile.png"
+                      alt="Kolpinghaus Logo"
+                      fill
+                    />
+                  </div>
+                </>
+              </AccordionSummary>
+              <AccordionDetails>
+                <>
+                  {!isMainPage ? (
+                    <ul className={styles.menuUnorderedList}>
+                      <li>
+                        <Link href="/">Home</Link>
+                      </li>
+                      <li>
+                        <Link href="/">Restaurant</Link>
+                      </li>
+                      <li>
+                        <Link href="/">Menu</Link>
+                      </li>
+                      <li>
+                        <Link href="/">Kontakt</Link>
+                      </li>
+                      <li>
+                        <Link href="/impressum">Impressum</Link>
+                      </li>
+                    </ul>
+                  ) : (
+                    <ul className={styles.menuUnorderedList}>
+                      <SideMenuMobile callback={() => setHideMenu(true)} />
+                      <li>
+                        <Link href="/impressum">Impressum</Link>
+                      </li>
+                    </ul>
+                  )}
+                </>
+              </AccordionDetails>
+            </Accordion>
+          </AppBar>
+        </Box>
       ) : (
         <div className={styles.sideBar}>
           <div className={styles.logoContainer}>
-            <Image
-              src="/img/Menu/Logo.png"
-              alt="Kolpinghaus Logo"
-              width={450}
-              height={60}
-            />
+            <div className={styles.logoContainer}>
+              <Image src="/img/Menu/Logo.png" alt="Kolpinghaus Logo" fill />
+            </div>
             <p className={styles.subtitle} id="kuche">
               Balkanküche
             </p>
@@ -145,6 +165,6 @@ export default function SideBar({ schedule, isMainPage }) {
           </div>
         </div>
       )}
-    </>
+    </ThemeProvider>
   );
 }

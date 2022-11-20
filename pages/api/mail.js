@@ -8,6 +8,7 @@ export default async function handler(req, res) {
       return;
     }
     const { email, name, message } = req.body;
+
     const client = new SMTPClient({
       user: process.env.EMAIL,
       password: process.env.PASSWORD,
@@ -15,6 +16,7 @@ export default async function handler(req, res) {
       ssl: true,
     });
     client.send({
+      "reply-to": email,
       text: `${message}`,
       from: email,
       to: process.env.RECIEVER,

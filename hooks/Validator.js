@@ -19,29 +19,17 @@ export const validator = (values, fieldName) => {
 };
 
 // ******************************
-
-// ******************************
-function validatePhoneNumber(phone, errors) {
-  let result = true;
-  const phoneObject = parsePhoneNumber(phone);
-  if (!phoneObject) {
-    errors.phone = "Invalid Phonenumber";
-    result = false;
-  }
-  return result;
-}
-// ******************************
 function validateEmail(email, errors) {
   let result = true;
 
   if (!email) {
-    errors.email = "Email is Required";
+    errors.email = "E-Mail ist erforderlich";
     result = false;
   } else {
     const re =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     result = re.test(String(email).toLowerCase());
-    if (!result) errors.email = "Invalid Email address";
+    if (!result) errors.email = "Ungültige E-Mail-Adresse";
   }
   return result;
 }
@@ -50,11 +38,11 @@ function validateName(name, errors) {
   let result = true;
 
   if (!name) {
-    errors.name = "Name is Required";
+    errors.name = "Name ist erforderlich";
     result = false;
   } else {
     if (name.length < 2) {
-      errors.name = "Name must be longer then 2 letters";
+      errors.name = "Der Name muss länger als 2 Buchstaben sein";
       result = false;
     }
   }
@@ -66,11 +54,11 @@ function validateMessage(message, errors) {
   let result = true;
 
   if (!message) {
-    errors.message = "Message is Required";
+    errors.message = "Nachricht ist erforderlich";
     result = false;
   } else {
     if (message.length < 2) {
-      errors.message = "Message must be longer then 2 letters";
+      errors.message = "Die Nachricht muss länger als 2 Buchstaben sein";
       result = false;
     }
   }

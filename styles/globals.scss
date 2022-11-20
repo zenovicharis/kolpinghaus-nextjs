@@ -126,31 +126,3 @@ a.active-menu h5 {
   color: $secondary_yellow !important;
   background: none;
 }
-
-.hiddenList {
-  transition: all 0.4s ease;
-  &.hideMenu {
-    max-height: 0;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    li {
-      cursor: pointer;
-      a {
-        display: block;
-        color: $secondary_yellow;
-        text-decoration: none;
-        padding: 2% 0;
-        &:hover {
-          background-color: $secondary_yellow;
-          color: #fff;
-        }
-      }
-    }
-  }
-  &.hide ul {
-    height: 0;
-  }
-}
