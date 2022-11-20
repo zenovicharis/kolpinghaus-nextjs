@@ -1,7 +1,8 @@
 /*menu start */
-$primary_blue: #373e58;
-$secondary_yellow: #e0aa28;
-$accent_blue: #8f98bb;
+// $primary_blue: #373e58;
+// $secondary_yellow: #e0aa28;
+// $accent_blue: #8f98bb;
+@import "./../styles/config.scss";
 
 .menuCart {
   background-image: url("/img/MenuBG.png");
@@ -11,30 +12,23 @@ $accent_blue: #8f98bb;
   padding-bottom: 7%;
 }
 .menu {
-  h1 {
-    position: relative;
-    margin: 0;
-    text-align: center;
-    font-family: "Caveat", cursive;
-    color: white;
-    &::before {
-      content: " ";
+  .menuTitle {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    .menuTitleLine {
       border-bottom: solid 1pt $accent_blue;
-      display: block;
-      width: 27rem;
-      height: 1px;
-      position: absolute;
-      top: 43%;
+      flex-grow: 2;
+      margin: auto;
     }
-    &::after {
-      content: " ";
-      border-bottom: solid 1pt $accent_blue;
-      display: block;
-      width: 27rem;
-      height: 1px;
-      position: absolute;
-      right: 0;
-      top: 43%;
+    h1 {
+      flex-grow: 0.2;
+      position: relative;
+      margin: 0;
+      text-align: center;
+      font-family: "Caveat", cursive;
+      color: white;
     }
   }
 }
@@ -57,6 +51,9 @@ $accent_blue: #8f98bb;
     font-size: 12px;
     letter-spacing: 1.8px;
     cursor: pointer;
+    @include media-max-ml {
+      line-height: 2rem;
+    }
   }
   a {
     text-decoration: none;

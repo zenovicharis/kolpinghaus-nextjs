@@ -66,7 +66,7 @@ export default function Contact({ siteKey }) {
       });
       if (response.ok) {
         // If the response is ok than show the success alert
-        alert("Email registered successfully");
+        // alert("Email registered successfully");
       } else {
         // Else throw an error with the message returned
         // from the API
@@ -74,7 +74,7 @@ export default function Contact({ siteKey }) {
         throw new Error(error.message);
       }
     } catch (error) {
-      alert(error?.message || "Something went wrong");
+      // alert(error?.message || "Something went wrong");
     } finally {
       // Reset the reCAPTCHA when the request has failed or succeeeded
       // so that it can be executed again if user submits another email.
@@ -201,7 +201,7 @@ export default function Contact({ siteKey }) {
             severity="error"
             sx={{ width: "100%" }}
           >
-            Email is not Sent! Please try again later.
+            E-Mail wird nicht gesendet! Bitte versuchen Sie es später erneut.
           </Alert>
         </Snackbar>
         <Snackbar
@@ -214,8 +214,8 @@ export default function Contact({ siteKey }) {
             severity="success"
             sx={{ width: "100%" }}
           >
-            Email Sent! Thank you for writing to us. We will respond as soon as
-            possible.
+            E-Mail gesendet! Vielen Dank, dass Sie uns geschrieben haben. Wir
+            werden so schnell wie möglich antworten möglich.
           </Alert>
         </Snackbar>
       </ThemeProvider>

@@ -8,7 +8,13 @@ function Menu({ food }) {
   return (
     <div className={styles.menuCart}>
       <div className={styles.menu}>
-        <h1>Restourant Menu </h1>
+        <div className={styles.menuTitle}>
+          <div className={styles.menuTitleLine}></div>
+
+          <h1>Restourant Menu </h1>
+
+          <div className={styles.menuTitleLine}></div>
+        </div>
         <div className={styles.row}>
           <div className={styles.sections}>
             <p>

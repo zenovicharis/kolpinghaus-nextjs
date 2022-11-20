@@ -47,18 +47,12 @@ const useForm = ({ initState, callback, validator }) => {
 
   // ******************************
   const resetForm = () => {
-    console.log("EXECUTES HERE");
     setState(() => ({
       name: "",
       email: "",
       message: "",
     }));
-    // setErrors({});
-    // setState({
-    //   name: "",
-    //   email: "",
-    //   message: "",
-    // });
+    setErrors(() => ({}));
   };
 
   return {
