@@ -20,16 +20,22 @@
     "googleapis": "^105.0.0",
     "lodash": "^4.17.21",
     "mongodb": "^4.17.0",
-    "next": "^13.5.7",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "next": "^15.4.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "react-google-recaptcha": "^2.1.0",
     "react-responsive-carousel": "^3.2.23",
     "react-scroll": "^1.8.8"
   },
   "devDependencies": {
+    "@types/node": "^24.1.0",
+    "@types/node-fetch": "^2.6.12",
+    "@types/react": "^18.3.23",
+    "@types/react-google-recaptcha": "^2.1.9",
+    "@types/react-scroll": "^1.8.10",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
-    "sass": "^1.55.0"
+    "sass": "^1.55.0",
+    "typescript": "^5.8.3"
   }
 }
