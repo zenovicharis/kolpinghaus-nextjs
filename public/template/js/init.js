@@ -110,21 +110,6 @@
   
   });
 	
-// accordion menu
-
-$('.menu-section').hide();
-
-$('h4.menu-title-section').on('click',function(){
-
-  if( $(this).next().is(':hidden') ) {
-  $('h4.menu-title-section').removeClass('active').next().slideUp(); 
-$(this).toggleClass('active').next().slideDown();
-  } else {
-   $('h4.menu-title-section').removeClass('active').next().slideUp();
- }
-  return false; 
- });
-
 // end accordion menu
 
 //fluid width videos
@@ -169,8 +154,8 @@ $('a[href*="#"]:not([href="#"])').click(function() {
     target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
     if (target.length) {
       $('html, body').animate({
-        scrollTop: target.offset().top
-      }, 1000);
+        scrollTop: target.offset().top - 80
+      }, 1000, 'easeOutExpo');
       return false;
     }
   }

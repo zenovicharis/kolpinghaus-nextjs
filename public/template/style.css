@@ -1692,8 +1692,8 @@ transform: translateX(-50%) translateY(-50%);
 
 /* END HOME STYLE 2 */
 
-#home-gallery {
-    background: var(--headings-color);
+#gallery {
+    background: #f9f9f9;
 }
 
 .home-blog{

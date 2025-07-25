@@ -1,57 +1,58 @@
-import { FC } from "react";
-import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-interface GalleryImage {
-  path: string;
-}
-
-interface HomeGalleryProps {
-  images: GalleryImage[];
-}
-
-const HomeGallery: FC<HomeGalleryProps> = ({ images }) => {
-  const sections = [
-    {
-      title: "Bei Uns",
-      subtitle: "Gallerie ansehen",
-      image: images[0]?.path || "/img/grid/pic1.jpg",
-      link: "#",
-    },
-    {
-      title: "Unsere Speisekarte",
-      subtitle: "Speisekarte ansehen",
-      image: "/img/MenuBG.png",
-      link: "#menu",
-    },
-    {
-      title: "Jetzt Buchen",
-      subtitle: "Reservieren Sie Ihren Tisch",
-      image: "/img/banner.jpg",
-      link: "#reservation",
-    },
+const HomeGallery = () => {
+  const images = [
+    { path: "/img/grid/pic1.jpg", title: "Galeriebild 1" },
+    { path: "/img/grid/pic2.jpg", title: "Galeriebild 2" },
+    { path: "/img/grid/pic3.jpg", title: "Galeriebild 3" },
   ];
 
   return (
-    <section id="home-content-1" className="home-widget">
+    <section id="gallery" className="page-content">
       <div className="container">
         <div className="row">
-          {sections.map((section, index) => (
-            <div className="col-md-4" key={index}>
-              <div className="home-featured-item">
-                <div
-                  className="home-featured-img"
-                  style={{ backgroundImage: `url(${section.image})` }}
-                ></div>
-                <a href={section.link}>
-                  <div className="grid-overlay"></div>
-                  <div className="featured-item-content">
-                    <h5>{section.title}</h5>
-                    <div className="featured-short-desc">{section.subtitle}</div>
+          <div className="col-md-12">
+            <div className="headline">
+              <h2>Gallerie</h2>
+            </div>
+            <div className="gallery-3colgrid-content">
+              <div className="menu-holder menu-3col-grid-image gallery-holder clearfix">
+                {images.map((image, index) => (
+                  <div className="menu-post gallery-post" key={index}>
+                    <a
+                      href={image.path}
+                      className="lightbox"
+                      title={image.title}
+                    >
+                      <div className="item-content-bkg gallery-bkg">
+                        <div
+                          className="gallery-img"
+                          style={{ backgroundImage: `url(${image.path})` }}
+                        ></div>
+                        <div className="menu-post-desc">
+                          <h4>{image.title}</h4>
+                          <div className="gallery-mglass">
+                            <i className="fas fa-search"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
                   </div>
-                </a>
+                ))}
               </div>
             </div>
-          ))}
+            <div
+              className="col-md-12 text-center"
+              style={{ marginTop: "30px" }}
+            >
+              <p className="contact-btn">
+                <Link href="/gallery" legacyBehavior>
+                  <a id="submit">Mehr sehen</a>
+                </Link>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

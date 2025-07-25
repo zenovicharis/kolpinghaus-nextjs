@@ -9,7 +9,7 @@ interface MenuItem {
 }
 
 interface MenuType {
-  name:string;
+  name: string;
   list: MenuItem[];
 }
 
@@ -23,17 +23,56 @@ interface HomeMenuProps {
 }
 
 const HomeMenu: FC<HomeMenuProps> = ({ food }) => {
-  const [openSection, setOpenSection] = useState(food[0]?.types[0]?.name);
+  // Correct mapping based on the provided database structure.
+  const menuGroupMapping: { [key: string]: string[] } = {
+    Vorspeise: ["Vorspeise"],
+    Hauptgericht: ["Hauptgericht"],
+    Specialangebote: ["Spezialangebote"],
+    Beilage: ["Beilage"],
+    Getrankenkarte: ["Getrankenkarte"],
+    Dessert: ["Dessert"],
+  };
 
-  // Helper to create a unique ID from a string
+  // The desired order of the menu categories.
+  const menuOrder = [
+    "Vorspeise",
+    "Hauptgericht",
+    "Specialangebote",
+    "Beilage",
+    "Getrankenkarte",
+    "Dessert",
+  ];
+
+  // Transform the raw food data into the desired menu structure.
+  const transformedMenu: MenuCategory[] = menuOrder
+    .map((newCategoryName) => {
+      const dbCategoryNames = menuGroupMapping[newCategoryName];
+      const types: MenuType[] = [];
+
+      const matchingDbCategories = food.filter((dbCategory) =>
+        dbCategoryNames.includes(dbCategory.name)
+      );
+
+      matchingDbCategories.forEach((dbCategory) => {
+        types.push(...dbCategory.types);
+      });
+
+      if (types.length > 0) {
+        return {
+          name: newCategoryName,
+          types,
+        };
+      }
+      return null;
+    })
+    .filter((category): category is MenuCategory => category !== null);
+
+  const [openSection, setOpenSection] = useState(transformedMenu[0]?.name);
+
   const toId = (name: string) => name.toLowerCase().replace(/\s+/g, "-");
 
   const toggleSection = (sectionName: string) => {
-    if (openSection === sectionName) {
-      setOpenSection("");
-    } else {
-      setOpenSection(sectionName);
-    }
+    setOpenSection(openSection === sectionName ? "" : sectionName);
   };
 
   return (
@@ -43,35 +82,47 @@ const HomeMenu: FC<HomeMenuProps> = ({ food }) => {
           <div className="col-md-12">
             <div className="alignc">
               <h2 className="home-subtitle">Entdecken Sie</h2>
-              <h1 className="home-title margin-b24 title-headline">Unsere Speisekarte</h1>
+              <h1 className="home-title margin-b24 title-headline">
+                Unsere Speisekarte
+              </h1>
               <p>
-                Entdecken Sie die Vielfalt und den Geschmack unserer kroatischen und mediterranen Spezialitäten. Alle Zutaten sind frisch und sorgfältig von unseren Köchen ausgewählt. Genießen Sie ein außergewöhnliches kulinarisches Erlebnis.
+                Entdecken Sie die Vielfalt und den Geschmack unserer kroatischen
+                und mediterranen Spezialitäten. Alle Zutaten sind frisch und
+                sorgfältig von unseren Köchen ausgewählt. Genießen Sie ein
+                außergewöhnliches kulinarisches Erlebnis.
               </p>
             </div>
 
             {/* FOOD MENU */}
             <ul className="our-menu">
-              {food.map((category) =>
-                category.types.map((type) => {
-                  const sectionId = toId(type.name);
-                  const isOpen = openSection === type.name;
-
-                  return (
-                    <li key={sectionId}>
-                      <h4
-                        className={`menu-title-section ${
-                          isOpen ? "active" : ""
-                        }`}
-                        onClick={() => toggleSection(type.name)}
-                      >
-                        <a href={`#${sectionId}`}>{type.name}</a>
-                      </h4>
+              {transformedMenu.map((category) => (
+                <li key={category.name}>
+                  <h4
+                    className={`menu-title-section ${
+                      openSection === category.name ? "active" : ""
+                    }`}
+                    onClick={() => toggleSection(category.name)}
+                  >
+                    <a href={`#${toId(category.name)}`}>{category.name}</a>
+                  </h4>
+                  <div
+                    id={toId(category.name)}
+                    className="menu-section"
+                    style={{
+                      maxHeight: openSection === category.name ? "2000px" : "0",
+                      overflow: "hidden",
+                      transition: "max-height 0.8s ease-in-out",
+                    }}
+                  >
+                    {category.types.map((type) => (
                       <div
-                        id={sectionId}
-                        className="menu-section"
-                        style={{ display: isOpen ? "block" : "none" }}
+                        key={type.name}
+                        className="menu-holder menu-2col menu-accordion"
                       >
-                        <div className="menu-holder menu-2col menu-accordion">
+                        <div className="menu-post-wrapper">
+                          {type.name !== category.name && (
+                            <h5 className="menu-type-name">{type.name}</h5>
+                          )}
                           {type.list.map((item, itemIndex) => (
                             <div
                               className={`menu-post clearfix ${
@@ -111,10 +162,10 @@ const HomeMenu: FC<HomeMenuProps> = ({ food }) => {
                           ))}
                         </div>
                       </div>
-                    </li>
-                  );
-                })
-              )}
+                    ))}
+                  </div>
+                </li>
+              ))}
             </ul>
             {/* /FOOD MENU*/}
           </div>
