@@ -40,7 +40,6 @@ const WorkTimeManagement = () => {
       <div className="container" style={{ paddingTop: '40px', paddingBottom: '40px' }}>
         <div className="row">
           <div className="col-md-12">
-            <button className="view-more" style={{ marginBottom: '20px' }}>Neu hinzufügen</button>
             <table style={{ width: '100%' }}>
               <thead>
                 <tr>
@@ -59,7 +58,6 @@ const WorkTimeManagement = () => {
                     <td style={cellStyle} data-label="Aktionen">
                       <div style={actionsContainerStyle}>
                         <button className="view-more" style={actionButtonStyle}>Bearbeiten</button>
-                        <button className="view-more" style={actionButtonStyle}>Löschen</button>
                       </div>
                     </td>
                   </tr>
