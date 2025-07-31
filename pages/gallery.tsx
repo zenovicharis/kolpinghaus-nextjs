@@ -1,13 +1,18 @@
 import Layout from "../components/Layout";
+import { GetServerSideProps } from "next";
+import { getImages } from "../lib/queries/images";
+import { images as ImageSchema, Worktime } from '../db/schema';
+import { minioClient } from "../lib/minio";
+import { getWorkTime } from "../lib/queries/workTime";
 
-const GalleryPage = () => {
-  const images = Array.from({ length: 12 }, (_, i) => ({
-    path: `/img/grid/pic${i + 1}.jpg`,
-    title: `Galeriebild ${i + 1}`,
-  }));
+interface GalleryPageProps {
+    images: (typeof ImageSchema.$inferSelect)[];
+    workTime: Worktime[];
+}
 
+const GalleryPage = ({ images, workTime }: GalleryPageProps) => {
   return (
-    <Layout>
+    <Layout workTime={workTime}>
       <section
         className="topSingleBkg topPageBkg"
         style={{
@@ -37,17 +42,16 @@ const GalleryPage = () => {
                   {images.map((image, index) => (
                     <div className="menu-post gallery-post" key={index}>
                       <a
-                        href={image.path}
+                        href={image.url}
                         className="lightbox"
-                        title={image.title}
                       >
                         <div className="item-content-bkg gallery-bkg">
                           <div
                             className="gallery-img"
-                            style={{ backgroundImage: `url(${image.path})` }}
+                            style={{ backgroundImage: `url(${image.url})` }}
                           ></div>
                           <div className="menu-post-desc">
-                            <h4>{image.title}</h4>
+                            <h4>Galeriebild {index + 1}</h4>
                             <div className="gallery-mglass">
                               <i className="fas fa-search"></i>
                             </div>
@@ -64,6 +68,29 @@ const GalleryPage = () => {
       </section>
     </Layout>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<GalleryPageProps> = async () => {
+    const imagesData = await getImages();
+    const workTime = await getWorkTime();
+
+    const presignedImages = await Promise.all(
+        imagesData.map(async (image) => {
+            const presignedUrl = await minioClient.presignedGetObject(
+                process.env.MINIO_BUCKET_NAME!,
+                image.url,
+                15 * 60
+            );
+            return { ...image, url: presignedUrl };
+        })
+    );
+
+    return {
+        props: {
+            images: JSON.parse(JSON.stringify(presignedImages)),
+            workTime: JSON.parse(JSON.stringify(workTime)),
+        },
+    };
 };
 
 export default GalleryPage;

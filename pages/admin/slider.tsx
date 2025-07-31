@@ -1,12 +1,13 @@
+import Image from 'next/image';
 import AdminLayout from '../../components/admin/AdminLayout';
+import { Slides } from '../../db/schema';
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
-const SliderManagement = () => {
-  const sliderItems = [
-    { id: 1, title: 'Sommerangebot', url: '/img/Slider/slide1.jpg', createdAt: '2025-07-29 11:00:00' },
-    { id: 2, title: 'Neue Speisekarte', url: '/img/Slider/slide2.png', createdAt: '2025-07-28 15:30:00' },
-    { id: 3, title: 'Wir stellen ein', url: '/img/Slider/slide3.png', createdAt: '2025-07-27 09:00:00' },
-  ];
-
+const SliderManagement: React.FC = () => {
+  const router = useRouter();
+  const [slides, setSlides] = useState<Slides[]>([]);
   const cellStyle: React.CSSProperties = {
     padding: '20px',
     verticalAlign: 'middle',
@@ -25,6 +26,30 @@ const SliderManagement = () => {
     textAlign: 'center',
   };
 
+  useEffect(() => {
+    const fetchSlides = async () => {
+      try {
+        const { data } = await axios.get('/api/admin/slides');
+        setSlides(data);
+      } catch (error) {
+        console.error('Failed to fetch slides', error);
+      }
+    };
+    fetchSlides();
+  }, []);
+
+  const handleDelete = async (id: number) => {
+    if (window.confirm('Are you sure you want to delete this slide?')) {
+      try {
+        await axios.delete(`/api/admin/slides?id=${id}`);
+        setSlides(slides.filter((slide) => slide.id !== id));
+      } catch (error) {
+        console.error('Failed to delete slide', error);
+        alert('Failed to delete slide.');
+      }
+    }
+  };
+
   return (
     <AdminLayout>
       <div className="topSingleBkg">
@@ -36,8 +61,8 @@ const SliderManagement = () => {
       <div className="container" style={{ paddingTop: '40px', paddingBottom: '40px' }}>
         <div className="row">
           <div className="col-md-12">
-            <button className="view-more" style={{ marginBottom: '20px' }}>Neu hinzufügen</button>
-            <table style={{ width: '100%' }}>
+            <button onClick={() => router.push('/admin/slider/new')} className="view-more" style={{ marginBottom: '20px' }}>Neu hinzufügen</button>
+            <table style={{ width: '100%' }} className="responsive-table">
               <thead>
                 <tr>
                   <th style={cellStyle}>Titel</th>
@@ -47,17 +72,17 @@ const SliderManagement = () => {
                 </tr>
               </thead>
               <tbody>
-                {sliderItems.map((item) => (
+                {slides.map((item) => (
                   <tr key={item.id}>
                     <td style={cellStyle} data-label="Titel">{item.title}</td>
                     <td style={cellStyle} data-label="Bild">
-                      <img src={item.url} alt={item.title} width="150" />
+                      <Image src={item.url} alt={item.title} width={150} height={100} style={{ objectFit: 'cover' }} />
                     </td>
-                    <td style={cellStyle} data-label="Erstellt am">{item.createdAt}</td>
+                    <td style={cellStyle} data-label="Erstellt am">{item.createdAt?.toString()}</td>
                     <td style={cellStyle} data-label="Aktionen">
                       <div style={actionsContainerStyle}>
-                        <button className="view-more" style={actionButtonStyle}>Bearbeiten</button>
-                        <button className="view-more" style={actionButtonStyle}>Löschen</button>
+                        <button onClick={() => router.push(`/admin/slider/edit/${item.id}`)} className="view-more">Bearbeiten</button>
+                        <button onClick={() => handleDelete(item.id)} className="view-more">Löschen</button>
                       </div>
                     </td>
                   </tr>

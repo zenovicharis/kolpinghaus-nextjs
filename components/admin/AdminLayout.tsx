@@ -3,17 +3,7 @@ import Script from "next/script";
 import { ReactNode, FC, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-interface IWorkTime {
-	_id: string;
-	Montag: string;
-	Dienstag: string;
-	Mittwoch: string;
-	Donnerstag: string;
-	Freitag: string;
-	Samstag: string;
-	Sonntag: string;
-}
+import { Worktime } from "../../db/schema";
 
 interface LayoutProps {
 	children: ReactNode;
@@ -21,7 +11,7 @@ interface LayoutProps {
 
 const AdminLayout: FC<LayoutProps> = ({ children }) => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [workTime, setWorkTime] = useState<IWorkTime | null>(null);
+    const [workTime, setWorkTime] = useState<Worktime[] | null>(null);
 
 	useEffect(() => {
 		if (isMobileMenuOpen) {
@@ -60,8 +50,6 @@ const AdminLayout: FC<LayoutProps> = ({ children }) => {
 				<title>Admin Panel - Kolpinghaus</title>
 				<meta name="robots" content="noindex, nofollow" />
 				<link rel="icon" href="/favicon.ico" />
-                <link rel="stylesheet" href="/template/style.css" />
-                <link rel="stylesheet" href="/template/css/fontawesome/css/all.min.css" />
 			</Head>
 
 			<div className="body-header1">
@@ -103,7 +91,7 @@ const AdminLayout: FC<LayoutProps> = ({ children }) => {
 										</Link>
 									</li>
                                     <li className="menu-item">
-										<Link href="/admin/login" onClick={closeMobileMenu}>
+										<Link href="/api/admin/logout" onClick={closeMobileMenu}>
 											Abmelden
 										</Link>
 									</li>
@@ -117,9 +105,9 @@ const AdminLayout: FC<LayoutProps> = ({ children }) => {
 							<h3>Öffnungszeiten</h3>
 							<ul className="right-side-contact">
 								{workTime ? (
-                                    Object.entries(workTime).filter(([key]) => key !== '_id').map(([day, time]) => (
-                                        <li key={day}>
-                                            <label>{day}:</label> {time}
+                                    workTime.map((wt) => (
+                                        <li key={wt.id}>
+                                            <label>{wt.day}:</label> {wt.open === '00:00:00' && wt.close === '00:00:00' ? 'Ruhetag' : `${wt.open?.slice(0,5)} - ${wt.close?.slice(0,5)}`}
                                         </li>
                                     ))
                                 ) : (
@@ -197,7 +185,7 @@ const AdminLayout: FC<LayoutProps> = ({ children }) => {
 											<Link href="/admin/admins">Admins</Link>
 										</li>
                                         <li className="menu-item">
-											<Link href="/admin/login">Abmelden</Link>
+											<Link href="/api/admin/logout">Abmelden</Link>
 										</li>
 									</ul>
 								</div>

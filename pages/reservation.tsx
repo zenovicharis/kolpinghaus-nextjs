@@ -1,8 +1,17 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, createRef } from "react";
 import Layout from "../components/Layout";
 import axios from "axios";
+import { GetServerSideProps } from "next";
+import ReCAPTCHA from "react-google-recaptcha";
+import { getWorkTime } from "../lib/queries/workTime";
+import { Worktime } from "../db/schema";
 
-const ReservationPage = () => {
+interface ReservationPageProps {
+  siteKey: string;
+  workTime: Worktime[];
+}
+
+const ReservationPage = ({ siteKey, workTime }: ReservationPageProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,6 +22,7 @@ const ReservationPage = () => {
     message: "",
   });
   const [output, setOutput] = useState("");
+  const recaptchaRef = createRef<ReCAPTCHA>();
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -24,22 +34,22 @@ const ReservationPage = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setOutput("Sending...");
+    
+    if (recaptchaRef.current) {
+      const captchaCode = await recaptchaRef.current.executeAsync();
+      onReCAPTCHAChange(captchaCode);
+    }
+  };
 
-    const reservationMessage = `
-      Neue Reservierung:
-      Name: ${formData.name}
-      Telefon: ${formData.phone}
-      Datum: ${formData.datepicker}
-      Uhrzeit: ${formData.time}
-      Personen: ${formData.persons}
-      Besondere Wünsche: ${formData.message}
-    `;
+  const onReCAPTCHAChange = async (captchaCode: string | null) => {
+    if (!captchaCode) {
+      return;
+    }
 
     try {
-      await axios.post("/api/mail", {
-        name: formData.name,
-        email: formData.email,
-        message: reservationMessage,
+      await axios.post("/api/reservation", {
+        ...formData,
+        captcha: captchaCode,
       });
       setOutput("Ihre Reservierungsanfrage wurde erfolgreich gesendet!");
       setFormData({
@@ -56,11 +66,13 @@ const ReservationPage = () => {
         "Es gab einen Fehler beim Senden Ihrer Anfrage. Bitte versuchen Sie es später erneut."
       );
       console.error(error);
+    } finally {
+      recaptchaRef.current?.reset();
     }
   };
 
   return (
-    <Layout>
+    <Layout workTime={workTime}>
       <section
         className="topSingleBkg topPageBkg"
         style={{
@@ -200,6 +212,11 @@ const ReservationPage = () => {
                     <input type="submit" value="Jetzt Buchen" id="submit" />
                   </p>
                 </form>
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  size="invisible"
+                  sitekey={siteKey}
+                />
               </div>
 
               <div id="output" className="alignc" style={{ marginTop: "20px" }}>
@@ -211,6 +228,17 @@ const ReservationPage = () => {
       </section>
     </Layout>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<ReservationPageProps> = async () => {
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
+  const workTime = await getWorkTime();
+  return {
+    props: {
+      siteKey,
+      workTime: JSON.parse(JSON.stringify(workTime)),
+    },
+  };
 };
 
 export default ReservationPage;

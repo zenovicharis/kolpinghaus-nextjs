@@ -54,7 +54,7 @@ const AdminDashboard = () => {
             </Link>
           </div>
           <div className="col-lg-4 col-md-6 col-sm-12" style={{ marginBottom: '30px' }}>
-            <Link href="/admin/login" className="view-more" style={buttonStyle}>
+            <Link href="/api/admin/logout" className="view-more" style={buttonStyle}>
               Abmelden
             </Link>
           </div>

@@ -34,6 +34,7 @@ export default function HomeContact({ siteKey }: { siteKey: string }) {
         resetForm();
       })
       .catch((e) => {
+        console.error("Failed to send email:", e.response?.data?.message || e.message);
         setErrorAlert(true);
       })
       .finally(() => {
@@ -54,7 +55,18 @@ export default function HomeContact({ siteKey }: { siteKey: string }) {
 
   return (
     <>
-      <section id="contact" className="page-content">
+      <div className="gmaps" style={{ marginBottom: '48px' }}>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d264.4559750198658!2d8.015181613643593!3d50.906263076454906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bc03331dc2c025%3A0x6cc5b6d2cddd89f9!2sRestaurant%20im%20Kolpinghaus!5e0!3m2!1sen!2srs!4v1753364705313!5m2!1sen!2srs"
+          width="100%"
+          height="450"
+          style={{ border: 0 }}
+          allowFullScreen={true}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <section id="contact" className="page-content" style={{ marginBottom: '72px' }}>
         <div className="container">
           <div className="row">
             <div className="col-md-12">
@@ -153,17 +165,6 @@ export default function HomeContact({ siteKey }: { siteKey: string }) {
           </div>
         </div>
       </section>
-      <div className="gmaps">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d264.4559750198658!2d8.015181613643593!3d50.906263076454906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bc03331dc2c025%3A0x6cc5b6d2cddd89f9!2sRestaurant%20im%20Kolpinghaus!5e0!3m2!1sen!2srs!4v1753364705313!5m2!1sen!2srs"
-          width="100%"
-          height="450"
-          style={{ border: 0 }}
-          allowFullScreen={true}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
       <Snackbar
         open={errorAlert}
         autoHideDuration={6000}

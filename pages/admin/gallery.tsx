@@ -1,16 +1,13 @@
 import AdminLayout from '../../components/admin/AdminLayout';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { images } from '../../db/schema';
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
 
-const GalleryManagement = () => {
-  const galleryItems = [
-    { id: 1, url: '/img/grid/pic1.jpg', createdAt: '2025-07-29 12:00:00' },
-    { id: 2, url: '/img/grid/pic2.jpg', createdAt: '2025-07-29 12:01:00' },
-    { id: 3, url: '/img/grid/pic3.jpg', createdAt: '2025-07-29 12:02:00' },
-    { id: 4, url: '/img/grid/pic4.jpg', createdAt: '2025-07-29 12:03:00' },
-    { id: 5, url: '/img/grid/pic5.jpg', createdAt: '2025-07-29 12:04:00' },
-    { id: 6, url: '/img/grid/pic6.jpg', createdAt: '2025-07-29 12:05:00' },
-  ];
-
+const GalleryManagement: React.FC = () => {
+  const router = useRouter();
+  const [imagesState, setImagesState] = useState<(typeof images.$inferSelect)[]>([]);
   const [hoveredButtonId, setHoveredButtonId] = useState<number | null>(null);
 
   const imageContainerStyle: React.CSSProperties = {
@@ -21,19 +18,44 @@ const GalleryManagement = () => {
   const getDeleteButtonStyle = (id: number): React.CSSProperties => ({
     position: 'absolute',
     top: '10px',
-    right: '10px',
+    left: '10px',
     padding: '5px 10px',
     backgroundColor: hoveredButtonId === id ? 'rgba(220, 53, 69, 0.9)' : 'rgba(0, 0, 0, 0.7)',
     color: 'white',
     border: 'none',
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
+    zIndex: 10,
   });
 
   const uploadButtonStyle: React.CSSProperties = {
     display: 'block',
     margin: '40px auto',
     textAlign: 'center',
+  };
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const { data } = await axios.get('/api/admin/gallery');
+        setImagesState(data);
+      } catch (error) {
+        console.error('Failed to fetch images', error);
+      }
+    };
+    fetchImages();
+  }, []);
+
+  const handleDelete = async (id: number) => {
+    if (window.confirm('Are you sure you want to delete this image?')) {
+      try {
+        await axios.delete(`/api/admin/gallery?id=${id}`);
+        setImagesState(imagesState.filter((image) => image.id !== id));
+      } catch (error) {
+        console.error('Failed to delete image', error);
+        alert('Failed to delete image.');
+      }
+    }
   };
 
   return (
@@ -46,15 +68,18 @@ const GalleryManagement = () => {
       </div>
       <div className="container" style={{ paddingTop: '40px', paddingBottom: '40px' }}>
         <div className="row">
-          {galleryItems.map((item) => (
-            <div className="col-md-4" key={item.id}>
-              <div style={imageContainerStyle}>
-                <img 
-                  src={item.url} 
-                  alt={`Galeriebild ${item.id}`} 
-                  style={{ width: '100%', height: 'auto' }} 
+          {imagesState.map((item) => (
+            <div className="col-md-4" key={item.id} style={imageContainerStyle}>
+                <Image
+                  src={item.url}
+                  alt={`Galeriebild ${item.id}`}
+                  width={600}
+                  height={400}
+                  style={{ width: '100%', height: 'auto' }}
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
                 <button 
+                  onClick={() => handleDelete(item.id)}
                   className="view-more" 
                   style={getDeleteButtonStyle(item.id)}
                   onMouseEnter={() => setHoveredButtonId(item.id)}
@@ -62,13 +87,12 @@ const GalleryManagement = () => {
                 >
                   Löschen
                 </button>
-              </div>
             </div>
           ))}
         </div>
         <div className="row">
             <div className="col-md-12">
-                <button className="view-more" style={uploadButtonStyle}>Bilder hochladen</button>
+                <button onClick={() => router.push('/admin/gallery/new')} className="view-more" style={uploadButtonStyle}>Bilder hochladen</button>
             </div>
         </div>
       </div>

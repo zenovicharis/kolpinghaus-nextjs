@@ -1,20 +1,14 @@
 import { FC, useState } from "react";
 import Image from "next/image";
-
-interface MenuItem {
-  name: string;
-  price: string;
-  info: string;
-  path?: string; // Optional path for image
-}
+import { Food } from "../db/schema";
 
 interface MenuType {
   name: string;
-  list: MenuItem[];
+  list: Food[];
 }
 
 interface MenuCategory {
-  name: string;
+  name:string;
   types: MenuType[];
 }
 
@@ -23,51 +17,7 @@ interface HomeMenuProps {
 }
 
 const HomeMenu: FC<HomeMenuProps> = ({ food }) => {
-  // Correct mapping based on the provided database structure.
-  const menuGroupMapping: { [key: string]: string[] } = {
-    Vorspeise: ["Vorspeise"],
-    Hauptgericht: ["Hauptgericht"],
-    Specialangebote: ["Spezialangebote"],
-    Beilage: ["Beilage"],
-    Getrankenkarte: ["Getrankenkarte"],
-    Dessert: ["Dessert"],
-  };
-
-  // The desired order of the menu categories.
-  const menuOrder = [
-    "Vorspeise",
-    "Hauptgericht",
-    "Specialangebote",
-    "Beilage",
-    "Getrankenkarte",
-    "Dessert",
-  ];
-
-  // Transform the raw food data into the desired menu structure.
-  const transformedMenu: MenuCategory[] = menuOrder
-    .map((newCategoryName) => {
-      const dbCategoryNames = menuGroupMapping[newCategoryName];
-      const types: MenuType[] = [];
-
-      const matchingDbCategories = food.filter((dbCategory) =>
-        dbCategoryNames.includes(dbCategory.name)
-      );
-
-      matchingDbCategories.forEach((dbCategory) => {
-        types.push(...dbCategory.types);
-      });
-
-      if (types.length > 0) {
-        return {
-          name: newCategoryName,
-          types,
-        };
-      }
-      return null;
-    })
-    .filter((category): category is MenuCategory => category !== null);
-
-  const [openSection, setOpenSection] = useState(transformedMenu[0]?.name);
+  const [openSection, setOpenSection] = useState(food[0]?.name);
 
   const toId = (name: string) => name.toLowerCase().replace(/\s+/g, "-");
 
@@ -95,15 +45,16 @@ const HomeMenu: FC<HomeMenuProps> = ({ food }) => {
 
             {/* FOOD MENU */}
             <ul className="our-menu">
-              {transformedMenu.map((category) => (
+              {food.map((category) => (
                 <li key={category.name}>
                   <h4
                     className={`menu-title-section ${
                       openSection === category.name ? "active" : ""
                     }`}
                     onClick={() => toggleSection(category.name)}
+                    style={{ cursor: 'pointer' }}
                   >
-                    <a href={`#${toId(category.name)}`}>{category.name}</a>
+                    {category.name}
                   </h4>
                   <div
                     id={toId(category.name)}
@@ -128,24 +79,8 @@ const HomeMenu: FC<HomeMenuProps> = ({ food }) => {
                               className={`menu-post clearfix ${
                                 itemIndex % 2 !== 0 ? "last" : ""
                               }`}
-                              key={itemIndex}
+                              key={item.id}
                             >
-                              {item.path && (
-                                <div className="menu-post-img">
-                                  <a
-                                    href={item.path}
-                                    className="lightbox"
-                                    title={item.name}
-                                  >
-                                    <Image
-                                      width={400}
-                                      height={400}
-                                      src={item.path}
-                                      alt={item.name}
-                                    />
-                                  </a>
-                                </div>
-                              )}
                               <div className="menu-post-desc">
                                 <h4>
                                   <span className="menu-title">

@@ -1,34 +1,50 @@
-import { connectToDatabase } from "../mongodb";
-import { Document } from "mongodb";
+import { db } from '../drizzle';
+import { food, picklists, NewFood } from '../../db/schema';
+import { eq } from 'drizzle-orm';
 
-const COLLECTION_NAME = "food";
+export async function getFood() {
+  const mainCategories = await db.select().from(picklists).where(eq(picklists.delimeter, 'main'));
 
-interface FoodListItem {
-  name: string;
-  price: string;
-  info: string;
+  const foodData = [];
+
+  for (const mainCategory of mainCategories) {
+    const subCategories = await db.select().from(picklists).where(eq(picklists.description, mainCategory.title));
+
+    const types = [];
+    for (const subCategory of subCategories) {
+      const items = await db.select().from(food).where(eq(food.subtypeId, subCategory.id));
+      types.push({
+        name: subCategory.title,
+        list: items,
+      });
+    }
+    foodData.push({
+      name: mainCategory.title,
+      types: types,
+    });
+  }
+
+  return foodData;
 }
 
-interface FoodType {
-  name: string;
-  list: FoodListItem[];
+export async function getFoodById(id: number) {
+  const result = await db.select().from(food).where(eq(food.id, id)).limit(1);
+  return result[0];
 }
 
-interface Food extends Document {
-  name: string;
-  types: FoodType[];
+export async function getCategories() {
+  const result = await db.select().from(picklists).where(eq(picklists.delimeter, 'sub'));
+  return result;
 }
 
-export async function insertFood(food: Food[]) {
-  let { db } = await connectToDatabase();
-  await db.collection<Food>(COLLECTION_NAME).insertMany(food);
+export async function addFood(newFood: NewFood) {
+  await db.insert(food).values(newFood);
 }
 
-export async function deleteAllFood() {
-  let { db } = await connectToDatabase();
-  let food = await db.collection<Food>(COLLECTION_NAME).find().toArray();
+export async function updateFood(id: number, foodData: Partial<NewFood>) {
+  await db.update(food).set(foodData).where(eq(food.id, id));
+}
 
-  await db
-    .collection(COLLECTION_NAME)
-    .deleteMany({ _id: { $in: food.map((w) => w._id) } });
+export async function deleteFood(id: number) {
+  await db.delete(food).where(eq(food.id, id));
 }

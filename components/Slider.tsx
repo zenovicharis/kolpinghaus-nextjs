@@ -2,9 +2,9 @@ import { FC } from "react";
 import Image from "next/image";
 
 interface Slide {
-  path: string;
+  url: string;
   title: string;
-  description: string;
+  subtitle?: string | null;
 }
 
 interface SliderProps {
@@ -19,14 +19,14 @@ const Slider: FC<SliderProps> = ({ slides }) => {
           <div className="slider-post slider-item-box-bkg" key={index}>
             <div
               className="slider-img"
-              style={{ backgroundImage: `url(${slide.path})` }}
+              style={{ backgroundImage: `url(${slide.url})` }}
             ></div>
             <div className="slider-caption">
               <div className="slider-text">
                 <h1>{slide.title}</h1>
-                <p>{slide.description}</p>
+                <p>{slide.subtitle}</p>
                 <p>
-                  <a href="reservation.html" className="view-more more-white">
+                  <a href="reservation" className="view-more more-white">
                     Book a Table
                   </a>
                 </p>

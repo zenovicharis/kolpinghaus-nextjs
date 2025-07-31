@@ -10,6 +10,16 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: '127.0.0.1',
+        port: '9000',
+        pathname: '/kolpinghaus/**',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

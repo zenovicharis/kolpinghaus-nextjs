@@ -1,5 +1,4 @@
-// src/db/schema.ts
-import { mysqlTable, int, varchar, timestamp } from "drizzle-orm/mysql-core";
+import { mysqlTable, int, varchar, timestamp, time } from "drizzle-orm/mysql-core";
 import type { InferModel } from "drizzle-orm";
 
 export const admin = mysqlTable("admin", {
@@ -19,6 +18,7 @@ export const slides = mysqlTable("slides", {
 	id: int("id").primaryKey().autoincrement(),
 	url: varchar("url", { length: 255 }).notNull(),
 	title: varchar("title", { length: 255 }).notNull(),
+	subtitle: varchar("subtitle", { length: 255 }),
 	createdAt: timestamp("created_at").defaultNow(),
 });
 
@@ -40,6 +40,14 @@ export const picklists = mysqlTable("picklists", {
 	createdAt: timestamp("created_at").defaultNow(),
 });
 
+export const workTime = mysqlTable("worktime", {
+	id: int("id").primaryKey().autoincrement(),
+	day: varchar("day", { length: 255 }).notNull(),
+	open: varchar("open", { length: 255 }).notNull(),
+	close: varchar("close", { length: 255 }).notNull(),
+	createdAt: timestamp("created_at").defaultNow(),
+});
+
 export type Admin = InferModel<typeof admin>;
 export type NewAdmin = InferModel<typeof admin, "insert">;
 
@@ -51,3 +59,9 @@ export type NewFood = InferModel<typeof food, "insert">;
 
 export type Picklists = InferModel<typeof picklists>;
 export type NewPicklists = InferModel<typeof picklists, "insert">;
+
+export type Worktime = InferModel<typeof workTime>;
+export type NewWorktime = InferModel<typeof workTime, "insert">;
+
+export type Image = InferModel<typeof images>;
+export type NewImage = InferModel<typeof images, "insert">;

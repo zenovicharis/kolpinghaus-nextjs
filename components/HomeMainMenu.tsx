@@ -4,7 +4,7 @@ import { Link as ScrollLink } from "react-scroll";
 import Link from "next/link";
 
 interface GalleryImage {
-  path: string;
+  url: string;
 }
 
 interface HomeMainMenuProps {
@@ -16,21 +16,21 @@ const HomeMainMenu: FC<HomeMainMenuProps> = ({ images }) => {
     {
       title: "Bei Uns",
       subtitle: "Gallerie ansehen",
-      image: images[0]?.path || "/img/grid/pic1.jpg",
+      image: images && images.length > 0 ? images[0].url : "/img/grid/pic1.jpg",
       link: "#gallery",
       isScrollLink: false,
     },
     {
       title: "Unsere Speisekarte",
       subtitle: "Speisekarte ansehen",
-      image: "/img/MenuBG.png",
+      image: images && images.length > 1 ? images[1].url : "/img/MenuBG.png",
       link: "menu",
       isScrollLink: true,
     },
     {
       title: "Jetzt Buchen",
       subtitle: "Reservieren Sie Ihren Tisch",
-      image: "/img/banner.jpg",
+      image: images && images.length > 2 ? images[2].url : "/img/banner.jpg",
       link: "/reservation",
       isScrollLink: false,
     },

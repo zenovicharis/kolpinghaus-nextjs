@@ -2017,6 +2017,7 @@ transform: translateX(-50%) translateY(-50%);
 
 .menu-title-section:hover {
 	background: #ffffff;
+  color: white;
 }
 
 .menu-title-section:before {
@@ -2034,6 +2035,7 @@ transform: translateX(-50%) translateY(-50%);
 .menu-title-section.active,
 .menu-title-section:hover {
 	background: var(--headings-color);
+  color: white;
 }
 
 .menu-title-section.active:before {

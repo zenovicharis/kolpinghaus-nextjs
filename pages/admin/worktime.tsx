@@ -1,15 +1,11 @@
 import AdminLayout from '../../components/admin/AdminLayout';
+import { Worktime } from '../../db/schema';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const WorkTimeManagement = () => {
-  const workTimeItems = [
-    { id: 1, day: 'Montag', open: '10:00', close: '22:00' },
-    { id: 2, day: 'Dienstag', open: '10:00', close: '22:00' },
-    { id: 3, day: 'Mittwoch', open: '10:00', close: '22:00' },
-    { id: 4, day: 'Donnerstag', open: '10:00', close: '22:00' },
-    { id: 5, day: 'Freitag', open: '10:00', close: '23:00' },
-    { id: 6, day: 'Samstag', open: '12:00', close: '23:00' },
-    { id: 7, day: 'Sonntag', open: '12:00', close: '21:00' },
-  ];
+const WorkTimeManagement: React.FC = () => {
+  const [workTime, setWorkTime] = useState<Worktime[]>([]);
+  const [editingId, setEditingId] = useState<number | null>(null);
 
   const cellStyle: React.CSSProperties = {
     padding: '20px',
@@ -29,6 +25,43 @@ const WorkTimeManagement = () => {
     textAlign: 'center',
   };
 
+  useEffect(() => {
+    const fetchWorkTime = async () => {
+      try {
+        const { data } = await axios.get('/api/workTime');
+        setWorkTime(data);
+      } catch (error) {
+        console.error('Fehler beim Abrufen der Arbeitszeiten', error);
+      }
+    };
+    fetchWorkTime();
+  }, []);
+
+  const handleEditClick = (id: number) => {
+    if (editingId === id) {
+      // Save changes
+      const itemToSave = workTime.find((item) => item.id === id);
+      if (itemToSave) {
+        const { open, close } = itemToSave;
+        axios.put('/api/workTime', { id, open, close })
+          .then(() => setEditingId(null))
+          .catch(error => console.error('Failed to update work time', error));
+      }
+    } else {
+      setEditingId(id);
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, id: number, field: keyof Worktime) => {
+    const newWorkTime = workTime.map(item => {
+      if (item.id === id) {
+        return { ...item, [field]: e.target.value };
+      }
+      return item;
+    });
+    setWorkTime(newWorkTime);
+  };
+
   return (
     <AdminLayout>
       <div className="topSingleBkg">
@@ -40,7 +73,7 @@ const WorkTimeManagement = () => {
       <div className="container" style={{ paddingTop: '40px', paddingBottom: '40px' }}>
         <div className="row">
           <div className="col-md-12">
-            <table style={{ width: '100%' }}>
+            <table style={{ width: '100%' }} className="responsive-table">
               <thead>
                 <tr>
                   <th style={cellStyle}>Tag</th>
@@ -50,14 +83,33 @@ const WorkTimeManagement = () => {
                 </tr>
               </thead>
               <tbody>
-                {workTimeItems.map((item) => (
+                {workTime.map((item) => (
                   <tr key={item.id}>
                     <td style={cellStyle} data-label="Tag">{item.day}</td>
-                    <td style={cellStyle} data-label="Geöffnet">{item.open}</td>
-                    <td style={cellStyle} data-label="Geschlossen">{item.close}</td>
+                    <td style={cellStyle} data-label="Geöffnet">
+                      <input
+                        type="text"
+                        value={item.open?.slice(0, 5) || ''}
+                        onChange={(e) => handleInputChange(e, item.id, 'open')}
+                        disabled={editingId !== item.id}
+                      />
+                    </td>
+                    <td style={cellStyle} data-label="Geschlossen">
+                      <input
+                        type="text"
+                        value={item.close?.slice(0, 5) || ''}
+                        onChange={(e) => handleInputChange(e, item.id, 'close')}
+                        disabled={editingId !== item.id}
+                      />
+                    </td>
                     <td style={cellStyle} data-label="Aktionen">
                       <div style={actionsContainerStyle}>
-                        <button className="view-more" style={actionButtonStyle}>Bearbeiten</button>
+                        <button
+                          className="view-more"
+                          onClick={() => handleEditClick(item.id)}
+                        >
+                          {editingId === item.id ? 'Speichern' : 'Bearbeiten'}
+                        </button>
                       </div>
                     </td>
                   </tr>

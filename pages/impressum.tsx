@@ -2,14 +2,17 @@ import { GetServerSideProps } from "next";
 import HomeContact from "../components/HomeContact";
 import Layout from "../components/Layout";
 import Image from "next/image";
+import { getWorkTime } from "../lib/queries/workTime";
+import { Worktime } from "../db/schema";
 
 interface ImpressumProps {
   siteKey: string;
+  workTime: Worktime[];
 }
 
-const Impressum = ({ siteKey }: ImpressumProps) => {
+const Impressum = ({ siteKey, workTime }: ImpressumProps) => {
   return (
-    <Layout>
+    <Layout workTime={workTime}>
       <section
         className="topSingleBkg topPageBkg"
         style={{
@@ -153,11 +156,13 @@ const Impressum = ({ siteKey }: ImpressumProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const siteKey = process.env.SITE_KEY || "";
+export const getServerSideProps: GetServerSideProps<ImpressumProps> = async () => {
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
+  const workTime = await getWorkTime();
   return {
     props: {
       siteKey,
+      workTime: JSON.parse(JSON.stringify(workTime)),
     },
   };
 };

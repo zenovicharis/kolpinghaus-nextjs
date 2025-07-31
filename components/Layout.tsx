@@ -4,38 +4,15 @@ import { ReactNode, FC, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll";
-
-interface IWorkTime {
-	_id: string;
-	Montag: string;
-	Dienstag: string;
-	Mittwoch: string;
-	Donnerstag: string;
-	Freitag: string;
-	Samstag: string;
-	Sonntag: string;
-}
+import { Worktime } from "../db/schema";
 
 interface LayoutProps {
 	children: ReactNode;
+	workTime: Worktime[];
 }
 
-const Layout: FC<LayoutProps> = ({ children }) => {
-	const [workTime, setWorkTime] = useState<IWorkTime | null>(null);
+const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-	useEffect(() => {
-		async function fetchWorkTime() {
-			try {
-				const response = await fetch("/api/workTime");
-				const data = await response.json();
-				setWorkTime(data);
-			} catch (error) {
-				console.error("Error fetching work time:", error);
-			}
-		}
-		fetchWorkTime();
-	}, []);
 
 	useEffect(() => {
 		if (isMobileMenuOpen) {
@@ -54,7 +31,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
 	};
 
 	const getCurrentDayWorkTime = () => {
-		if (!workTime) return "";
+		if (!workTime || workTime.length === 0) return "Geschlossen";
 
 		const days = [
 			"Sonntag",
@@ -66,11 +43,16 @@ const Layout: FC<LayoutProps> = ({ children }) => {
 			"Samstag",
 		];
 		const currentDayName = days[new Date().getDay()];
+		const todayWorkTime = workTime.find(wt => wt.day === currentDayName);
 
-		// @ts-ignore
-		const time = workTime[currentDayName];
+		if (!todayWorkTime || !todayWorkTime.open || !todayWorkTime.close) {
+			return `${currentDayName}: Geschlossen`;
+		}
 
-		return `${currentDayName}: ${time}`;
+		const openTime = todayWorkTime.open.slice(0, 5);
+		const closeTime = todayWorkTime.close.slice(0, 5);
+
+		return `${currentDayName}: ${openTime} - ${closeTime}`;
 	};
 
 	return (

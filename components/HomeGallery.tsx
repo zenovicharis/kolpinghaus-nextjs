@@ -1,13 +1,12 @@
 import Link from "next/link";
 import React from "react";
+import { images as ImageSchema } from '../db/schema';
 
-const HomeGallery = () => {
-  const images = [
-    { path: "/img/grid/pic1.jpg", title: "Galeriebild 1" },
-    { path: "/img/grid/pic2.jpg", title: "Galeriebild 2" },
-    { path: "/img/grid/pic3.jpg", title: "Galeriebild 3" },
-  ];
+interface HomeGalleryProps {
+  images: (typeof ImageSchema.$inferSelect)[];
+}
 
+const HomeGallery = ({ images }: HomeGalleryProps) => {
   return (
     <section id="gallery" className="page-content">
       <div className="container">
@@ -18,20 +17,19 @@ const HomeGallery = () => {
             </div>
             <div className="gallery-3colgrid-content">
               <div className="menu-holder menu-3col-grid-image gallery-holder clearfix">
-                {images.map((image, index) => (
+                {images.slice(0, 3).map((image, index) => (
                   <div className="menu-post gallery-post" key={index}>
                     <a
-                      href={image.path}
+                      href={image.url}
                       className="lightbox"
-                      title={image.title}
                     >
                       <div className="item-content-bkg gallery-bkg">
                         <div
                           className="gallery-img"
-                          style={{ backgroundImage: `url(${image.path})` }}
+                          style={{ backgroundImage: `url(${image.url})` }}
                         ></div>
                         <div className="menu-post-desc">
-                          <h4>{image.title}</h4>
+                          <h4>Galeriebild {index + 1}</h4>
                           <div className="gallery-mglass">
                             <i className="fas fa-search"></i>
                           </div>

@@ -1,12 +1,22 @@
 import AdminLayout from '../../components/admin/AdminLayout';
+import { Food } from '../../db/schema';
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
-const FoodManagement = () => {
-  const foodItems = [
-    { id: 1, name: 'Wiener Schnitzel', price: '€15.50', info: 'Mit Pommes und Salat', type: 'Hauptgericht', subtype: 'Fleisch', createdAt: '2025-07-30 10:10:00' },
-    { id: 2, name: 'Käsespätzle', price: '€12.00', info: 'Mit Röstzwiebeln', type: 'Hauptgericht', subtype: 'Vegetarisch', createdAt: '2025-07-30 10:12:00' },
-    { id: 3, name: 'Apfelstrudel', price: '€6.50', info: 'Mit Vanillesoße', type: 'Dessert', subtype: 'Süßspeise', createdAt: '2025-07-30 10:15:00' },
-  ];
+interface MenuType {
+  name: string;
+  list: Food[];
+}
 
+interface MenuCategory {
+  name: string;
+  types: MenuType[];
+}
+
+const FoodManagement: React.FC = () => {
+  const router = useRouter();
+  const [food, setFood] = useState<MenuCategory[]>([]);
   const cellStyle: React.CSSProperties = {
     padding: '20px',
     verticalAlign: 'middle',
@@ -25,6 +35,37 @@ const FoodManagement = () => {
     textAlign: 'center',
   };
 
+  useEffect(() => {
+    const fetchFood = async () => {
+      try {
+        const { data } = await axios.get('/api/admin/food');
+        setFood(data);
+      } catch (error) {
+        console.error('Failed to fetch food', error);
+      }
+    };
+    fetchFood();
+  }, []);
+
+  const handleDelete = async (id: number) => {
+    if (window.confirm('Are you sure you want to delete this item?')) {
+      try {
+        await axios.delete('/api/admin/food', { data: { id } });
+        const newFood = food.map((category) => ({
+          ...category,
+          types: category.types.map((type) => ({
+            ...type,
+            list: type.list.filter((item) => item.id !== id),
+          })),
+        }));
+        setFood(newFood);
+      } catch (error) {
+        console.error('Failed to delete food item', error);
+        alert('Failed to delete food item.');
+      }
+    }
+  };
+
   return (
     <AdminLayout>
       <div className="topSingleBkg">
@@ -36,39 +77,43 @@ const FoodManagement = () => {
       <div className="container" style={{ paddingTop: '40px', paddingBottom: '40px' }}>
         <div className="row">
           <div className="col-md-12">
-            <button className="view-more" style={{ marginBottom: '20px' }}>Neu hinzufügen</button>
+            <button onClick={() => router.push('/admin/food/new')} className="view-more" style={{ marginBottom: '20px' }}>Neu hinzufügen</button>
             <div className="table-responsive-wrapper">
-              <table style={{tableLayout: 'auto', width: '100%'}}>
-                <thead>
-                  <tr>
-                    <th style={cellStyle}>Name</th>
-                    <th style={cellStyle}>Preis</th>
-                    <th style={cellStyle}>Info</th>
-                    <th style={cellStyle}>Typ</th>
-                    <th style={cellStyle}>Untertyp</th>
-                    <th style={cellStyle}>Erstellt am</th>
-                    <th style={cellStyle}>Aktionen</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {foodItems.map((item) => (
-                    <tr key={item.id}>
-                      <td style={cellStyle} data-label="Name">{item.name}</td>
-                      <td style={cellStyle} data-label="Preis">{item.price}</td>
-                      <td style={cellStyle} data-label="Info">{item.info}</td>
-                      <td style={cellStyle} data-label="Typ">{item.type}</td>
-                      <td style={cellStyle} data-label="Untertyp">{item.subtype}</td>
-                      <td style={cellStyle} data-label="Erstellt am">{item.createdAt}</td>
-                      <td style={cellStyle} data-label="Aktionen">
-                        <div style={actionsContainerStyle}>
-                          <button className="view-more" style={actionButtonStyle}>Bearbeiten</button>
-                          <button className="view-more" style={actionButtonStyle}>Löschen</button>
-                        </div>
-                      </td>
-                    </tr>
+              {food.map((category) => (
+                <div key={category.name}>
+                  <h2>{category.name}</h2>
+                  {category.types.map((type) => (
+                    <div key={type.name}>
+                      <h3>{type.name}</h3>
+                      <table style={{tableLayout: 'auto', width: '100%'}} className="responsive-table">
+                        <thead>
+                          <tr>
+                            <th style={cellStyle}>Name</th>
+                            <th style={cellStyle}>Preis</th>
+                            <th style={cellStyle}>Info</th>
+                            <th style={cellStyle}>Aktionen</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {type.list.map((item) => (
+                            <tr key={item.id}>
+                              <td style={cellStyle} data-label="Name">{item.name}</td>
+                              <td style={cellStyle} data-label="Preis">{item.price}</td>
+                              <td style={cellStyle} data-label="Info">{item.info}</td>
+                              <td style={cellStyle} data-label="Aktionen">
+                                <div style={actionsContainerStyle}>
+                                  <button onClick={() => router.push(`/admin/food/edit/${item.id}`)} className="view-more">Bearbeiten</button>
+                                  <button onClick={() => handleDelete(item.id)} className="view-more">Löschen</button>
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                   ))}
-                </tbody>
-              </table>
+                </div>
+              ))}
             </div>
           </div>
         </div>
