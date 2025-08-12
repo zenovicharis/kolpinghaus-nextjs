@@ -41,7 +41,9 @@
     "react-dom": "^19.1.0",
     "react-google-recaptcha": "^2.1.0",
     "react-responsive-carousel": "^3.2.23",
-    "react-scroll": "^1.8.8"
+    "react-scroll": "^1.8.8",
+    "swiper": "^11.2.10",
+    "yet-another-react-lightbox": "^3.25.0"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",

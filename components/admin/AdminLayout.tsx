@@ -11,7 +11,7 @@ interface LayoutProps {
 
 const AdminLayout: FC<LayoutProps> = ({ children }) => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [workTime, setWorkTime] = useState<Worktime[] | null>(null);
+	const [workTime, setWorkTime] = useState<Worktime[] | null>(null);
 
 	useEffect(() => {
 		if (isMobileMenuOpen) {
@@ -21,7 +21,7 @@ const AdminLayout: FC<LayoutProps> = ({ children }) => {
 		}
 	}, [isMobileMenuOpen]);
 
-    useEffect(() => {
+	useEffect(() => {
 		async function fetchWorkTime() {
 			try {
 				const response = await fetch("/api/workTime");
@@ -46,7 +46,10 @@ const AdminLayout: FC<LayoutProps> = ({ children }) => {
 		<>
 			<Head>
 				<meta charSet="UTF-8" />
-				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1.0"
+				/>
 				<title>Admin Panel - Kolpinghaus</title>
 				<meta name="robots" content="noindex, nofollow" />
 				<link rel="icon" href="/favicon.ico" />
@@ -60,38 +63,59 @@ const AdminLayout: FC<LayoutProps> = ({ children }) => {
 						<nav className="navbar navbar-2 nav-mobile">
 							<div className="nav-holder nav-holder-2">
 								<ul id="menu-menu-2" className="menu-nav-2">
-                                    <li className="menu-item">
-										<Link href="/admin" onClick={closeMobileMenu}>
+									<li className="menu-item">
+										<Link
+											href="/admin"
+											onClick={closeMobileMenu}
+										>
 											Dashboard
 										</Link>
 									</li>
 									<li className="menu-item">
-										<Link href="/admin/food" onClick={closeMobileMenu}>
+										<Link
+											href="/admin/food"
+											onClick={closeMobileMenu}
+										>
 											Speisen
 										</Link>
 									</li>
 									<li className="menu-item">
-										<Link href="/admin/slider" onClick={closeMobileMenu}>
+										<Link
+											href="/admin/slider"
+											onClick={closeMobileMenu}
+										>
 											Slider
 										</Link>
 									</li>
 									<li className="menu-item">
-										<Link href="/admin/gallery" onClick={closeMobileMenu}>
+										<Link
+											href="/admin/gallery"
+											onClick={closeMobileMenu}
+										>
 											Galerie
 										</Link>
 									</li>
 									<li className="menu-item">
-										<Link href="/admin/worktime" onClick={closeMobileMenu}>
+										<Link
+											href="/admin/worktime"
+											onClick={closeMobileMenu}
+										>
 											Öffnungszeiten
 										</Link>
 									</li>
-                                    <li className="menu-item">
-										<Link href="/admin/admins" onClick={closeMobileMenu}>
+									<li className="menu-item">
+										<Link
+											href="/admin/admins"
+											onClick={closeMobileMenu}
+										>
 											Admins
 										</Link>
 									</li>
-                                    <li className="menu-item">
-										<Link href="/api/admin/logout" onClick={closeMobileMenu}>
+									<li className="menu-item">
+										<Link
+											href="/api/admin/logout"
+											onClick={closeMobileMenu}
+										>
 											Abmelden
 										</Link>
 									</li>
@@ -100,19 +124,29 @@ const AdminLayout: FC<LayoutProps> = ({ children }) => {
 						</nav>
 						{/* /MENU */}
 
-                        {/* RIGHT SIDE */}
+						{/* RIGHT SIDE */}
 						<div className="rightside-nav-2">
 							<h3>Öffnungszeiten</h3>
 							<ul className="right-side-contact">
 								{workTime ? (
-                                    workTime.map((wt) => (
-                                        <li key={wt.id}>
-                                            <label>{wt.day}:</label> {wt.open === '00:00:00' && wt.close === '00:00:00' ? 'Ruhetag' : `${wt.open?.slice(0,5)} - ${wt.close?.slice(0,5)}`}
-                                        </li>
-                                    ))
-                                ) : (
-                                    <li>Lade Öffnungszeiten...</li>
-                                )}
+									workTime.map((wt) => (
+										<li key={wt.id}>
+											<label>{wt.day}:</label>{" "}
+											{wt.open === "00:00:00" &&
+											wt.close === "00:00:00"
+												? "Ruhetag"
+												: `${wt.open?.slice(
+														0,
+														5
+												  )} - ${wt.close?.slice(
+														0,
+														5
+												  )}`}
+										</li>
+									))
+								) : (
+									<li>Lade Öffnungszeiten...</li>
+								)}
 							</ul>
 						</div>
 						{/* /RIGHT SIDE */}
@@ -131,7 +165,9 @@ const AdminLayout: FC<LayoutProps> = ({ children }) => {
 							</div>
 							{/* TOP RIGHT PAGE TEXT  */}
 							<div className="book-now">
-								<Link href="/" className="info-txt">Zur Webseite</Link>
+								<Link href="/" className="info-txt">
+									Zur Webseite
+								</Link>
 							</div>
 
 							{/* MOBILE BUTTON NAV  */}
@@ -144,7 +180,9 @@ const AdminLayout: FC<LayoutProps> = ({ children }) => {
 								<span className="menu-txt">MENU</span>
 								<button
 									type="button"
-									className={`nav-button ${isMobileMenuOpen ? "active" : ""}`}
+									className={`nav-button ${
+										isMobileMenuOpen ? "active" : ""
+									}`}
 								>
 									<span className="icon-bar"></span>
 								</button>
@@ -165,27 +203,42 @@ const AdminLayout: FC<LayoutProps> = ({ children }) => {
 								</div>
 								{/* MENU */}
 								<div className="nav-holder nav-holder-1 nav-holder-desktop">
-									<ul id="menu-menu-1" className="menu-nav menu-nav-1">
-                                        <li className="menu-item">
-                                            <Link href="/admin">Dashboard</Link>
-                                        </li>
+									<ul
+										id="menu-menu-1"
+										className="menu-nav menu-nav-1"
+									>
 										<li className="menu-item">
-											<Link href="/admin/food">Speisen</Link>
-										</li>
-										<li className="menu-item">
-											<Link href="/admin/slider">Slider</Link>
+											<Link href="/admin">Dashboard</Link>
 										</li>
 										<li className="menu-item">
-											<Link href="/admin/gallery">Galerie</Link>
+											<Link href="/admin/food">
+												Speisen
+											</Link>
 										</li>
 										<li className="menu-item">
-											<Link href="/admin/worktime">Öffnungszeiten</Link>
+											<Link href="/admin/slider">
+												Slider
+											</Link>
 										</li>
-                                        <li className="menu-item">
-											<Link href="/admin/admins">Admins</Link>
+										<li className="menu-item">
+											<Link href="/admin/gallery">
+												Galerie
+											</Link>
 										</li>
-                                        <li className="menu-item">
-											<Link href="/api/admin/logout">Abmelden</Link>
+										<li className="menu-item">
+											<Link href="/admin/worktime">
+												Öffnungszeiten
+											</Link>
+										</li>
+										<li className="menu-item">
+											<Link href="/admin/admins">
+												Admins
+											</Link>
+										</li>
+										<li className="menu-item">
+											<Link href="/api/admin/logout">
+												Abmelden
+											</Link>
 										</li>
 									</ul>
 								</div>
@@ -227,10 +280,6 @@ const AdminLayout: FC<LayoutProps> = ({ children }) => {
 			/>
 			<Script
 				src="/template/js/jquery.fitvids.js"
-				strategy="afterInteractive"
-			/>
-			<Script
-				src="/template/js/jquery.magnific-popup.min.js"
 				strategy="afterInteractive"
 			/>
 			<Script

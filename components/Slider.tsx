@@ -1,42 +1,51 @@
 import { FC } from "react";
-import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+import Link from "next/link";
 
 interface Slide {
-  url: string;
-  title: string;
-  subtitle?: string | null;
+	url: string;
+	title: string;
+	subtitle?: string | null;
 }
 
 interface SliderProps {
-  slides: Slide[];
+	slides: Slide[];
 }
 
 const Slider: FC<SliderProps> = ({ slides }) => {
-  return (
-    <div className="slider-container">
-      <div className="owl-carousel owl-theme home-slider">
-        {slides.map((slide, index) => (
-          <div className="slider-post slider-item-box-bkg" key={index}>
-            <div
-              className="slider-img"
-              style={{ backgroundImage: `url(${slide.url})` }}
-            ></div>
-            <div className="slider-caption">
-              <div className="slider-text">
-                <h1>{slide.title}</h1>
-                <p>{slide.subtitle}</p>
-                <p>
-                  <a href="reservation" className="view-more more-white">
-                    Book a Table
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+	return (
+		<Swiper
+			modules={[Navigation]}
+			navigation
+			loop
+			spaceBetween={0}
+			slidesPerView={1}
+			style={{ height: "100vh" }}
+		>
+			{slides.map((slide, index) => (
+				<SwiperSlide key={index}>
+					<div
+						className="slider-img"
+						style={{ backgroundImage: `url(${slide.url})` }}
+					>
+						<div className="slider-caption">
+							<h1>{slide.title}</h1>
+							<p>{slide.subtitle}</p>
+							<a
+								href="reservation"
+								className="view-more more-white"
+							>
+								Book a Table
+							</a>
+						</div>
+					</div>
+				</SwiperSlide>
+			))}
+		</Swiper>
+	);
 };
 
 export default Slider;
