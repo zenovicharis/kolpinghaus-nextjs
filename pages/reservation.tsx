@@ -25,9 +25,7 @@ const ReservationPage = ({ siteKey, workTime }: ReservationPageProps) => {
 	const recaptchaRef = createRef<ReCAPTCHA>();
 
 	const handleChange = (
-		e: ChangeEvent<
-			HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-		>
+		e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
 	) => {
 		const { name, value } = e.target;
 		setFormData((prev) => ({ ...prev, [name]: value }));
@@ -35,7 +33,7 @@ const ReservationPage = ({ siteKey, workTime }: ReservationPageProps) => {
 
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		setOutput("Sending...");
+		setOutput("Wird gesendet...");
 
 		if (recaptchaRef.current) {
 			const captchaCode = await recaptchaRef.current.executeAsync();
@@ -87,9 +85,7 @@ const ReservationPage = ({ siteKey, workTime }: ReservationPageProps) => {
 				<div className="item-content-bkg">
 					<div className="item-img"></div>
 					<div className="inner-desc">
-						<h1 className="post-title single-post-title">
-							Reservierung
-						</h1>
+						<h1 className="post-title single-post-title">Reservierung</h1>
 						<span className="post-subtitle">
 							Wir freuen uns auf Ihren Besuch
 						</span>
@@ -106,17 +102,14 @@ const ReservationPage = ({ siteKey, workTime }: ReservationPageProps) => {
 									<h2>Tisch reservieren</h2>
 								</div>
 								<p className="alignc">
-									Sie können jederzeit online oder telefonisch
-									unter 0271/77002976 während unserer
-									Öffnungszeiten einen Tisch reservieren:
+									Sie können jederzeit online oder telefonisch unter
+									0271/77002976 während unserer Öffnungszeiten einen Tisch
+									reservieren:
 								</p>
 							</div>
 
 							<div className="reservation_txt">
-								<form
-									id="reservation-form"
-									onSubmit={handleSubmit}
-								>
+								<form id="reservation-form" onSubmit={handleSubmit}>
 									<div className="res-row">
 										<div className="res-col">
 											<label>Name*</label>
@@ -173,24 +166,12 @@ const ReservationPage = ({ siteKey, workTime }: ReservationPageProps) => {
 												value={formData.time}
 												onChange={handleChange}
 											>
-												<option value="17:00">
-													17:00
-												</option>
-												<option value="18:00">
-													18:00
-												</option>
-												<option value="19:00">
-													19:00
-												</option>
-												<option value="20:00">
-													20:00
-												</option>
-												<option value="21:00">
-													21:00
-												</option>
-												<option value="22:00">
-													22:00
-												</option>
+												<option value="17:00">17:00</option>
+												<option value="18:00">18:00</option>
+												<option value="19:00">19:00</option>
+												<option value="20:00">20:00</option>
+												<option value="21:00">21:00</option>
+												<option value="22:00">22:00</option>
 											</select>
 										</div>
 										<div className="res-col">
@@ -231,11 +212,7 @@ const ReservationPage = ({ siteKey, workTime }: ReservationPageProps) => {
 								/>
 							</div>
 
-							<div
-								id="output"
-								className="alignc"
-								style={{ marginTop: "20px" }}
-							>
+							<div id="output" className="alignc" style={{ marginTop: "20px" }}>
 								{output}
 							</div>
 						</div>

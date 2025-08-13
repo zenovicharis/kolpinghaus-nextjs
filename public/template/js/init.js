@@ -32,9 +32,7 @@
 		if ($(this).parent().hasClass("menu-open"))
 			$(this).parent().removeClass("menu-open");
 		else {
-			$(".menu-nav-2")
-				.find(".menu-item-has-children")
-				.removeClass("menu-open");
+			$(".menu-nav-2").find(".menu-item-has-children").removeClass("menu-open");
 
 			$(this).parent().addClass("menu-open");
 		}
@@ -50,9 +48,9 @@
 			);
 			$(".headerWrap-5").addClass("navbar-fixed-top nav-bkg1");
 		} else {
-			$(
-				".navbar-1, #header-2, #header-3, #header-4, .header6"
-			).removeClass("nav-bkg1");
+			$(".navbar-1, #header-2, #header-3, #header-4, .header6").removeClass(
+				"nav-bkg1"
+			);
 			$(".headerWrap-5").removeClass("navbar-fixed-top nav-bkg1");
 		}
 	});
@@ -92,9 +90,7 @@
 			location.hostname == this.hostname
 		) {
 			var target = $(this.hash);
-			target = target.length
-				? target
-				: $("[name=" + this.hash.slice(1) + "]");
+			target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
 			if (target.length) {
 				$("html, body").animate(
 					{

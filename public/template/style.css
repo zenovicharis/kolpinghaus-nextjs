@@ -3229,7 +3229,7 @@ footer {
 	position: fixed;
 	background: var(--headings-color);
 	border-radius: 50%;
-	bottom: 20px;
+	bottom: 100px;
 	right: 20px;
 	text-align: center;
 	padding-top: 6px;
@@ -3427,7 +3427,6 @@ footer {
 	top: 50%;
 	margin-left: -40px;
 	margin-top: -40px;
-	background: url(owl.video.play.png) no-repeat;
 	cursor: pointer;
 	z-index: 1;
 	-webkit-backface-visibility: hidden;
@@ -4464,4 +4463,10 @@ MEDIA QUERIES
 	.menu-post-v3.cols5 {
 		width: 100%;
 	}
+}
+
+
+.impressum-image {
+	text-align: center;
+    align-content: center;
 }

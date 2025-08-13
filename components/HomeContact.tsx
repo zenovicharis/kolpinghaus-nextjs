@@ -35,7 +35,7 @@ export default function HomeContact({ siteKey }: { siteKey: string }) {
 			})
 			.catch((e) => {
 				console.error(
-					"Failed to send email:",
+					"E-Mail konnte nicht gesendet werden:",
 					e.response?.data?.message || e.message
 				);
 				setErrorAlert(true);
@@ -81,9 +81,8 @@ export default function HomeContact({ siteKey }: { siteKey: string }) {
 								<h2>Kontakt aufnehmen</h2>
 							</div>
 							<div className="margin-b24">
-								Haben Sie einen Ratschlag oder einen Vorschlag,
-								den Sie uns mitteilen möchten? Fühlen Sie sich
-								frei uns zu kontaktieren.
+								Haben Sie einen Ratschlag oder einen Vorschlag, den Sie uns
+								mitteilen möchten? Fühlen Sie sich frei uns zu kontaktieren.
 							</div>
 							<div id="contact-form-holder">
 								<form onSubmit={handleSubmit}>
@@ -102,9 +101,7 @@ export default function HomeContact({ siteKey }: { siteKey: string }) {
 												/>
 											</p>
 											{errors.name && (
-												<p style={{ color: "red" }}>
-													{errors.name}
-												</p>
+												<p style={{ color: "red" }}>{errors.name}</p>
 											)}
 										</div>
 										<div className="col-md-6">
@@ -121,9 +118,7 @@ export default function HomeContact({ siteKey }: { siteKey: string }) {
 												/>
 											</p>
 											{errors.email && (
-												<p style={{ color: "red" }}>
-													{errors.email}
-												</p>
+												<p style={{ color: "red" }}>{errors.email}</p>
 											)}
 										</div>
 									</div>
@@ -138,9 +133,7 @@ export default function HomeContact({ siteKey }: { siteKey: string }) {
 										required
 									/>
 									{errors.subject && (
-										<p style={{ color: "red" }}>
-											{errors.subject}
-										</p>
+										<p style={{ color: "red" }}>{errors.subject}</p>
 									)}
 									<label>Nachricht</label>
 									<p>
@@ -157,13 +150,10 @@ export default function HomeContact({ siteKey }: { siteKey: string }) {
 										></textarea>
 									</p>
 									{errors.message && (
-										<p style={{ color: "red" }}>
-											{errors.message}
-										</p>
+										<p style={{ color: "red" }}>{errors.message}</p>
 									)}
 									<p className="antispam">
-										Leave this empty:{" "}
-										<input type="text" name="url" />
+										Leave this empty: <input type="text" name="url" />
 									</p>
 									<p className="contact-btn">
 										<button
@@ -198,8 +188,7 @@ export default function HomeContact({ siteKey }: { siteKey: string }) {
 					severity="error"
 					sx={{ width: "100%" }}
 				>
-					E-Mail wird nicht gesendet! Bitte versuchen Sie es später
-					erneut.
+					E-Mail wird nicht gesendet! Bitte versuchen Sie es später erneut.
 				</Alert>
 			</Snackbar>
 			<Snackbar
@@ -212,8 +201,8 @@ export default function HomeContact({ siteKey }: { siteKey: string }) {
 					severity="success"
 					sx={{ width: "100%" }}
 				>
-					E-Mail gesendet! Vielen Dank, dass Sie uns geschrieben
-					haben. Wir werden so schnell wie möglich antworten möglich.
+					E-Mail gesendet! Vielen Dank, dass Sie uns geschrieben haben. Wir
+					werden so schnell wie möglich antworten möglich.
 				</Alert>
 			</Snackbar>
 		</>

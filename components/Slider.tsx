@@ -37,11 +37,8 @@ const Slider: FC<SliderProps> = ({ slides }) => {
 						<div className="slider-caption">
 							<h1>{slide.title}</h1>
 							<p>{slide.subtitle}</p>
-							<a
-								href="reservation"
-								className="view-more more-white"
-							>
-								Book a Table
+							<a href="reservation" className="view-more more-white">
+								Tisch reservieren
 							</a>
 						</div>
 					</div>

@@ -88,10 +88,7 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 		<>
 			<Head>
 				<meta charSet="UTF-8" />
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1.0"
-				/>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<title>Restaurant im Kolpinghaus</title>
 				<meta name="robots" content="noodp" />
 				{/* favicons */}
@@ -140,18 +137,12 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 										</a>
 									</li>
 									<li className="menu-item">
-										<Link
-											href="/reservation"
-											onClick={closeMobileMenu}
-										>
+										<Link href="/reservation" onClick={closeMobileMenu}>
 											Reservierung
 										</Link>
 									</li>
 									<li className="menu-item">
-										<Link
-											href="/impressum"
-											onClick={closeMobileMenu}
-										>
+										<Link href="/impressum" onClick={closeMobileMenu}>
 											Impressum
 										</Link>
 									</li>
@@ -165,8 +156,8 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 							<h3>Jetzt Buchen</h3>
 							<ul className="right-side-contact">
 								<li>
-									<label>Adresse:</label> Weidenauer Straße
-									27, 57078 Siegen - Weidenau
+									<label>Adresse:</label> Weidenauer Straße 27, 57078 Siegen -
+									Weidenau
 								</li>
 								<li>
 									<label>Telefon:</label> 0271/ 770 029 76
@@ -178,44 +169,19 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 								<li>
 									<a
 										className="social-facebook"
-										href="#"
+										href="https://www.facebook.com/profile.php?id=100066660789863"
 										target="_blank"
+										rel="noreferrer"
 									>
 										<i className="fab fa-facebook-f"></i>
 									</a>
 								</li>
 								<li>
 									<a
-										className="social-twitter"
-										href="#"
-										target="_blank"
-									>
-										<i className="fab fa-twitter"></i>
-									</a>
-								</li>
-								<li>
-									<a
-										className="social-tripadvisor"
-										href="#"
-										target="_blank"
-									>
-										<i className="fab fa-tripadvisor"></i>
-									</a>
-								</li>
-								<li>
-									<a
-										className="social-pinterest"
-										href="#"
-										target="_blank"
-									>
-										<i className="fab fa-pinterest"></i>
-									</a>
-								</li>
-								<li>
-									<a
 										className="social-instagram"
-										href="#"
+										href="https://www.instagram.com/kolpinghaussiegen/"
 										target="_blank"
+										rel="noreferrer"
 									>
 										<i className="fab fa-instagram"></i>
 									</a>
@@ -234,19 +200,13 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 						<nav className="navbar-1">
 							{/* TOP LEFT PAGE TEXT  */}
 							<div className="top-location">
-								<span className="info-txt">
-									Weidenauer Straße 27,
-								</span>
-								<span className="info-txt">
-									57078 Siegen - Weidenau
-								</span>
+								<span className="info-txt">Weidenauer Straße 27,</span>
+								<span className="info-txt">57078 Siegen - Weidenau</span>
 							</div>
 							{/* TOP RIGHT PAGE TEXT  */}
 							<div className="book-now">
 								<span className="info-txt">Jetzt Buchen</span>
-								<span className="info-txt">
-									0271/ 770 029 76
-								</span>
+								<span className="info-txt">0271/ 770 029 76</span>
 							</div>
 
 							{/* MOBILE BUTTON NAV  */}
@@ -259,9 +219,7 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 								<span className="menu-txt">MENU</span>
 								<button
 									type="button"
-									className={`nav-button ${
-										isMobileMenuOpen ? "active" : ""
-									}`}
+									className={`nav-button ${isMobileMenuOpen ? "active" : ""}`}
 								>
 									<span className="icon-bar"></span>
 								</button>
@@ -282,10 +240,7 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 								</div>
 								{/* MENU */}
 								<div className="nav-holder nav-holder-1 nav-holder-desktop">
-									<ul
-										id="menu-menu-1"
-										className="menu-nav menu-nav-1"
-									>
+									<ul id="menu-menu-1" className="menu-nav menu-nav-1">
 										<li className="menu-item">
 											<a
 												href="#"
@@ -320,14 +275,10 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 											</a>
 										</li>
 										<li className="menu-item">
-											<Link href="/reservation">
-												Reservierung
-											</Link>
+											<Link href="/reservation">Reservierung</Link>
 										</li>
 										<li className="menu-item">
-											<Link href="/impressum">
-												Impressum
-											</Link>
+											<Link href="/impressum">Impressum</Link>
 										</li>
 									</ul>
 								</div>
@@ -352,8 +303,7 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 									<h5>Adresse:</h5>
 									<p>
 										Restaurant im Kolpinghaus <br />
-										Weidenauer Straße 27, 57078 Siegen -
-										Weidenau
+										Weidenauer Straße 27, 57078 Siegen - Weidenau
 									</p>
 								</div>
 							</div>
@@ -386,47 +336,27 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 						{/* FOOTER SOCIAL */}
 						<ul className="footer-social">
 							<li>
-								<a
-									className="social-facebook"
-									href="#"
-									target="_blank"
-								>
+								<a className="social-facebook" href="#" target="_blank">
 									<i className="fab fa-facebook-f"></i>
 								</a>
 							</li>
 							<li>
-								<a
-									className="social-twitter"
-									href="#"
-									target="_blank"
-								>
+								<a className="social-twitter" href="#" target="_blank">
 									<i className="fab fa-twitter"></i>
 								</a>
 							</li>
 							<li>
-								<a
-									className="social-tripadvisor"
-									href="#"
-									target="_blank"
-								>
+								<a className="social-tripadvisor" href="#" target="_blank">
 									<i className="fab fa-tripadvisor"></i>
 								</a>
 							</li>
 							<li>
-								<a
-									className="social-pinterest"
-									href="#"
-									target="_blank"
-								>
+								<a className="social-pinterest" href="#" target="_blank">
 									<i className="fab fa-pinterest"></i>
 								</a>
 							</li>
 							<li>
-								<a
-									className="social-instagram"
-									href="#"
-									target="_blank"
-								>
+								<a className="social-instagram" href="#" target="_blank">
 									<i className="fab fa-instagram"></i>
 								</a>
 							</li>
@@ -435,8 +365,14 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 
 						{/* FOOTER COPYRIGHT */}
 						<div className="copyright">
-							Copyright &copy; 2020, Dina . Designed by
-							MatchThemes.com
+							Copyright &copy; {new Date().getFullYear()},{" "}
+							<a
+								href="https://tourism-software.solutions"
+								rel="noreferrer"
+								target="_blank"
+							>
+								TSS
+							</a>
 						</div>
 						{/* /FOOTER COPYRIGHT */}
 
