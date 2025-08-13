@@ -14,6 +14,8 @@ interface LayoutProps {
 
 const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const [showScrollTop, setShowScrollTop] = useState(false);
+	const [isHeaderSticky, setIsHeaderSticky] = useState(false);
 	const router = useRouter();
 
 	const handleNavClick = (section: string) => {
@@ -51,12 +53,46 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 		}
 	}, [isMobileMenuOpen]);
 
+	useEffect(() => {
+		const handleScroll = () => {
+			const scrollY = window.scrollY;
+
+			// Scroll to top button
+			if (scrollY > 400) {
+				setShowScrollTop(true);
+			} else {
+				setShowScrollTop(false);
+			}
+
+			// Sticky header
+			if (scrollY > 50) {
+				setIsHeaderSticky(true);
+			} else {
+				setIsHeaderSticky(false);
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+
+		// Cleanup
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
 	const toggleMobileMenu = () => {
 		setIsMobileMenuOpen(!isMobileMenuOpen);
 	};
 
 	const closeMobileMenu = () => {
 		setIsMobileMenuOpen(false);
+	};
+
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
 	};
 
 	const getCurrentDayWorkTime = () => {
@@ -197,7 +233,7 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 				{/* HEADER */}
 				<header id="header-1">
 					<div className="headerWrap-1">
-						<nav className="navbar-1">
+						<nav className={`navbar-1 ${isHeaderSticky ? "nav-bkg1" : ""}`}>
 							{/* TOP LEFT PAGE TEXT  */}
 							<div className="top-location">
 								<span className="info-txt">Weidenauer Straße 27,</span>
@@ -336,27 +372,22 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 						{/* FOOTER SOCIAL */}
 						<ul className="footer-social">
 							<li>
-								<a className="social-facebook" href="#" target="_blank">
+								<a
+									className="social-facebook"
+									href="https://www.facebook.com/profile.php?id=100066660789863"
+									target="_blank"
+									rel="noreferrer"
+								>
 									<i className="fab fa-facebook-f"></i>
 								</a>
 							</li>
 							<li>
-								<a className="social-twitter" href="#" target="_blank">
-									<i className="fab fa-twitter"></i>
-								</a>
-							</li>
-							<li>
-								<a className="social-tripadvisor" href="#" target="_blank">
-									<i className="fab fa-tripadvisor"></i>
-								</a>
-							</li>
-							<li>
-								<a className="social-pinterest" href="#" target="_blank">
-									<i className="fab fa-pinterest"></i>
-								</a>
-							</li>
-							<li>
-								<a className="social-instagram" href="#" target="_blank">
+								<a
+									className="social-instagram"
+									href="https://www.instagram.com/kolpinghaussiegen/"
+									target="_blank"
+									rel="noreferrer"
+								>
 									<i className="fab fa-instagram"></i>
 								</a>
 							</li>
@@ -377,8 +408,15 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 						{/* /FOOTER COPYRIGHT */}
 
 						{/* FOOTER SCROLL UP */}
-						<div className="scrollup">
-							<a className="scrolltop" href="#">
+						<div className={`scrollup ${showScrollTop ? "show" : ""}`}>
+							<a
+								className="scrolltop"
+								href="#"
+								onClick={(e) => {
+									e.preventDefault();
+									scrollToTop();
+								}}
+							>
 								<i className="fas fa-chevron-up"></i>
 							</a>
 						</div>
@@ -388,24 +426,6 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 				</footer>
 				{/* /FOOTER */}
 			</div>
-			{/* JS */}
-			<Script
-				src="/template/css/bootstrap/js/popper.min.js"
-				strategy="afterInteractive"
-			/>
-			<Script
-				src="/template/css/bootstrap/js/bootstrap.min.js"
-				strategy="afterInteractive"
-			/>
-			<Script
-				src="/template/js/jquery.easing.min.js"
-				strategy="afterInteractive"
-			/>
-			<Script
-				src="/template/js/jquery.fitvids.js"
-				strategy="afterInteractive"
-			/>
-			<Script src="/template/js/init.js" strategy="lazyOnload" />
 		</>
 	);
 };
