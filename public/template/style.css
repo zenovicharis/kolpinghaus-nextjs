@@ -1802,7 +1802,6 @@ body.has-active-menu {
 .menu-title,
 .menu-price {
 	background: #ffffff;
-	z-index: 2;
 }
 
 .menu-dots {
@@ -4436,6 +4435,17 @@ MEDIA QUERIES
 	.children li.depth-9,
 	.children li.depth-10 {
 		margin: 0;
+	}
+
+	.home-title {
+		font-size: 38px;
+	}
+	.scrollup i {
+		bottom: 100px;
+	}
+	.img-responsive {
+		width: 100%;
+		height: auto;
 	}
 }
 

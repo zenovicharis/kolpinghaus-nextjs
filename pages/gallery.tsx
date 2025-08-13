@@ -58,6 +58,7 @@ const GalleryPage = ({ images, workTime }: GalleryPageProps) => {
 													setOpen(true);
 												}}
 												className="item-content-bkg gallery-bkg"
+												style={{ cursor: "pointer" }}
 											>
 												<div
 													className="gallery-img"

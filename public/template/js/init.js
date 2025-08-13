@@ -8,49 +8,6 @@
 (function ($) {
 	"use strict";
 
-	//home slider
-
-	// home slider
-	$(".home-slider").owlCarousel({
-		items: 1,
-		loop: true,
-		autoplay: true,
-		autoplayTimeout: 4000,
-		animateOut: "fadeOut",
-		dots: false,
-		nav: true,
-		navText: "",
-	});
-
-	//end home slider
-
-	//home 10 carousel
-
-	$(".home-carousel").owlCarousel({
-		items: 1,
-		loop: true,
-		autoplay: true,
-		autoplayTimeout: 4000,
-		autoplayHoverPause: true,
-		dots: false,
-		nav: false,
-		navText: "",
-		responsiveClass: true,
-		responsive: {
-			0: {
-				items: 2,
-			},
-
-			1024: {
-				items: 4,
-			},
-
-			1300: {
-				items: 5,
-			},
-		},
-	});
-
 	//hamburger menu
 	$(".nav-button-holder").on("click", function (e) {
 		e.preventDefault();

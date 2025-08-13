@@ -28,18 +28,12 @@ const HomeGallery = ({ images }: HomeGalleryProps) => {
 										key={index}
 									>
 										<div
-											role="button"
-											onClick={() => {
-												setIndex(index);
-												setOpen(true);
-											}}
-										></div>
-										<div
 											className="item-content-bkg gallery-bkg"
 											onClick={() => {
 												setIndex(index);
 												setOpen(true);
 											}}
+											style={{ cursor: "pointer" }}
 										>
 											<div
 												className="gallery-img"
@@ -77,7 +71,7 @@ const HomeGallery = ({ images }: HomeGalleryProps) => {
 					open={open}
 					close={() => setOpen(false)}
 					index={index}
-					slides={images.map((img) => ({ src: img.url }))}
+					slides={images.slice(0, 3).map((img) => ({ src: img.url }))}
 				/>
 			)}
 		</section>

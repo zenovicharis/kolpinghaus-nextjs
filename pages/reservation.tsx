@@ -215,11 +215,13 @@ const ReservationPage = ({ siteKey, workTime }: ReservationPageProps) => {
 										onChange={handleChange}
 									></textarea>
 									<p className="alignc">
-										<input
+										<button
 											type="submit"
-											value="Jetzt Buchen"
 											id="submit"
-										/>
+											style={{ cursor: "pointer" }}
+										>
+											Jetzt Buchen
+										</button>
 									</p>
 								</form>
 								<ReCAPTCHA

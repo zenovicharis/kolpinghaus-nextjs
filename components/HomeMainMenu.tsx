@@ -41,8 +41,6 @@ const HomeMainMenu: FC<HomeMainMenuProps> = ({ images }) => {
 		},
 	];
 
-	console.log(sections);
-
 	return (
 		<section id="home-content-1" className="home-widget">
 			<div className="container">

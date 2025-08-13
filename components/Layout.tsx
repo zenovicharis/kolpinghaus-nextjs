@@ -107,43 +107,37 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 							<div className="nav-holder nav-holder-2">
 								<ul id="menu-menu-2" className="menu-nav-2">
 									<li className="menu-item">
-										<ScrollLink
-											href="about"
-											to="about"
-											spy={true}
-											smooth={true}
-											duration={500}
-											offset={-80}
-											onClick={closeMobileMenu}
+										<a
+											href="#"
+											onClick={(e) => {
+												e.preventDefault();
+												handleNavClick("about");
+											}}
 										>
 											Über uns
-										</ScrollLink>
+										</a>
 									</li>
 									<li className="menu-item">
-										<ScrollLink
-											href="menu"
-											to="menu"
-											spy={true}
-											smooth={true}
-											duration={500}
-											offset={-80}
-											onClick={closeMobileMenu}
+										<a
+											href="#"
+											onClick={(e) => {
+												e.preventDefault();
+												handleNavClick("menu");
+											}}
 										>
 											Menü
-										</ScrollLink>
+										</a>
 									</li>
 									<li className="menu-item">
-										<ScrollLink
-											href="contact"
-											to="contact"
-											spy={true}
-											smooth={true}
-											duration={500}
-											offset={-80}
-											onClick={closeMobileMenu}
+										<a
+											href="#"
+											onClick={(e) => {
+												e.preventDefault();
+												handleNavClick("contact");
+											}}
 										>
 											Kontakt
-										</ScrollLink>
+										</a>
 									</li>
 									<li className="menu-item">
 										<Link
@@ -473,14 +467,6 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 			/>
 			<Script
 				src="/template/js/jquery.fitvids.js"
-				strategy="afterInteractive"
-			/>
-			<Script
-				src="/template/js/jquery.magnific-popup.min.js"
-				strategy="afterInteractive"
-			/>
-			<Script
-				src="/template/js/owl-carousel/owl.carousel.min.js"
 				strategy="afterInteractive"
 			/>
 			<Script src="/template/js/init.js" strategy="lazyOnload" />

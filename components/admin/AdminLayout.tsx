@@ -282,10 +282,6 @@ const AdminLayout: FC<LayoutProps> = ({ children }) => {
 				src="/template/js/jquery.fitvids.js"
 				strategy="afterInteractive"
 			/>
-			<Script
-				src="/template/js/owl-carousel/owl.carousel.min.js"
-				strategy="afterInteractive"
-			/>
 			<Script src="/template/js/init.js" strategy="lazyOnload" />
 		</>
 	);
