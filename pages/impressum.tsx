@@ -60,7 +60,7 @@ const Impressum = ({ siteKey, workTime }: ImpressumProps) => {
 						<div className="col-md-6 impressum-image">
 							<Image
 								className="img-fluid img-feature img-responsive"
-								src="/img/Impressum/impressum.png"
+								src="/img/impressum.png"
 								alt="Impressum"
 								width={202.5}
 								height={231}

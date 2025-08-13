@@ -1,4 +1,11 @@
-node_modules/
-.next/
-.github/
-.git/
+node_modules
+.next
+Dockerfile
+.dockerignore
+.git
+.github
+.vscode
+.editorconfig
+.env.example
+.gitignore
+README.md

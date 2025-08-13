@@ -267,7 +267,7 @@ const Layout: FC<LayoutProps> = ({ children, workTime }) => {
 									<Link href="/">
 										<Image
 											className="img-fluid"
-											src="/img/Menu/kolpinghaus.svg"
+											src="/img/logo/kolpinghaus.svg"
 											alt=""
 											width={150}
 											height={50}

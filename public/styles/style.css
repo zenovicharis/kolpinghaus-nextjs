@@ -209,20 +209,6 @@ textarea {
 	max-width: 100%;
 }
 
-.wp-caption-text {
-}
-
-.sticky {
-}
-
-.gallery-caption {
-}
-
-.bypostauthor {
-}
-
-.screen-reader-text {
-}
 
 .alignright {
 	display: block;
@@ -2943,8 +2929,6 @@ aside .instagram-pics li img {
 	border-radius: 50%;
 }
 
-.comment-right {
-}
 
 .comment-author .author a,
 .comment-author .author a:visited {
@@ -3155,9 +3139,6 @@ footer {
 	align-items: center;
 }
 
-.reservation-container {
-	/* width: 100%; */
-}
 
 .res-col {
 	width: 100%;

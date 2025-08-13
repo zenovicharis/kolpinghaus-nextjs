@@ -161,7 +161,7 @@ const AdminLayout: FC<LayoutProps> = ({ children }) => {
 									<Link href="/admin">
 										<Image
 											className="img-fluid"
-											src="/img/Menu/kolpinghaus.svg"
+											src="/img/logo/kolpinghaus.svg"
 											alt="logo"
 											width={150}
 											height={50}
