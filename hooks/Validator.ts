@@ -14,9 +14,9 @@ interface FormValues {
 
 export const validator = (
   values: FormValues,
-  fieldName: string
+  fieldName: string,
 ): ValidationErrors => {
-  let errors: ValidationErrors = {};
+  const errors: ValidationErrors = {};
   switch (fieldName) {
     case "email":
       validateEmail(values.email, errors);
@@ -70,7 +70,7 @@ function validateName(name: string | undefined, errors: ValidationErrors) {
 
 function validateMessage(
   message: string | undefined,
-  errors: ValidationErrors
+  errors: ValidationErrors,
 ) {
   let result = true;
 
@@ -91,7 +91,7 @@ function validateMessage(
 
 function validateSubject(
   subject: string | undefined,
-  errors: ValidationErrors
+  errors: ValidationErrors,
 ) {
   let result = true;
 

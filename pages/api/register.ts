@@ -22,7 +22,7 @@ interface CaptchaValidationResponse {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   const { body, method } = req;
   const { email, captcha }: RegisterRequestBody = body;
@@ -42,7 +42,7 @@ export default async function handler(
             "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
           },
           method: "POST",
-        }
+        },
       );
       const captchaValidation: CaptchaValidationResponse =
         (await response.json()) as CaptchaValidationResponse;
@@ -56,7 +56,7 @@ export default async function handler(
         message: "Unprocessable request, Invalid captcha code",
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
       return res.status(422).json({ message: "Something went wrong" });
     }
   }

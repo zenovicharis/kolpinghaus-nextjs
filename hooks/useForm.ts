@@ -23,7 +23,7 @@ const useForm = <T extends Record<string, any>>({
   }, [errors, isSubmited, callback]);
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setState((prevState) => ({
@@ -33,7 +33,7 @@ const useForm = <T extends Record<string, any>>({
   };
 
   const handleBlur = (
-    e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name: fieldName } = e.target as { name: keyof T };
     const failedFields = validator(state, fieldName);

@@ -4,7 +4,7 @@ import { sendEmail } from "../../lib/email";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   try {
     if (req.method !== "POST") {
@@ -27,7 +27,7 @@ export default async function handler(
       return res.status(400).json({ message: "Captcha verification failed" });
     }
 
-    await sendEmail({ type: 'contact', data });
+    await sendEmail({ type: "contact", data });
 
     res.status(200).json({ message: "Successfully Sent Email" });
   } catch (e) {

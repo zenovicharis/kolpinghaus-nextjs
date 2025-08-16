@@ -1,7 +1,7 @@
 
-import { db } from '../drizzle';
-import { slides, NewSlides } from '../../db/schema';
-import { eq } from 'drizzle-orm';
+import { db } from "../drizzle";
+import { slides, NewSlides } from "../../db/schema";
+import { eq } from "drizzle-orm";
 
 export async function getSlides() {
   const result = await db.select().from(slides);

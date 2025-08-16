@@ -1,9 +1,9 @@
-import { db } from '../drizzle';
-import { food, picklists, NewFood } from '../../db/schema';
-import { eq } from 'drizzle-orm';
+import { db } from "../drizzle";
+import { food, picklists, NewFood } from "../../db/schema";
+import { eq } from "drizzle-orm";
 
 export async function getFood() {
-  const mainCategories = await db.select().from(picklists).where(eq(picklists.delimeter, 'main'));
+  const mainCategories = await db.select().from(picklists).where(eq(picklists.delimeter, "main"));
 
   const foodData = [];
 
@@ -33,7 +33,7 @@ export async function getFoodById(id: number) {
 }
 
 export async function getCategories() {
-  const result = await db.select().from(picklists).where(eq(picklists.delimeter, 'sub'));
+  const result = await db.select().from(picklists).where(eq(picklists.delimeter, "sub"));
   return result;
 }
 

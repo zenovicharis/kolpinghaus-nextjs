@@ -10,7 +10,9 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx db/migrate.ts",
     "seed": "tsx db/seed.ts",
-    "reset-password": "tsx db/reset-password.ts"
+    "reset-password": "tsx db/reset-password.ts",
+    "prepare": "husky",
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -31,6 +33,7 @@
     "googleapis": "^105.0.0",
     "jose": "^6.0.12",
     "js-cookie": "^3.0.5",
+    "lint-staged": "^16.1.5",
     "lodash": "^4.17.21",
     "minio": "^8.0.5",
     "mongodb": "^4.17.0",
@@ -46,6 +49,7 @@
     "yet-another-react-lightbox": "^3.25.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^24.1.0",
     "@types/node-fetch": "^2.6.12",
@@ -54,10 +58,16 @@
     "@types/react-google-recaptcha": "^2.1.9",
     "@types/react-scroll": "^1.8.10",
     "drizzle-kit": "^0.31.4",
-    "eslint": "8.26.0",
-    "eslint-config-next": "13.0.0",
+    "eslint": "^9.33.0",
+    "eslint-config-next": "^15.4.6",
+    "husky": "^9.1.7",
     "sass": "^1.55.0",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "eslint --fix"
+    ]
   }
 }

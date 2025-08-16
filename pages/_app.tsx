@@ -4,7 +4,7 @@ import "/public/styles/fontawesome/all.min.css";
 import "/public/styles/style.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
-	return <Component {...pageProps} />;
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;

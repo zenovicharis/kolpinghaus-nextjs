@@ -15,37 +15,37 @@ interface SliderProps {
 }
 
 const Slider: FC<SliderProps> = ({ slides }) => {
-	return (
-		<Swiper
-			modules={[Navigation, Autoplay]}
-			navigation
-			loop
-			spaceBetween={0}
-			slidesPerView={1}
-			style={{ height: "100vh" }}
-			autoplay={{
-				delay: 10000,
-				disableOnInteraction: false,
-			}}
-		>
-			{slides.map((slide, index) => (
-				<SwiperSlide key={index}>
-					<div
-						className="slider-img"
-						style={{ backgroundImage: `url(${slide.url})` }}
-					>
-						<div className="slider-caption">
-							<h1>{slide.title}</h1>
-							<p>{slide.subtitle}</p>
-							<a href="reservation" className="view-more more-white">
+  return (
+    <Swiper
+      modules={[Navigation, Autoplay]}
+      navigation
+      loop
+      spaceBetween={0}
+      slidesPerView={1}
+      style={{ height: "100vh" }}
+      autoplay={{
+        delay: 10000,
+        disableOnInteraction: false,
+      }}
+    >
+      {slides.map((slide, index) => (
+        <SwiperSlide key={index}>
+          <div
+            className="slider-img"
+            style={{ backgroundImage: `url(${slide.url})` }}
+          >
+            <div className="slider-caption">
+              <h1>{slide.title}</h1>
+              <p>{slide.subtitle}</p>
+              <a href="reservation" className="view-more more-white">
 								Tisch reservieren
-							</a>
-						</div>
-					</div>
-				</SwiperSlide>
-			))}
-		</Swiper>
-	);
+              </a>
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  );
 };
 
 export default Slider;

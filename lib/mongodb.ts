@@ -26,9 +26,9 @@ export async function connectToDatabase(): Promise<ConnectToDatabaseResult> {
     throw new Error("Define the MONGODB_DB environmental variable");
   }
 
-  let client = new MongoClient(MONGODB_URI);
+  const client = new MongoClient(MONGODB_URI);
   await client.connect();
-  let db = client.db(MONGODB_DB);
+  const db = client.db(MONGODB_DB);
 
   cachedClient = client;
   cachedDb = db;

@@ -1,8 +1,8 @@
 
-import { db } from '../drizzle';
-import { admin, NewAdmin, Admin } from '../../db/schema';
-import { eq } from 'drizzle-orm';
-import * as bcrypt from 'bcryptjs';
+import { db } from "../drizzle";
+import { admin, NewAdmin } from "../../db/schema";
+import { eq } from "drizzle-orm";
+import * as bcrypt from "bcryptjs";
 
 export async function getAdmins() {
   const result = await db.select().from(admin);
@@ -21,7 +21,7 @@ export async function addAdmin(newAdmin: NewAdmin) {
 }
 
 export async function updateAdmin(id: number, adminData: Partial<NewAdmin>) {
-  if (adminData.password && adminData.password.trim() !== '') {
+  if (adminData.password && adminData.password.trim() !== "") {
     const salt = await bcrypt.genSalt(10);
     adminData.password = await bcrypt.hash(adminData.password, salt);
   } else {

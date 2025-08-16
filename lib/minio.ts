@@ -1,6 +1,6 @@
-import * as Minio from 'minio';
+import * as Minio from "minio";
 
-const useSSL = process.env.MINIO_USE_SSL === 'true';
+const useSSL = process.env.MINIO_USE_SSL === "true";
 const port = parseInt(process.env.MINIO_PORT!);
 
 const config: Minio.ClientOptions = {
