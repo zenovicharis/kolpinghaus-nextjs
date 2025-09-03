@@ -28,12 +28,18 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/.env ./.env
 COPY --from=builder /app/node_modules ./node_modules
 
-# Optionally copy config files
+# Required for Drizzle migrations to work
+COPY --from=builder /app/drizzle.config.ts ./drizzle.config.ts
 COPY --from=builder /app/tsconfig.json ./tsconfig.json
-COPY --from=builder /app/.babelrc ./.babelrc
+COPY --from=builder /app/.env ./.env
 COPY --from=builder /app/next.config.mjs ./next.config.mjs
+COPY --from=builder /app/src ./src
+
 
 EXPOSE 3000
 
+# Optional: increase Node memory for safety
+ENV NODE_OPTIONS=--max-old-space-size=2048
+
 # Start the server
-CMD ["npm", "start"]
+CMD ["sh", "-c", "npm start"]
