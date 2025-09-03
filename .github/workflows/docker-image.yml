@@ -11,7 +11,6 @@ jobs:
       - name: Copy Credentials
         run: |
           echo '${{ secrets.ENV_CONFIG}}' > .env
-          echo '${{ secrets.GOOGLE_CREDENTIALS}}' > .config/credentials.json
       - name: Build the Docker image
         run: docker build --tag zenovicharis/kolpinghaus:latest . --file Dockerfile
       - name: Publish Docker Image
