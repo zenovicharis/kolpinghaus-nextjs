@@ -13,5 +13,8 @@ npm run build
 ```
 
 TODO:
-- api data feed to be locked with api key (POST calls can't be done without api key)
-- check contact form bfore first submit
+- "Jeztz Buchen" in header to be link
+
+- New Slider Images
+- Logo still not clear
+- Opening Hours Image background

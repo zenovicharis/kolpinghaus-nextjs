@@ -12,6 +12,7 @@ import { getImages } from "../lib/queries/images";
 import { Food, Slides, images, Worktime } from "../db/schema";
 import { minioClient } from "../lib/minio";
 import { getWorkTime } from "../lib/queries/workTime";
+import WorkingTime from "../components/WorkingTime";
 
 interface MenuType {
 	name: string;
@@ -43,6 +44,7 @@ export default function Home({
       <Slider slides={slides} />
       <HomeMainMenu images={images} />
       <HomeAbout />
+      <WorkingTime workingTimes={workTime} />
       <HomeMenu food={food} />
       <HomeGallery images={images} />
       <HomeContact siteKey={siteKey} />

@@ -107,10 +107,10 @@ const HomeMenu: FC<HomeMenuProps> = ({ food }) => {
                                     </span>{" "}
                                     <span className="menu-dots"></span>
                                     <span className="menu-price">
-																			€
+																			{/* €
                                       {
                                         item.price
-                                      }
+                                      } */}
                                     </span>
                                   </h4>
                                   <div className="menu-text">

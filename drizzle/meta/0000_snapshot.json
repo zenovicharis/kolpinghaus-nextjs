@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "8152665d-d91b-450b-8c9e-63d2f783419f",
+  "id": "e8ad0998-3912-4693-8673-934e476d3a1a",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "admin": {
@@ -308,14 +308,14 @@
         },
         "open": {
           "name": "open",
-          "type": "time",
+          "type": "varchar(255)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "close": {
           "name": "close",
-          "type": "time",
+          "type": "varchar(255)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
