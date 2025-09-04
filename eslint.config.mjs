@@ -1,7 +1,12 @@
 import { FlatCompat } from "@eslint/eslintrc";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+// Compute __dirname in ESM so FlatCompat can resolve configs/plugins correctly
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
+  baseDirectory: __dirname,
 });
 const eslintConfig = [
   ...compat.config({
