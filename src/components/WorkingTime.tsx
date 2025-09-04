@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Worktime } from "../db/schema";
+import Link from "next/link";
 
 
 interface WorkingTimeProps {
@@ -13,26 +14,26 @@ const WorkingTime: FC<WorkingTimeProps> = ({ workingTimes }) => {
       className="home-widget parallax"
       style={{ background: "gray" }}
     >
-         <div className="parallax-content">
-            <div className="container">
-               <div className="row">
-                  <div className="col-md-12 alignc">
-                  
-                    <h2 className="home-subtitle">Tisch reservieren</h2>
-                     <h1 className="home-title title-headline margin-b24">Öffnungszeiten</h1>
+      <div className="parallax-content">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12 alignc">
 
-                     {workingTimes.map((time, index) => (
-                        <p key={index} style={{marginBottom: "6px"}}>
-                           {time.day}: {time.open}{time.close ? ` - ${time.close}` : ""}
-                        </p>
-                     ))}
-                     <a className="view-more more-white margin-t36" href="/reservation">Jetzt buchen</a>
+              <h2 className="home-subtitle">Tisch reservieren</h2>
+              <h1 className="home-title title-headline margin-b24">Öffnungszeiten</h1>
 
-                  </div>
-               </div>
+              {workingTimes.map((time, index) => (
+                <p key={index} style={{ marginBottom: "6px" }}>
+                  {time.day}: {time.open}{time.close ? ` - ${time.close}` : ""}
+                </p>
+              ))}
+              <Link className="view-more more-white margin-t36" href="/reservation">Jetzt buchen</Link>
+
             </div>
-         </div>
-      </section>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
