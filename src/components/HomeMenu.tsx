@@ -107,7 +107,7 @@ const HomeMenu: FC<HomeMenuProps> = ({ food }) => {
                                     </span>{" "}
                                     <span className="menu-dots"></span>
                                     <span className="menu-price">
-																			{/* €
+                                      {/* €
                                       {
                                         item.price
                                       } */}
