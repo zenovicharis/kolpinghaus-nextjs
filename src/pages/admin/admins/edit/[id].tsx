@@ -1,6 +1,6 @@
 import AdminLayout from "../../../../components/admin/AdminLayout";
 import { useState } from "react";
-import axios from "axios";
+import adminApi from "lib/adminClient";
 import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
 import { getAdminById } from "../../../../lib/queries/admins";
@@ -47,9 +47,10 @@ const EditAdminPage: React.FC<EditAdminPageProps> = ({ admin }) => {
 
     setLoading(true);
     try {
-      await axios.put("/api/admin/admins", { id, username, password });
+      await adminApi.put("/api/admin/admins", { id, username, password });
       router.push("/admin/admins");
-    } catch {
+    } catch (error) {
+      console.error("Fehler beim Aktualisieren des Admins", error);
       setError("Fehler beim Aktualisieren des Admins.");
     }
     finally{

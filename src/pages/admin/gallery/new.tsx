@@ -1,6 +1,6 @@
 import AdminLayout from "../../../components/admin/AdminLayout";
 import { useState } from "react";
-import axios from "axios";
+import adminApi from "lib/adminClient";
 import { useRouter } from "next/router";
 
 const NewImagePage = () => {
@@ -52,13 +52,14 @@ const NewImagePage = () => {
 
     try {
       setLoading(true);
-      await axios.post("/api/admin/gallery", formData, {
+      await adminApi.post("/api/admin/gallery", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
       router.push("/admin/gallery");
-    } catch {
+    } catch (error) {
+      console.error("Fehler beim Hochladen des Bildes", error);
       setError("Hochladen des Bildes fehlgeschlagen.");
     }
     finally{

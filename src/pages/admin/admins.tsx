@@ -1,6 +1,6 @@
 import AdminLayout from "../../components/admin/AdminLayout";
 import { Admin } from "../../db/schema";
-import axios from "axios";
+import adminApi from "../../../lib/adminClient";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import FullScreenLoader from "../../components/FullScreenLoader";
@@ -26,7 +26,7 @@ const AdminManagement: React.FC = () => {
     const fetchAdmins = async () => {
       setLoading(true);
       try {
-        const { data } = await axios.get("/api/admin/admins");
+        const { data } = await adminApi.get("/api/admin/admins");
         setAdmins(data);
       } catch (error) {
         console.error("Fehler beim Abrufen der Admins", error);
@@ -36,13 +36,13 @@ const AdminManagement: React.FC = () => {
       }
     };
     fetchAdmins();
-  }, []);
+  }, [router]);
 
   const handleDelete = async (id: number) => {
     if (window.confirm("Are you sure you want to delete this admin?")) {
       setLoading(true);
       try {
-        await axios.delete("/api/admin/admins", { data: { id } });
+        await adminApi.delete("/api/admin/admins", { data: { id } });
         setAdmins(admins.filter((admin) => admin.id !== id));
       } catch (error) {
         console.error("Failed to delete admin", error);

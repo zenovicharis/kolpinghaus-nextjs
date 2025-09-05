@@ -1,6 +1,6 @@
 import AdminLayout from "../../../components/admin/AdminLayout";
 import { useState } from "react";
-import axios from "axios";
+import adminApi from "lib/adminClient";
 import { useRouter } from "next/router";
 
 const NewSlidePage = () => {
@@ -56,13 +56,14 @@ const NewSlidePage = () => {
 
     setLoading(true);
     try {
-      await axios.post("/api/admin/slides", formData, {
+      await adminApi.post("/api/admin/slides", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
       router.push("/admin/slider");
-    } catch {
+    } catch (error) {
+      console.error("Fehler beim Hinzufügen der Folie", error);
       setError("Fehler beim Hinzufügen der Folie.");
     }
     finally{

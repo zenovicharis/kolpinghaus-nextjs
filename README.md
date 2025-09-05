@@ -15,6 +15,7 @@ npm run build
 TODO:
 - "Jeztz Buchen" in header to be link
 
-- New Slider Images
+- New Slider Background
 - Logo still not clear
 - Opening Hours Image background
+- Not allowing Admin navigation

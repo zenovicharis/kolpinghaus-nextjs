@@ -1,7 +1,7 @@
 import Image from "next/image";
 import AdminLayout from "../../components/admin/AdminLayout";
 import { Slides } from "../../db/schema";
-import axios from "axios";
+import adminApi from "../../../lib/adminClient";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import FullScreenLoader from "../../components/FullScreenLoader";
@@ -27,33 +27,31 @@ const SliderManagement: React.FC = () => {
     const fetchSlides = async () => {
       setLoading(true);
       try {
-        const { data } = await axios.get("/api/admin/slides");
+        const { data } = await adminApi.get("/api/admin/slides");
         setSlides(data);
       } catch (error) {
         console.error("Fehler beim Laden der Slides", error);
-      }
-      finally{
+      } finally {
         setLoading(false);
       }
     };
     fetchSlides();
-  }, []);
+  }, [router]);
 
   const handleDelete = async (id: number) => {
-    if (
-      window.confirm("Sind Sie sicher, dass Sie diesen Slide löschen möchten?")
-    ) {
-      try {
-        setLoading(true);
-        await axios.delete(`/api/admin/slides?id=${id}`);
-        setSlides(slides.filter((slide) => slide.id !== id));
-      } catch (error) {
-        console.error("Fehler beim Löschen des Slides", error);
-        alert("Fehler beim Löschen des Slides.");
-      }
-      finally{
-        setLoading(false);
-      }
+    if (!window.confirm("Sind Sie sicher, dass Sie diesen Slide löschen möchten?")) {
+      return;
+    }
+
+    try {
+      setLoading(true);
+      await adminApi.delete(`/api/admin/slides?id=${id}`);
+      setSlides(slides.filter((slide) => slide.id !== id));
+    } catch (error) {
+      console.error("Fehler beim Löschen des Slides", error);
+      alert("Fehler beim Löschen des Slides.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -80,7 +78,7 @@ const SliderManagement: React.FC = () => {
               className="view-more"
               style={{ marginBottom: "20px" }}
             >
-							Neu hinzufügen
+              Neu hinzufügen
             </button>
             <table style={{ width: "100%" }} className="responsive-table">
               <thead>
@@ -112,24 +110,19 @@ const SliderManagement: React.FC = () => {
                           day: "2-digit",
                           month: "2-digit",
                           year: "numeric",
-												  })
+                        })
                         : ""}
                     </td>
                     <td style={cellStyle} data-label="Aktionen">
                       <div style={actionsContainerStyle}>
                         <button
-                          onClick={() =>
-                            router.push(`/admin/slider/edit/${item.id}`)
-                          }
+                          onClick={() => router.push(`/admin/slider/edit/${item.id}`)}
                           className="view-more"
                         >
-													Bearbeiten
+                          Bearbeiten
                         </button>
-                        <button
-                          onClick={() => handleDelete(item.id)}
-                          className="view-more"
-                        >
-													Löschen
+                        <button onClick={() => handleDelete(item.id)} className="view-more">
+                          Löschen
                         </button>
                       </div>
                     </td>

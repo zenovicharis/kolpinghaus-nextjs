@@ -1,6 +1,6 @@
 import AdminLayout from "../../../../components/admin/AdminLayout";
 import { useState } from "react";
-import axios from "axios";
+import adminApi from "lib/adminClient";
 import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
 import { getFoodById, getCategories } from "../../../../lib/queries/food";
@@ -55,9 +55,10 @@ const EditFoodPage: React.FC<EditFoodPageProps> = ({ food, categories }) => {
 
     try {
       setLoading(true);
-      await axios.put("/api/admin/food", { id, name, price, info, subtypeId });
+      await adminApi.put("/api/admin/food", { id, name, price, info, subtypeId });
       router.push("/admin/food");
-    } catch {
+    } catch (error) {
+      console.error("Fehler beim Aktualisieren des Lebensmittels", error);
       setError("Hinzufügen des Lebensmittels fehlgeschlagen.");
     }
     finally{

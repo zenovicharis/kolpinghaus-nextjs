@@ -1,6 +1,6 @@
 import AdminLayout from "../../../../components/admin/AdminLayout";
 import { useState } from "react";
-import axios from "axios";
+import adminApi from "lib/adminClient";
 import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
 import { getSlideById } from "../../../../lib/queries/slides";
@@ -64,13 +64,14 @@ const EditSlidePage: React.FC<EditSlidePageProps> = ({ slide }) => {
 
     setLoading(true);
     try {
-      await axios.put("/api/admin/slides", formData, {
+      await adminApi.put("/api/admin/slides", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
       router.push("/admin/slider");
-    } catch {
+    } catch (error) {
+      console.error("Fehler beim Aktualisieren des Slides", error);
       setError("Fehler beim Aktualisieren des Slides.");
     }
     finally{

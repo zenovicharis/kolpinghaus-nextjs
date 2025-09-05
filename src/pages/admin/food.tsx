@@ -1,6 +1,6 @@
 import AdminLayout from "../../components/admin/AdminLayout";
 import { Food } from "../../db/schema";
-import axios from "axios";
+import adminApi from "../../../lib/adminClient";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import FullScreenLoader from "../../components/FullScreenLoader";
@@ -37,7 +37,7 @@ const FoodManagement: React.FC = () => {
     const fetchFood = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get("/api/admin/food");
+        const { data } = await adminApi.get("/api/admin/food");
         setFood(data);
         setOpenSection(data[0]?.name);
       } catch (error) {
@@ -48,7 +48,7 @@ const FoodManagement: React.FC = () => {
       }
     };
     fetchFood();
-  }, []);
+  }, [router]);
 
   const handleDelete = async (id: number) => {
     if (
@@ -58,7 +58,7 @@ const FoodManagement: React.FC = () => {
     ) {
       try {
         setLoading(true);
-        await axios.delete("/api/admin/food", { data: { id } });
+        await adminApi.delete("/api/admin/food", { data: { id } });
         const newFood = food.map((category) => ({
           ...category,
           types: category.types.map((type) => ({

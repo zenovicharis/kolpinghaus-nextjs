@@ -1,7 +1,7 @@
 import AdminLayout from "../../components/admin/AdminLayout";
 import { useState, useEffect } from "react";
 import { images } from "../../db/schema";
-import axios from "axios";
+import adminApi from "../../../lib/adminClient";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import FullScreenLoader from "../../components/FullScreenLoader";
@@ -45,7 +45,7 @@ const GalleryManagement: React.FC = () => {
     const fetchImages = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get("/api/admin/gallery");
+        const { data } = await adminApi.get("/api/admin/gallery");
         setImagesState(data);
       } catch (error) {
         console.error("Fehler beim Laden der Bilder", error);
@@ -55,7 +55,7 @@ const GalleryManagement: React.FC = () => {
       }
     };
     fetchImages();
-  }, []);
+  }, [router]);
 
   const handleDelete = async (id: number) => {
     if (
@@ -65,7 +65,7 @@ const GalleryManagement: React.FC = () => {
     ) {
       try {
         setLoading(true);
-        await axios.delete(`/api/admin/gallery?id=${id}`);
+        await adminApi.delete(`/api/admin/gallery?id=${id}`);
         setImagesState(imagesState.filter((image) => image.id !== id));
       } catch (error) {
         console.error("Fehler beim Löschen des Bildes", error);

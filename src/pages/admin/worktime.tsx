@@ -1,7 +1,7 @@
 import AdminLayout from "../../components/admin/AdminLayout";
 import { Worktime } from "../../db/schema";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import adminApi from "../../../lib/adminClient";
 
 const WorkTimeManagement: React.FC = () => {
   const [workTime, setWorkTime] = useState<Worktime[]>([]);
@@ -26,12 +26,12 @@ const WorkTimeManagement: React.FC = () => {
     const fetchWorkTime = async () => {
       setLoading(true);
       try {
-        const { data } = await axios.get("/api/workTime");
+        const { data } = await adminApi.get("/api/workTime");
         setWorkTime(data);
         setBackupWorkTime(data);
       } catch (error) {
         console.error("Fehler beim Abrufen der Arbeitszeiten", error);
-      } finally{
+      } finally {
         setLoading(false);
       }
     };
@@ -40,20 +40,21 @@ const WorkTimeManagement: React.FC = () => {
 
   const handleEditClick = (id: number) => {
     if (editingId === id) {
-      // Änderungen speichern
+      // save changes
       const itemToSave = workTime.find((item) => item.id === id);
       if (itemToSave) {
         const { open, close } = itemToSave;
         setLoading(true);
-        axios
+        adminApi
           .put("/api/workTime", { id, open, close })
           .then(() => {
             setBackupWorkTime(workTime);
             setEditingId(null);
           })
-          .catch((error) =>
-            console.error("Fehler beim Aktualisieren der Arbeitszeit", error),
-          ).finally(() => {
+          .catch((error) => {
+            console.error("Fehler beim Aktualisieren der Arbeitszeit", error);
+          })
+          .finally(() => {
             setLoading(false);
           });
       }

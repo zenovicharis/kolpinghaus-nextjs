@@ -1,6 +1,6 @@
 import AdminLayout from "../../../components/admin/AdminLayout";
 import { useState } from "react";
-import axios from "axios";
+import adminApi from "../../../../lib/adminClient";
 import { useRouter } from "next/router";
 
 const NewAdminPage = () => {
@@ -39,12 +39,12 @@ const NewAdminPage = () => {
 
     try {
       setLoading(true);
-      await axios.post("/api/admin/admins", { username, password });
+      await adminApi.post("/api/admin/admins", { username, password });
       router.push("/admin/admins");
-    } catch {
+    } catch (error) {
+      console.error("Fehler beim Hinzufügen des Admins", error);
       setError("Admin konnte nicht hinzugefügt werden.");
-    }
-    finally{
+    } finally{
       setLoading(false);
     }
   };
