@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import Image from "next/image";
 import { getWorkTime } from "../lib/queries/workTime";
 import { Worktime } from "../db/schema";
+import { useRef } from "react";
 
 interface ImpressumProps {
 	siteKey: string;
@@ -11,6 +12,8 @@ interface ImpressumProps {
 }
 
 const Impressum = ({ siteKey, workTime }: ImpressumProps) => {
+  const impressumClicksRef = useRef(0);
+
   return (
     <Layout workTime={workTime}>
       <section
@@ -57,7 +60,17 @@ const Impressum = ({ siteKey, workTime }: ImpressumProps) => {
 								Steuernummer: 342/5320/2736
               </p>
             </div>
-            <div className="col-md-6 impressum-image">
+
+            <div
+              className="col-md-6 impressum-image"
+              onClick={() => {
+                impressumClicksRef.current += 1;
+                if (impressumClicksRef.current === 3) {
+                  window.location.href = "/admin/login";
+                }
+              }}
+              style={{ cursor: "pointer" }}
+            >
               <Image
                 className="img-fluid img-feature img-responsive"
                 src="/img/impressum.png"

@@ -131,7 +131,7 @@ const FoodManagement: React.FC = () => {
                       style={{
                         maxHeight:
 												openSection === category.name
-												  ? "2000px"
+												  ? "20000px"
 												  : "0",
                         overflow: "hidden",
                         transition:

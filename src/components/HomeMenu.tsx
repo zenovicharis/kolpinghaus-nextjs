@@ -67,7 +67,7 @@ const HomeMenu: FC<HomeMenuProps> = ({ food }) => {
                     style={{
                       maxHeight:
 												openSection === category.name
-												  ? "2000px"
+												  ? "20000px"
 												  : "0",
                       overflow: "hidden",
                       transition:
