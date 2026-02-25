@@ -45,7 +45,7 @@
     "react-google-recaptcha": "^2.1.0",
     "react-responsive-carousel": "^3.2.23",
     "react-scroll": "^1.8.8",
-    "swiper": "^11.2.10",
+    "swiper": "^12.1.2",
     "yet-another-react-lightbox": "^3.25.0"
   },
   "devDependencies": {
