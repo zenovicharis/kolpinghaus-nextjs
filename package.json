@@ -28,7 +28,7 @@
     "clsx": "^1.2.1",
     "cookie": "^1.0.2",
     "dotenv": "^17.2.1",
-    "drizzle-orm": "^0.44.4",
+    "drizzle-orm": "^0.45.2",
     "formidable": "^3.5.4",
     "googleapis": "^105.0.0",
     "jose": "^6.0.12",
