@@ -30,7 +30,7 @@
     "dotenv": "^17.2.1",
     "drizzle-orm": "^0.44.4",
     "formidable": "^3.5.4",
-    "googleapis": "^105.0.0",
+    "googleapis": "^171.4.0",
     "jose": "^6.0.12",
     "js-cookie": "^3.0.5",
     "lint-staged": "^16.1.5",
