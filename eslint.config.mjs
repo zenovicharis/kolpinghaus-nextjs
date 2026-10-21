@@ -1,17 +1,8 @@
-import { FlatCompat } from "@eslint/eslintrc";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-
-// Compute __dirname in ESM so FlatCompat can resolve configs/plugins correctly
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+import nextConfig from "eslint-config-next";
+import nextTypescript from "eslint-config-next/typescript";
 const eslintConfig = [
-  ...compat.config({
-    extends: ["next", "next/typescript"],
-  }),
+  ...nextConfig,
+  ...nextTypescript,
 
   {
     files: ["**/*.{js,jsx,ts,tsx,mjs}"],
